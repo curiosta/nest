@@ -146,7 +146,7 @@ a.card:hover{transform:translateY(-2px);border-color:var(--teal);color:inherit}
 .checked{font-size:.85rem;color:var(--muted)}
 .lede{color:var(--muted)}
 
-/* nest calendar -- buildwith-aligned */
+/* nest calendar — Month/List, filters, grid */
 .chip{font:600 .85rem var(--sans);border:1.5px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .chip:hover{border-color:#b9d7d2}
 .chip[aria-pressed=true]{background:var(--sea-800);border-color:var(--sea-800);color:#fff}
@@ -288,4 +288,4 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .badge.industry{background:var(--badge-industry)}.badge.private-verified{background:var(--badge-private)}
 .badge.mod{background:var(--ink-2)}.badge.dom{background:var(--teal);color:var(--sea-900)}
 .muted{color:var(--muted)}
-#cal-controls[hidden],#cal-month[hidden],#cal-list[hidden],#cal-mnav[hidden]{display:none!important}
+#cal-list[hidden],#cal-mnav[hidden]{display:none!important}

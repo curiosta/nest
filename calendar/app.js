@@ -1,4 +1,4 @@
-// nest: /calendar/ — aligned to buildwith.curiosta.com/calendar (Month/List, mnav, chips+counts)
+// nest: /calendar/ Month/List, month nav, chip filters with counts
 (function () {
   "use strict";
   const root = document.getElementById("cal"); if (!root) return;
@@ -158,7 +158,6 @@
   }
   function countFor(pred) {
     return D.fairs.filter(f => {
-      // apply all filters except the one being counted — actually buildwith counts with other filters
       return pred(f);
     }).length;
   }
@@ -269,9 +268,9 @@
   }
   // wire controls
   document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { view = b.dataset.view; render(); }));
-  els.sel.addEventListener("change", () => { cur = els.sel.value; render(); });
-  els.prev.addEventListener("click", () => { cur = MONTHS[Math.max(0, MONTHS.indexOf(cur) - 1)]; render(); });
-  els.next.addEventListener("click", () => { cur = MONTHS[Math.min(MONTHS.length - 1, MONTHS.indexOf(cur) + 1)]; render(); });
+  if (els.sel) els.sel.addEventListener("change", () => { cur = els.sel.value; render(); });
+  if (els.prev) els.prev.addEventListener("click", () => { cur = MONTHS[Math.max(0, MONTHS.indexOf(cur) - 1)]; render(); });
+  if (els.next) els.next.addEventListener("click", () => { cur = MONTHS[Math.min(MONTHS.length - 1, MONTHS.indexOf(cur) + 1)]; render(); });
   document.querySelectorAll(".chip[data-gf]").forEach(b => b.addEventListener("click", () => {
     const g = b.dataset.gf, v = b.dataset.v || "all";
     if (g === "when") F.when = v;
@@ -287,10 +286,20 @@
     F.when = "all"; F.domain = "all"; F.org = "all"; F.modality = "all"; F.state = "all"; render();
   });
   // populate month select
-  els.sel.innerHTML = MONTHS.map(ym => {
-    const [y, m] = ym.split("-").map(Number);
-    return '<option value="' + ym + '">' + NAMES[m - 1] + " " + y + "</option>";
-  }).join("");
+  if (els.sel) {
+    els.sel.innerHTML = MONTHS.map(ym => {
+      const [y, m] = ym.split("-").map(Number);
+      return '<option value="' + ym + '">' + NAMES[m - 1] + " " + y + "</option>";
+    }).join("");
+  }
   if (els.controls) els.controls.hidden = false;
-  render();
+  try {
+    render();
+    const boot = document.getElementById("cal-booting");
+    if (boot) boot.remove();
+  } catch (err) {
+    const m = document.getElementById("cal-month");
+    if (m) m.innerHTML = '<p class="muted">Calendar failed to load. <a href="/calendar/sources.md">See sources.md</a> for the fair list.</p>';
+    console.error("NEST calendar:", err);
+  }
 })();
