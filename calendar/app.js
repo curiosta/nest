@@ -1,134 +1,296 @@
-(function(){
+// nest: /calendar/ — aligned to buildwith.curiosta.com/calendar (Month/List, mnav, chips+counts)
+(function () {
   "use strict";
+  const root = document.getElementById("cal"); if (!root) return;
   const D = JSON.parse(document.getElementById("caldata").textContent);
-  const $ = (s,r)=> (r||document).querySelector(s);
-  const $$ = (s,r)=> Array.from((r||document).querySelectorAll(s));
-  const params = new URLSearchParams(location.search);
-  const state = {
-    domain: params.get("domain") || "all",
-    org: params.get("org") || "all",
-    modality: params.get("modality") || "all",
-    state: params.get("state") || "all",
-    when: params.get("when") || "all",
+  const NAMES = D.mon;
+  const pad = n => String(n).padStart(2, "0");
+  const t = new Date(), TODAY = t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate());
+  // Month range: all of 2026 (history + rest of year)
+  const MONTHS = [];
+  for (let m = 1; m <= 12; m++) MONTHS.push("2026-" + pad(m));
+  const q = new URLSearchParams(location.search);
+  let view = q.get("view") === "list" ? "list" : "month";
+  const defaultM = MONTHS.includes(TODAY.slice(0, 7)) ? TODAY.slice(0, 7) : "2026-10";
+  let cur = MONTHS.includes(q.get("m")) ? q.get("m") : defaultM;
+  const F = {
+    when: ["all","upcoming","past"].includes(q.get("when")) ? q.get("when") : "all",
+    domain: q.get("domain") || "all",
+    org: q.get("org") || "all",
+    modality: q.get("modality") || "all",
+    state: q.get("state") || "all",
   };
-  const TODAY = (()=>{ const n=new Date(); const p=x=>String(x).padStart(2,"0"); return n.getFullYear()+"-"+p(n.getMonth()+1)+"-"+p(n.getDate()); })();
-  const CUR = new Date().getMonth();
-
-  function syncChips(){
-    $$(".chip[data-domain]").forEach(b=> b.setAttribute("aria-pressed", b.dataset.domain===state.domain ? "true":"false"));
-    $$(".chip[data-org]").forEach(b=> b.setAttribute("aria-pressed", b.dataset.org===state.org ? "true":"false"));
-    $$(".chip[data-modality]").forEach(b=> b.setAttribute("aria-pressed", b.dataset.modality===state.modality ? "true":"false"));
-    $$(".chip[data-state]").forEach(b=> b.setAttribute("aria-pressed", b.dataset.state===state.state ? "true":"false"));
-    $$(".chip[data-when]").forEach(b=> b.setAttribute("aria-pressed", b.dataset.when===state.when ? "true":"false"));
-  }
-  function pushUrl(){
-    const p = new URLSearchParams();
-    if(state.domain!=="all") p.set("domain", state.domain);
-    if(state.org!=="all") p.set("org", state.org);
-    if(state.modality!=="all") p.set("modality", state.modality);
-    if(state.state!=="all") p.set("state", state.state);
-    if(state.when!=="all") p.set("when", state.when);
-    const q = p.toString();
-    history.replaceState(null, "", location.pathname + (q?("?"+q):""));
-  }
-  function isPast(f){ return !!(f.start && f.start < TODAY); }
-  function match(f){
-    if(state.domain!=="all" && f.domains.indexOf(state.domain)<0) return false;
-    if(state.org!=="all" && f.org!==state.org) return false;
-    if(state.modality!=="all" && f.modality!==state.modality) return false;
-    if(state.state!=="all" && f.state!==state.state) return false;
-    if(state.when==="upcoming" && isPast(f)) return false;
-    if(state.when==="past" && !isPast(f)) return false;
+  const els = {
+    month: document.getElementById("cal-month"),
+    list: document.getElementById("cal-list"),
+    sel: document.getElementById("cal-sel"),
+    prev: document.getElementById("cal-prev"),
+    next: document.getElementById("cal-next"),
+    mnav: document.getElementById("cal-mnav"),
+    count: document.getElementById("cal-count"),
+    controls: document.getElementById("cal-controls"),
+  };
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const isPast = f => !!(f.start && f.start < TODAY);
+  const isHub = f => !f.start; // usual/pending hubs
+  function match(f) {
+    if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
+    if (F.org !== "all" && f.org !== F.org) return false;
+    if (F.modality !== "all" && f.modality !== F.modality) return false;
+    if (F.state !== "all" && f.state !== F.state) return false;
+    if (F.when === "upcoming" && isPast(f)) return false;
+    if (F.when === "past" && !isPast(f)) return false;
     return true;
   }
-  function badge(cls, text){ return '<span class="badge '+cls+'">'+text+'</span>'; }
-  function card(f){
+  function filtering() {
+    return F.when !== "all" || F.domain !== "all" || F.org !== "all" || F.modality !== "all" || F.state !== "all";
+  }
+  function shortName(f) {
+    return f.name.length > 28 ? f.name.slice(0, 26) + "…" : f.name;
+  }
+  function orgLabel(o) { return (D.orgLabels && D.orgLabels[o]) || o; }
+  function modLabel(o) { return (D.modLabels && D.modLabels[o]) || o; }
+  function badge(cls, text) { return '<span class="badge ' + cls + '">' + esc(text) + "</span>"; }
+  function item(f) {
     const past = isPast(f);
-    const doms = f.domains.map(s=>{
-      const row = D.domains.find(x=>x[0]===s);
-      return badge("dom", row? row[1].split("&")[0].trim() : s);
+    const tags = (past ? '<span class="past-tag">Past</span>' : "") +
+      badge(f.org, orgLabel(f.org)) + badge("mod", modLabel(f.modality));
+    const doms = f.domains.slice(0, 3).map(s => {
+      const row = D.domains.find(x => x[0] === s);
+      return badge("dom", row ? row[1].split("&")[0].trim() : s);
     }).join("");
-    const srcs = (f.src||[]).map(k=>{
-      const s=D.src[k]; if(!s) return "";
-      return '<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>';
-    }).filter(Boolean).join(" · ");
-    return '<article class="faircard'+(past?" is-past":"")+'">'+
-      '<h4>'+f.name+'</h4>'+
-      '<p class="meta"><b class="when '+f.whenClass+'">'+f.when+'</b> · '+f.where+' · '+f.state+'</p>'+
-      '<div class="badges">'+(past?badge("past","Past"):"")+badge(f.org, D.orgLabels[f.org]||f.org)+badge("mod", D.modLabels[f.modality]||f.modality)+doms+'</div>'+
-      (f.note? '<p class="meta">'+f.note+'</p>':'')+
-      '<p class="links"><a href="'+f.url+'" target="_blank" rel="noopener">Official page ↗</a>'+(past?'<span class="meta"> Past edition — kept for 2026 history.</span>':'')+'</p>'+
-      (srcs? '<p class="meta"><b>Source:</b> '+srcs+'</p>':'')+
-      '</article>';
+    return '<li class="' + (past ? "isp " : "") + (isHub(f) ? "hub " : "") + '" data-start="' + esc(f.start || "") + '" data-end="' + esc(f.start || "") + '">' +
+      '<span class="d">' + esc(f.when) + "</span>" +
+      '<span class="t"><b>' + esc(f.name) + "</b></span>" +
+      '<span class="s">' + esc(f.where) + " · " + esc(f.state) +
+      (f.note ? " · " + esc(f.note) : "") +
+      ' · <a href="' + esc(f.url) + '" target="_blank" rel="noopener">Official page ↗</a>' +
+      '<span class="tags">' + tags + doms + "</span></span></li>";
   }
-  function monthBlock(title, show, m){
-    if(!show.length) return {html:"", n:0};
-    return {
-      html: '<li class="fairmon" data-m="'+m+'"><h3>'+title+'</h3><div>'+show.map(card).join("")+'</div></li>',
-      n: show.length
-    };
+  function inMonthDated(f, y, m, a, b) {
+    if (!f.start) return false;
+    return f.start >= a && f.start <= b;
   }
-  function pickYearRoundOnce(here, m, preferM){
-    return here.filter(f=>{
-      if(f.m.length>=12) return m===preferM;
-      return f.m[0]===m;
-    });
+  function hubsForMonth(f, ym) {
+    // year-round hubs appear every month; month-specific usual by m[0]
+    if (!isHub(f)) return false;
+    if (f.m && f.m.length >= 12) return true;
+    const mi = +ym.split("-")[1] - 1;
+    return f.m && f.m[0] === mi;
   }
-  function render(){
-    const list = D.fairs.filter(match);
-    const root = $("#fairlist");
-    if(!list.length){ root.innerHTML = '<p class="empty">No fairs match these filters. Clear a chip or check back after the next research pass.</p>'; $("#count").textContent="0 fairs"; return; }
-
-    let html = "";
-    let n = 0;
-    const upcoming = list.filter(f=> !isPast(f));
-    const past = list.filter(f=> isPast(f)).sort((a,b)=> (a.start||"").localeCompare(b.start||""));
-
-    const showUpcoming = state.when!=="past";
-    const showPast = state.when!=="upcoming";
-
-    if(showUpcoming && upcoming.length){
-      html += '<li class="fairmon section-label"><h3>Upcoming &amp; ongoing hubs</h3></li>';
-      const order = [];
-      for(let i=0;i<12;i++) order.push((CUR+i)%12);
-      order.forEach(m=>{
-        const here = upcoming.filter(f=> f.m.indexOf(m)>=0);
-        const show = pickYearRoundOnce(here, m, CUR);
-        const blk = monthBlock(D.mon[m], show, m);
-        html += blk.html; n += blk.n;
-      });
-    }
-
-    if(showPast && past.length){
-      html += '<li class="fairmon section-label"><h3>Past editions (2026)</h3><p class="sub" style="margin:0 0 .7rem">Verified dated fairs already held in 2026 — exact dates only; never invented. Mixed multi-sector fairs OK when they include physical-domain jobs.</p></li>';
-      for(let m=0;m<12;m++){
-        const show = past.filter(f=> f.m[0]===m).sort((a,b)=> (a.start||"").localeCompare(b.start||""));
-        const blk = monthBlock(D.mon[m], show, m);
-        html += blk.html; n += blk.n;
+  function renderMonth() {
+    const [y, m] = cur.split("-").map(Number);
+    const first = new Date(y, m - 1, 1), nd = new Date(y, m, 0).getDate();
+    const lead = (first.getDay() + 6) % 7, a = cur + "-01", b = cur + "-" + pad(nd);
+    const ev = D.fairs.filter(match);
+    const dated = ev.filter(f => inMonthDated(f, y, m, a, b));
+    const hubs = ev.filter(f => hubsForMonth(f, cur));
+    let h = '<div class="cal-month"><h2>' + NAMES[m - 1] + " " + y +
+      "<small>" + dated.length + " dated · " + hubs.length + " hubs / usual</small></h2>" +
+      '<div class="cal-grid" role="grid" aria-label="' + NAMES[m - 1] + " " + y + '">';
+    for (const d of ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]) h += '<div class="cal-dow" role="columnheader">' + d + "</div>";
+    for (let i = 0; i < lead; i++) h += '<div class="cal-day pad" aria-hidden="true"></div>';
+    for (let d = 1; d <= nd; d++) {
+      const iso = cur + "-" + pad(d);
+      const on = dated.filter(f => f.start === iso);
+      const chips = on.map(f => {
+        const past = isPast(f);
+        return '<span class="chip-ev ' + (past ? "past" : f.org) + '" title="' + esc(f.name) + " (" + esc(f.when) + ')">' + esc(shortName(f)) + "</span>";
+      }).join("");
+      const dots = on.map(f => '<span class="dot ' + (isPast(f) ? "past" : f.org) + '"></span>').join("");
+      const lab = d + " " + NAMES[m - 1] + (on.length ? ": " + on.map(f => f.name).join(", ") : "");
+      const todayCls = iso === TODAY ? " today" : "";
+      if (on.length) {
+        h += '<button type="button" class="cal-day' + todayCls + '" data-d="' + iso + '" aria-label="' + esc(lab) + '"><span class="n">' + d + "</span>" + chips + '<span class="cal-dots">' + dots + "</span></button>";
+      } else {
+        h += '<div class="cal-day' + todayCls + '"><span class="n">' + d + "</span></div>";
       }
     }
-
-    root.innerHTML = html || '<p class="empty">No fairs to show.</p>';
-    const upN = upcoming.length, pastN = past.length;
-    let label = n + " fair" + (n===1?"":"s");
-    if(state.when==="all") label += " ("+upN+" upcoming/hub · "+pastN+" past)";
-    $("#count").textContent = label;
+    const tail = (7 - (lead + nd) % 7) % 7;
+    for (let i = 0; i < tail; i++) h += '<div class="cal-day pad" aria-hidden="true"></div>';
+    h += "</div>";
+    if (hubs.length) {
+      h += '<div class="cal-tbc"><h3>Hubs &amp; usual programmes</h3><div class="pills">' +
+        hubs.map(f => '<a class="pill" href="' + esc(f.url) + '" target="_blank" rel="noopener" title="' + esc(f.name) + '"><span class="dot ' + f.org + '"></span><span class="tx">' + esc(shortName(f)) + "</span></a>").join("") +
+        "</div></div>";
+    }
+    h += "</div>";
+    const all = dated.concat(hubs);
+    h += '<div class="cal-agenda"><h3>Everything in ' + NAMES[m - 1] + " " + y + "</h3>" +
+      (all.length ? '<ul class="dated">' + all.map(item).join("") + "</ul>"
+        : '<p class="muted">' + (filtering() ? "Nothing this month matches the filters." : "Nothing scheduled.") + "</p>") +
+      "</div>";
+    els.month.innerHTML = h;
+    els.sel.value = cur;
+    els.prev.disabled = MONTHS.indexOf(cur) === 0;
+    els.next.disabled = MONTHS.indexOf(cur) === MONTHS.length - 1;
+    els.month.querySelectorAll("button.cal-day").forEach(btn => btn.addEventListener("click", () => {
+      const lis = [...els.month.querySelectorAll(".cal-agenda li")].filter(li => li.dataset.start === btn.dataset.d);
+      els.month.querySelectorAll(".cal-agenda li.hl").forEach(li => li.classList.remove("hl"));
+      lis.forEach(li => li.classList.add("hl"));
+      if (lis[0]) lis[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    }));
   }
-  document.addEventListener("click", e=>{
-    const b = e.target.closest(".chip");
-    if(!b) return;
-    if(b.dataset.domain!=null) state.domain = b.dataset.domain;
-    if(b.dataset.org!=null) state.org = b.dataset.org;
-    if(b.dataset.modality!=null) state.modality = b.dataset.modality;
-    if(b.dataset.state!=null) state.state = b.dataset.state;
-    if(b.dataset.when!=null) state.when = b.dataset.when;
-    syncChips(); pushUrl(); render();
+  function renderList() {
+    const ev = D.fairs.filter(match);
+    let html = "";
+    let n = 0;
+    // chronological months Jan..Dec 2026
+    MONTHS.forEach(ym => {
+      const [y, m] = ym.split("-").map(Number);
+      const a = ym + "-01", b = ym + "-" + pad(new Date(y, m, 0).getDate());
+      const dated = ev.filter(f => inMonthDated(f, y, m, a, b)).sort((a, b) => (a.start || "").localeCompare(b.start || ""));
+      // hubs only once under current month in list view (avoid 12×)
+      const hubs = (ym === defaultM) ? ev.filter(f => isHub(f)).sort((a, b) => a.name.localeCompare(b.name)) : [];
+      const all = dated.concat(hubs);
+      if (!all.length) return;
+      const pastN = dated.filter(isPast).length;
+      html += '<div class="month-group" data-m="' + ym + '"><h3>' + NAMES[m - 1] + " " + y +
+        ' <small data-count="">' + dated.length + " dated · " + hubs.length + " hubs · " + pastN + " past</small></h3>" +
+        '<ul class="dated">' + all.map(item).join("") + "</ul></div>";
+      n += all.length;
+    });
+    els.list.innerHTML = html || '<p class="muted">' + (filtering() ? "Nothing matches the filters." : "No fairs to show.") + "</p>";
+    return n;
+  }
+  function setChip(sel, key, val) {
+    document.querySelectorAll(sel).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === val || (b.dataset.v === "" && val === "all"))));
+  }
+  function countFor(pred) {
+    return D.fairs.filter(f => {
+      // apply all filters except the one being counted — actually buildwith counts with other filters
+      return pred(f);
+    }).length;
+  }
+  function renderFilters() {
+    // When chips
+    document.querySelectorAll(".chip[data-gf=when]").forEach(b => {
+      const v = b.dataset.v || "all";
+      b.setAttribute("aria-pressed", String(v === F.when));
+      const c = D.fairs.filter(f => {
+        if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
+        if (F.org !== "all" && f.org !== F.org) return false;
+        if (F.modality !== "all" && f.modality !== F.modality) return false;
+        if (F.state !== "all" && f.state !== F.state) return false;
+        if (v === "upcoming" && isPast(f)) return false;
+        if (v === "past" && !isPast(f)) return false;
+        return true;
+      }).length;
+      const cnt = b.querySelector(".cnt"); if (cnt) cnt.textContent = c;
+    });
+    document.querySelectorAll(".chip[data-gf=domain]").forEach(b => {
+      const v = b.dataset.v || "all";
+      b.setAttribute("aria-pressed", String(v === F.domain));
+      const c = D.fairs.filter(f => {
+        if (v !== "all" && f.domains.indexOf(v) < 0) return false;
+        if (F.when === "upcoming" && isPast(f)) return false;
+        if (F.when === "past" && !isPast(f)) return false;
+        if (F.org !== "all" && f.org !== F.org) return false;
+        if (F.modality !== "all" && f.modality !== F.modality) return false;
+        if (F.state !== "all" && f.state !== F.state) return false;
+        return true;
+      }).length;
+      const cnt = b.querySelector(".cnt"); if (cnt) cnt.textContent = c;
+    });
+    document.querySelectorAll(".chip[data-gf=org]").forEach(b => {
+      const v = b.dataset.v || "all";
+      b.setAttribute("aria-pressed", String(v === F.org));
+      const c = D.fairs.filter(f => {
+        if (v !== "all" && f.org !== v) return false;
+        if (F.when === "upcoming" && isPast(f)) return false;
+        if (F.when === "past" && !isPast(f)) return false;
+        if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
+        if (F.modality !== "all" && f.modality !== F.modality) return false;
+        if (F.state !== "all" && f.state !== F.state) return false;
+        return true;
+      }).length;
+      const cnt = b.querySelector(".cnt"); if (cnt) cnt.textContent = c;
+    });
+    document.querySelectorAll(".chip[data-gf=modality]").forEach(b => {
+      const v = b.dataset.v || "all";
+      b.setAttribute("aria-pressed", String(v === F.modality));
+      const c = D.fairs.filter(f => {
+        if (v !== "all" && f.modality !== v) return false;
+        if (F.when === "upcoming" && isPast(f)) return false;
+        if (F.when === "past" && !isPast(f)) return false;
+        if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
+        if (F.org !== "all" && f.org !== F.org) return false;
+        if (F.state !== "all" && f.state !== F.state) return false;
+        return true;
+      }).length;
+      const cnt = b.querySelector(".cnt"); if (cnt) cnt.textContent = c;
+    });
+    // state select
+    const st = document.getElementById("cal-state");
+    if (st) {
+      const states = Array.from(new Set(D.fairs.map(f => f.state))).sort();
+      st.innerHTML = '<option value="all">Any state / scope</option>' +
+        states.map(s => {
+          const c = D.fairs.filter(f => {
+            if (f.state !== s) return false;
+            if (F.when === "upcoming" && isPast(f)) return false;
+            if (F.when === "past" && !isPast(f)) return false;
+            if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
+            if (F.org !== "all" && f.org !== F.org) return false;
+            if (F.modality !== "all" && f.modality !== F.modality) return false;
+            return true;
+          }).length;
+          return '<option value="' + esc(s) + '">' + esc(s) + " (" + c + ")</option>";
+        }).join("");
+      st.value = F.state;
+    }
+    const shown = D.fairs.filter(match);
+    const pastN = shown.filter(isPast).length;
+    const datedN = shown.filter(f => f.start).length;
+    els.count.textContent = "Showing " + shown.length + " of " + D.fairs.length + " fairs (" + datedN + " dated, " + (shown.length - datedN) + " hubs · " + pastN + " past)";
+    const reset = document.getElementById("cal-reset");
+    if (reset) reset.hidden = !filtering();
+  }
+  function sync() {
+    const p = new URLSearchParams();
+    if (view === "list") p.set("view", "list"); else p.set("m", cur);
+    if (F.when !== "all") p.set("when", F.when);
+    if (F.domain !== "all") p.set("domain", F.domain);
+    if (F.org !== "all") p.set("org", F.org);
+    if (F.modality !== "all") p.set("modality", F.modality);
+    if (F.state !== "all") p.set("state", F.state);
+    const qs = p.toString();
+    history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+  }
+  function render() {
+    renderFilters();
+    document.querySelectorAll("[data-view]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === view)));
+    els.month.hidden = view !== "month";
+    els.mnav.hidden = view !== "month";
+    els.list.hidden = view !== "list";
+    if (view === "month") renderMonth();
+    else renderList();
+    sync();
+  }
+  // wire controls
+  document.querySelectorAll("[data-view]").forEach(b => b.addEventListener("click", () => { view = b.dataset.view; render(); }));
+  els.sel.addEventListener("change", () => { cur = els.sel.value; render(); });
+  els.prev.addEventListener("click", () => { cur = MONTHS[Math.max(0, MONTHS.indexOf(cur) - 1)]; render(); });
+  els.next.addEventListener("click", () => { cur = MONTHS[Math.min(MONTHS.length - 1, MONTHS.indexOf(cur) + 1)]; render(); });
+  document.querySelectorAll(".chip[data-gf]").forEach(b => b.addEventListener("click", () => {
+    const g = b.dataset.gf, v = b.dataset.v || "all";
+    if (g === "when") F.when = v;
+    if (g === "domain") F.domain = v;
+    if (g === "org") F.org = v;
+    if (g === "modality") F.modality = v;
+    render();
+  }));
+  const st = document.getElementById("cal-state");
+  if (st) st.addEventListener("change", () => { F.state = st.value || "all"; render(); });
+  const reset = document.getElementById("cal-reset");
+  if (reset) reset.addEventListener("click", () => {
+    F.when = "all"; F.domain = "all"; F.org = "all"; F.modality = "all"; F.state = "all"; render();
   });
-  const states = Array.from(new Set(D.fairs.map(f=>f.state))).sort();
-  const stateRow = $("#state-chips");
-  if(stateRow){
-    stateRow.innerHTML = '<button type="button" class="chip" data-state="all" aria-pressed="true">All</button>' +
-      states.map(s=> '<button type="button" class="chip" data-state="'+s+'" aria-pressed="false">'+s+'</button>').join("");
-  }
-  syncChips(); render();
+  // populate month select
+  els.sel.innerHTML = MONTHS.map(ym => {
+    const [y, m] = ym.split("-").map(Number);
+    return '<option value="' + ym + '">' + NAMES[m - 1] + " " + y + "</option>";
+  }).join("");
+  if (els.controls) els.controls.hidden = false;
+  render();
 })();
