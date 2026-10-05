@@ -4,7 +4,8 @@ Page: `/calendar/`. Generated from `nest-tools/build/fairs.py`. Checked 5–6 Oc
 - Exact dates only when the next edition is officially announced.
 - Otherwise “Usually …” or “Not yet announced · Last: …”. We never invent dates.
 - Calendar of **fairs only** — no individual job listings.
-- Include in-person and verified online melas tagged for physical-domain roles.
+- Include in-person and verified online melas that include physical-domain jobs (mixed multi-sector OK; not digital-desk-only).
+- Exact dates for past 2026 editions when official/news-backed; never invent.
 - Drop flyer-only, news-without-official-URL, and digital-desk-only hiring events.
 
 ## Sources
@@ -33,10 +34,18 @@ Page: `/calendar/`. Generated from `nest-tools/build/fairs.py`. Checked 5–6 Oc
 | nsdc-jobx | [NSDC JobX portal (jobs + Kaushal Mahotsav)](https://www.nsdcjobx.com/) | WebFetch 5–6 Oct 2026: official NSDC JobX hub listing jobs and Kaushal Mahotsav placement drives; rotating city events — check portal for current edition |
 | gp-bbsr | [Government Polytechnic Bhubaneswar — Placement Notifications](https://gpbhubaneswar.in/placement-notifications/) | WebFetch 5–6 Oct 2026: official campus placement notice board (L&T, Hindalco, AGI Greenpac, Johnson Lifts, etc.); dated drives rotate — hub card, not a single invented next date |
 | dge-mcc | [DGE — Model Career Centres under NCS (incl. CII / FICCI partner centres)](https://dge.gov.in/dge/nics/information-about-mccs) | WebSearch/index 5–6 Oct 2026: official MCC list includes CII Gurugram/Mumbai/Chennai and FICCI Greater Noida among partners that organise NCS job fairs |
+| iyc-jobfair | [IYC Job Fair official page (Indian Youth Congress)](https://www.iyc.in/iyc-job-fair) | WebFetch/curl 5 Oct 2026: official IYC registration landing used for Mega Job Fair; page is Wix (thin post-event). Edition date/venue corroborated by PTI wire + The Hindu 19 Jun 2026 Talkatora Stadium coverage — listed as PAST private-verified edition, not gov. |
+| iyc-hindu | [The Hindu / PTI — Youth Congress job fair Talkatora 19 Jun 2026](https://www.thehindu.com/news/cities/Delhi/thousands-attend-youth-congress-job-fair-on-rahul-gandhis-56th-birthday/article71121719.ece) | News corroboration 19 Jun 2026: IYC + Delhi Congress mega job fair at Talkatora Stadium; ~35k registrations claimed; multi-sector employers. Not used alone for a future invented date. |
+| pib-rm18 | [PMO / PIB — 18th National Rozgar Mela, 24 Jan 2026](https://www.pmindia.gov.in/en/news_updates/under-rozgar-mela-pm-to-distribute-more-than-61000-appointment-letters-to-the-newly-appointed-youth-in-government-on-24th-january/) | Official PMO note: 18th Rozgar Mela 24 Jan 2026, 45 locations, 61,000+ appointment letters — PAST dated edition. |
+| pib-rm19 | [PIB — 19th National Rozgar Mela, 23 May 2026](https://www.pib.gov.in/PressReleasePage.aspx?PRID=2264463) | Official PIB: 19th Rozgar Mela 23 May 2026, 51,000+ appointment letters — PAST dated edition. |
 
 ## Seed fairs
 | Fair | When | Where | Org | Modality | Domains | Official page |
 | --- | --- | --- | --- | --- | --- | --- |
+| National Rozgar Mela — 18th edition (gov appointment letters) | 24 Jan 2026 | 45 locations nationwide (India) | gov | in-person | healthcare-bedside, emergency-safety, logistics-field, manufacturing-floor, construction-trades | https://www.pmindia.gov.in/en/news_updates/under-rozgar-mela-pm-to-distribute-more-than-61000-appointment-letters-to-the-newly-appointed-youth-in-government-on-24th-january/ |
+| National Rozgar Mela — 19th edition (gov appointment letters) | 23 May 2026 | Multiple locations nationwide (India) | gov | in-person | healthcare-bedside, emergency-safety, logistics-field, manufacturing-floor, construction-trades | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2264463 |
+| IYC Mega Job Fair 2026 (Indian Youth Congress) | 19 Jun 2026 | Talkatora Stadium, New Delhi (Delhi) | private-verified | in-person | logistics-field, hospitality-care, manufacturing-floor, healthcare-bedside | https://www.iyc.in/iyc-job-fair |
+| National Rozgar Mela — 20th edition (gov appointment letters) | 19 Sep 2026 | 45 locations nationwide (India) | gov | in-person | healthcare-bedside, emergency-safety, logistics-field, manufacturing-floor, construction-trades | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2311973 |
 | Mahasamund District Rozgar Mela | 5 Oct 2026 | District Employment & Self-Employment Guidance Centre, Machewa, Mahasamund (Chhattisgarh) | gov | in-person | construction-trades, manufacturing-floor, logistics-field, emergency-safety, hospitality-care, healthcare-bedside | https://erojgar.cg.gov.in/LandingSite/RojgarMelaListPreview.aspx?JFID=CG26RM1000327 |
 | Rajnandgaon District Rozgar Mela | 5 Oct 2026 | Janpad Panchayat Churriya, Rajnandgaon (Chhattisgarh) | gov | in-person | emergency-safety, hospitality-care, healthcare-bedside, manufacturing-floor, construction-trades | https://erojgar.cg.gov.in/LandingSite/RojgarMelaListPreview.aspx?JFID=CG26RM1000315 |
 | Chhattisgarh State Rozgar Mela (Raipur) | 7-8 Oct 2026 | Balbir Singh Juneja Indoor Stadium, Budhapara, Raipur (Chhattisgarh) | gov | in-person | healthcare-bedside, construction-trades, manufacturing-floor, logistics-field, agri-food, hospitality-care, emergency-safety, wetlab-clinical | https://erojgar.cg.gov.in/LandingSite/SRMListPreview.aspx?SRMID=CG26SRM1000002 |
@@ -52,10 +61,11 @@ Page: `/calendar/`. Generated from `nest-tools/build/fairs.py`. Checked 5–6 Oc
 | NCS Model Career Centre job fairs (online & on-campus) | Usually year-round | Across India (MCC network) (India) | gov | hybrid | healthcare-bedside, construction-trades, manufacturing-floor, logistics-field, agri-food, hospitality-care, emergency-safety, wetlab-clinical | https://betacloud.ncs.gov.in/job-fair-list |
 | NSDC JobX / Kaushal Mahotsav placement drives | Usually year-round | Rotating cities (NSDC JobX) (India) | nsdc | hybrid | healthcare-bedside, construction-trades, manufacturing-floor, logistics-field, agri-food, hospitality-care, emergency-safety, wetlab-clinical | https://www.nsdcjobx.com/ |
 | NSDC Rozgar Melas (private employers via SSCs / PMKKs) | Usually throughout the year; last note: Upcoming Events listed as 'No Events' on 5 Oct 2026 | Various cities (NSDC calendar) (India) | nsdc | in-person | healthcare-bedside, construction-trades, manufacturing-floor, logistics-field, agri-food, hospitality-care, emergency-safety, wetlab-clinical | https://www.nsdcindia.org/rozgarmela |
-| National Rozgar Mela (government appointment letters) | Usually several times a year; last note: 20th edition 19 Sep 2026 (45 locations) | Multiple venues nationwide (India) | gov | in-person | healthcare-bedside, emergency-safety, logistics-field, manufacturing-floor, construction-trades | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2311973 |
+| National Rozgar Mela (government appointment letters) | Usually several times a year; last note: 20th edition 19 Sep 2026 (45 locations) — see dated 2026 edition cards below | Multiple venues nationwide (India) | gov | in-person | healthcare-bedside, emergency-safety, logistics-field, manufacturing-floor, construction-trades | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2311973 |
 | Uttar Pradesh Rojgaar Sangam — active district job fairs | Usually year-round | District venues across Uttar Pradesh (Uttar Pradesh) | gov | in-person | healthcare-bedside, construction-trades, manufacturing-floor, logistics-field, agri-food, hospitality-care, emergency-safety, wetlab-clinical | https://rojgaarsangam.up.gov.in/RojgaarMela |
 
 ## Dropped
+- **IYC future Mega Job Fair (post-19 Jun 2026) without official next date** — Past 19 Jun 2026 Talkatora edition is listed as a private-verified PAST card. Do not invent a next IYC date until iyc.in (or durable official notice) announces one.
 - **LinkedIn-only MCC / NSDC Mega Job Fair posts** — Social posts without a stable official event page for the next edition; use NCS / JobX hubs instead.
 - **NSDC Upcoming Events empty dated items** — Page showed No Events on 5 Oct 2026 — kept as recurring programme + JobX hub, not a fabricated dated fair.
 - **Generic private WhatsApp / aggregator ITI flyers (sarkaritantra, itijobs blogs)** — Third-party blogs without the ITI's own official notice URL — fail verification.
