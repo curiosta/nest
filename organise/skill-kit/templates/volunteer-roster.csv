@@ -1,0 +1,7 @@
+volunteer_id,name,phone,role,desk_or_zone,shift_start,shift_end,briefed_yes_no,languages,first_aid_trained_yes_no,notes
+V001,{{NAME}},{{PHONE}},Entry desk,Gate 1,{{08:00}},{{13:00}},no,{{e.g. English; Hindi}},no,
+V002,{{NAME}},{{PHONE}},Zone desk,Zone A,{{09:00}},{{14:00}},no,,no,
+V003,{{NAME}},{{PHONE}},Help desk,Help and grievance,{{09:00}},{{14:00}},no,,no,
+V004,{{NAME}},{{PHONE}},Data desk,Control room,{{08:30}},{{17:00}},no,,no,Only role with access to candidate sheet
+V005,{{NAME}},{{PHONE}},Welfare,Water and first aid,{{08:00}},{{13:00}},no,,yes,
+V006,{{NAME}},{{PHONE}},Marshal,Queue lanes,{{08:00}},{{13:00}},no,,no,

@@ -1,0 +1,2 @@
+candidate_ref,zone,employer,role,offer_in_writing_yes_no,offer_date,in_hand_pay_offered,work_location,consent_to_follow_up_yes_no,day7_contacted_date,day7_status,day30_contacted_date,joined_at_30_days_yes_no_unknown,day90_contacted_date,still_employed_at_90_days_yes_no_unknown,joining_problem,problem_raised_with_employer_date,resolution,data_deletion_due_date,notes
+C0001,A,{{EMPLOYER}},{{ROLE}},yes,{{YYYY-MM-DD}},{{₹ band}},{{CITY}},yes,,,,unknown,,unknown,,,,{{YYYY-MM-DD}},Use a reference number here; keep names and phones in the access-restricted sheet

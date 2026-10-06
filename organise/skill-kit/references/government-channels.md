@@ -1,0 +1,18 @@
+# Government and institutional channels (India)
+
+Checked 6 Oct 2026. Check each link before relying on it; government URLs move.
+
+| Channel | What it does for a job fair | Links |
+|---|---|---|
+| **National Career Service (NCS) / Model Career Centres (MCCs)** | MCCs and employment exchanges create the job-fair event on the NCS portal. Employers post vacancies there, and eligible candidates are notified by SMS or email, for online and on-campus fairs. MCC guidelines ask each centre to organise at least one job fair a month and one mega fair a year, and describe a job-fair module for online and offline fairs. | [DGE: NCS](https://dge.gov.in/ncs) · [MCC guidelines (PDF)](https://cdnbbsr.s3waas.gov.in/s33cf2559725a9fdfa602ec8c887440f32/uploads/2025/03/202503111811998990.pdf) · [List of MCCs](https://dge.gov.in/dge/nics/information-about-mccs) · [NCS portal](https://www.ncs.gov.in/) · [NCS job-fair list](https://betacloud.ncs.gov.in/job-fair-list) |
+| **State employment exchanges** | Organising and facilitating job fairs is one of the core activities of employment exchanges. Procedures are in the National Employment Service Manual 2022. Many states run their own mela portals. | [DGE: National Employment Service](https://dge.gov.in/nes) · [NES Manual 2022](https://dge.gov.in/dge/national-employment-service-manual-2022) · examples: [Chhattisgarh e-Rozgar](https://erojgar.cg.gov.in/LandingSite/RojgarMelaList.aspx), [UP Rojgaar Sangam](https://rojgaarsangam.up.gov.in/RojgaarMela), [Maharashtra MahaSwayam](https://rojgar.mahaswayam.gov.in/) |
+| **NSDC, Sector Skill Councils (SSCs), PMKKs** | NSDC Rozgar Melas work with SSCs and Pradhan Mantri Kaushal Kendras to bring private employers. They mainly target youth aged 18–35 with qualifications from 8th/10th/12th pass to ITI, diploma and graduate, including NSQF-certified candidates. Approach the SSC for your sector. | [PIB Rozgar Mela backgrounder (12 Jul 2025)](https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=154875&lang=2&reg=48) · [NSDC Rozgar Mela](https://www.nsdcindia.org/rozgarmela) · [Sector Skill Councils](https://nsdcindia.org/sector-skill-councils) · [NSDC JobX](https://www.nsdcjobx.com/) |
+| **PMKVY training centres / Skill India** | Trained and certified candidates; centres can mobilise batches for a fair. | [MSDE](https://www.msde.gov.in/) · [Skill India Digital Hub](https://www.skillindiadigital.gov.in/) |
+| **DDU-GKY (rural youth)** | Job melas are organised by State Rural Livelihood Missions, directly or with project partners, at block and Gram Panchayat level. The guidelines cover registration and counselling, due diligence on employers, and tracking placement outcomes for one year. | [MoRD DDU-GKY guidelines (PDF)](https://cdnbbsr.s3waas.gov.in/s3e9412ee564384b987d086df32d4ce6b7/uploads/2025/01/202501251328475725.pdf) |
+| **ITIs, polytechnics and college placement cells** | Natural hosts and candidate sources for trades fairs. DGT lists 14,643 ITIs. Placement cells publish drive notices. | [DGT](http://dgt.gov.in/polytechnics) · example: [Govt Polytechnic Bhubaneswar placements](https://gpbhubaneswar.in/placement-notifications/) |
+
+## How the agent should use this
+1. Identify the district, then find the nearest MCC/employment exchange from the DGE list.
+2. Draft a short request: fair date window, venue (or TBC), job families, expected employers, and a request to list the fair on NCS. **The human sends it.**
+3. Draft parallel notes to the SSC(s) for the main job families, local PMKVY/PMKK centres, ITI/polytechnic principals and, for rural audiences, the SRLM. **The human sends them.**
+4. Record each reply and any reference number in the plan. Never claim a government partnership until it is confirmed in writing.
