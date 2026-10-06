@@ -6,15 +6,23 @@
   const NAMES = D.mon;
   const pad = n => String(n).padStart(2, "0");
   const t = new Date(), TODAY = t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate());
-  // Month range: all of 2026 (history + rest of year)
+  // Month range: Oct 2021 -> Dec 2026 (from D.range), so Month view can page back to 2021
+  const RANGE = D.range || ["2021-10", "2026-12"];
   const MONTHS = [];
-  for (let m = 1; m <= 12; m++) MONTHS.push("2026-" + pad(m));
+  {
+    let [y, m] = RANGE[0].split("-").map(Number);
+    const [y1, m1] = RANGE[1].split("-").map(Number);
+    while (y < y1 || (y === y1 && m <= m1)) { MONTHS.push(y + "-" + pad(m)); m++; if (m > 12) { m = 1; y++; } }
+  }
+  const YEARS = (D.years || []).map(String);
+  const CUR_YM = TODAY.slice(0, 7);
   const q = new URLSearchParams(location.search);
   let view = q.get("view") === "list" ? "list" : "month";
-  const defaultM = MONTHS.includes(TODAY.slice(0, 7)) ? TODAY.slice(0, 7) : "2026-10";
+  const defaultM = MONTHS.includes(CUR_YM) ? CUR_YM : MONTHS[MONTHS.length - 1];
   let cur = MONTHS.includes(q.get("m")) ? q.get("m") : defaultM;
+  const WHENS = ["all", "upcoming", "past"].concat(YEARS.map(y => "y" + y));
   const F = {
-    when: ["all","upcoming","past"].includes(q.get("when")) ? q.get("when") : "all",
+    when: WHENS.includes(q.get("when")) ? q.get("when") : "all",
     domain: q.get("domain") || "all",
     org: q.get("org") || "all",
     modality: q.get("modality") || "all",
@@ -31,15 +39,26 @@
     controls: document.getElementById("cal-controls"),
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const isPast = f => !!(f.start && f.start < TODAY);
-  const isHub = f => !f.start; // usual/pending hubs
+  // dated: past if start < today; hubs/series: past once their evidenced span has ended
+  const isPast = f => f.start ? f.start < TODAY : !!(f.span && f.span[1] < CUR_YM);
+  const isHub = f => !f.start; // usual/pending hubs + recurring series
+  function inYear(f, y) {
+    if (f.start) return f.start.slice(0, 4) === y;
+    return !!(f.span && f.span[0].slice(0, 4) <= y && f.span[1].slice(0, 4) >= y);
+  }
+  function whenOk(f, w) {
+    if (w === "all") return true;
+    if (w === "upcoming") return !isPast(f);
+    if (w === "past") return isPast(f);
+    if (w.charAt(0) === "y") return inYear(f, w.slice(1));
+    return true;
+  }
   function match(f) {
     if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
     if (F.org !== "all" && f.org !== F.org) return false;
     if (F.modality !== "all" && f.modality !== F.modality) return false;
     if (F.state !== "all" && f.state !== F.state) return false;
-    if (F.when === "upcoming" && isPast(f)) return false;
-    if (F.when === "past" && !isPast(f)) return false;
+    if (!whenOk(f, F.when)) return false;
     return true;
   }
   function filtering() {
@@ -53,8 +72,9 @@
   function badge(cls, text) { return '<span class="badge ' + cls + '">' + esc(text) + "</span>"; }
   function item(f) {
     const past = isPast(f);
+    const kinds = (f.tags || []).map(g => badge("kind k-" + g, (D.tagLabels && D.tagLabels[g]) || g)).join("");
     const tags = (past ? '<span class="past-tag">Past</span>' : "") +
-      badge(f.org, orgLabel(f.org)) + badge("mod", modLabel(f.modality));
+      badge(f.org, orgLabel(f.org)) + badge("mod", modLabel(f.modality)) + kinds;
     const doms = f.domains.slice(0, 3).map(s => {
       const row = D.domains.find(x => x[0] === s);
       return badge("dom", row ? row[1].split("&")[0].trim() : s);
@@ -74,6 +94,7 @@
   function hubsForMonth(f, ym) {
     // year-round hubs appear every month; month-specific usual by m[0]
     if (!isHub(f)) return false;
+    if (f.span && (ym < f.span[0] || ym > f.span[1])) return false;
     if (f.m && f.m.length >= 12) return true;
     const mi = +ym.split("-")[1] - 1;
     return f.m && f.m[0] === mi;
@@ -135,20 +156,24 @@
     const ev = D.fairs.filter(match);
     let html = "";
     let n = 0;
-    // chronological months Jan..Dec 2026
-    MONTHS.forEach(ym => {
+    // hubs + recurring series once, at the top (not repeated per month)
+    const hubs = ev.filter(f => isHub(f)).sort((a, b) => (isPast(a) - isPast(b)) || a.name.localeCompare(b.name));
+    if (hubs.length) {
+      html += '<div class="month-group" data-m="hubs"><h3>Hubs &amp; recurring series <small data-count="">' + hubs.length + "</small></h3>" +
+        '<ul class="dated">' + hubs.map(item).join("") + "</ul></div>";
+      n += hubs.length;
+    }
+    // dated fairs, newest month first (upcoming at the top, then back to Oct 2021)
+    MONTHS.slice().reverse().forEach(ym => {
       const [y, m] = ym.split("-").map(Number);
       const a = ym + "-01", b = ym + "-" + pad(new Date(y, m, 0).getDate());
       const dated = ev.filter(f => inMonthDated(f, y, m, a, b)).sort((a, b) => (a.start || "").localeCompare(b.start || ""));
-      // hubs only once under current month in list view (avoid 12×)
-      const hubs = (ym === defaultM) ? ev.filter(f => isHub(f)).sort((a, b) => a.name.localeCompare(b.name)) : [];
-      const all = dated.concat(hubs);
-      if (!all.length) return;
+      if (!dated.length) return;
       const pastN = dated.filter(isPast).length;
       html += '<div class="month-group" data-m="' + ym + '"><h3>' + NAMES[m - 1] + " " + y +
-        ' <small data-count="">' + dated.length + " dated · " + hubs.length + " hubs · " + pastN + " past</small></h3>" +
-        '<ul class="dated">' + all.map(item).join("") + "</ul></div>";
-      n += all.length;
+        ' <small data-count="">' + dated.length + " dated · " + pastN + " past</small></h3>" +
+        '<ul class="dated">' + dated.map(item).join("") + "</ul></div>";
+      n += dated.length;
     });
     els.list.innerHTML = html || '<p class="muted">' + (filtering() ? "Nothing matches the filters." : "No fairs to show.") + "</p>";
     return n;
@@ -171,8 +196,7 @@
         if (F.org !== "all" && f.org !== F.org) return false;
         if (F.modality !== "all" && f.modality !== F.modality) return false;
         if (F.state !== "all" && f.state !== F.state) return false;
-        if (v === "upcoming" && isPast(f)) return false;
-        if (v === "past" && !isPast(f)) return false;
+        if (!whenOk(f, v)) return false;
         return true;
       }).length;
       const cnt = b.querySelector(".cnt"); if (cnt) cnt.textContent = c;
@@ -182,8 +206,7 @@
       b.setAttribute("aria-pressed", String(v === F.domain));
       const c = D.fairs.filter(f => {
         if (v !== "all" && f.domains.indexOf(v) < 0) return false;
-        if (F.when === "upcoming" && isPast(f)) return false;
-        if (F.when === "past" && !isPast(f)) return false;
+        if (!whenOk(f, F.when)) return false;
         if (F.org !== "all" && f.org !== F.org) return false;
         if (F.modality !== "all" && f.modality !== F.modality) return false;
         if (F.state !== "all" && f.state !== F.state) return false;
@@ -196,8 +219,7 @@
       b.setAttribute("aria-pressed", String(v === F.org));
       const c = D.fairs.filter(f => {
         if (v !== "all" && f.org !== v) return false;
-        if (F.when === "upcoming" && isPast(f)) return false;
-        if (F.when === "past" && !isPast(f)) return false;
+        if (!whenOk(f, F.when)) return false;
         if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
         if (F.modality !== "all" && f.modality !== F.modality) return false;
         if (F.state !== "all" && f.state !== F.state) return false;
@@ -210,8 +232,7 @@
       b.setAttribute("aria-pressed", String(v === F.modality));
       const c = D.fairs.filter(f => {
         if (v !== "all" && f.modality !== v) return false;
-        if (F.when === "upcoming" && isPast(f)) return false;
-        if (F.when === "past" && !isPast(f)) return false;
+        if (!whenOk(f, F.when)) return false;
         if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
         if (F.org !== "all" && f.org !== F.org) return false;
         if (F.state !== "all" && f.state !== F.state) return false;
@@ -227,8 +248,7 @@
         states.map(s => {
           const c = D.fairs.filter(f => {
             if (f.state !== s) return false;
-            if (F.when === "upcoming" && isPast(f)) return false;
-            if (F.when === "past" && !isPast(f)) return false;
+            if (!whenOk(f, F.when)) return false;
             if (F.domain !== "all" && f.domains.indexOf(F.domain) < 0) return false;
             if (F.org !== "all" && f.org !== F.org) return false;
             if (F.modality !== "all" && f.modality !== F.modality) return false;
@@ -273,7 +293,13 @@
   if (els.next) els.next.addEventListener("click", () => { cur = MONTHS[Math.min(MONTHS.length - 1, MONTHS.indexOf(cur) + 1)]; render(); });
   document.querySelectorAll(".chip[data-gf]").forEach(b => b.addEventListener("click", () => {
     const g = b.dataset.gf, v = b.dataset.v || "all";
-    if (g === "when") F.when = v;
+    if (g === "when") {
+      F.when = v;
+      if (v.charAt(0) === "y" && cur.slice(0, 4) !== v.slice(1)) {
+        const y = v.slice(1);
+        cur = CUR_YM.slice(0, 4) === y && MONTHS.includes(CUR_YM) ? CUR_YM : (MONTHS.find(x => x.slice(0, 4) === y) || cur);
+      }
+    }
     if (g === "domain") F.domain = v;
     if (g === "org") F.org = v;
     if (g === "modality") F.modality = v;
@@ -287,10 +313,12 @@
   });
   // populate month select
   if (els.sel) {
-    els.sel.innerHTML = MONTHS.map(ym => {
-      const [y, m] = ym.split("-").map(Number);
-      return '<option value="' + ym + '">' + NAMES[m - 1] + " " + y + "</option>";
-    }).join("");
+    els.sel.innerHTML = YEARS.length ? YEARS.map(y => '<optgroup label="' + y + '">' +
+      MONTHS.filter(ym => ym.slice(0, 4) === y).map(ym => {
+        const m = +ym.slice(5);
+        return '<option value="' + ym + '">' + NAMES[m - 1] + " " + y + "</option>";
+      }).join("") + "</optgroup>").join("") :
+      MONTHS.map(ym => '<option value="' + ym + '">' + NAMES[+ym.slice(5) - 1] + " " + ym.slice(0, 4) + "</option>").join("");
   }
   if (els.controls) els.controls.hidden = false;
   try {

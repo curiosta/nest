@@ -293,6 +293,8 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .badge{font:600 .72rem var(--sans);padding:.2rem .5rem;border-radius:6px;color:#fff}
 .badge.gov{background:var(--badge-gov)}.badge.nsdc{background:var(--badge-nsdc)}.badge.campus{background:var(--badge-campus)}
 .badge.industry{background:var(--badge-industry)}.badge.private-verified{background:var(--badge-private)}
+.badge.kind{background:#fff;color:var(--ink-2);border:1px solid currentColor;padding:.15rem .45rem}
+.badge.k-recruitment-rally{color:var(--badge-gov)}.badge.k-political-organiser{color:var(--badge-private)}
 .badge.mod{background:var(--ink-2)}.badge.dom{background:var(--teal);color:var(--sea-900)}
 .muted{color:var(--muted)}
 #cal-list[hidden],#cal-mnav[hidden]{display:none!important}
