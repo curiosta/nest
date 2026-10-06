@@ -35,6 +35,12 @@ a:hover{color:var(--coral)}
 .btn-primary:hover{color:#fff;transform:translateY(-1px)}
 .btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.2)}
 .btn-ghost:hover{color:#fff;background:rgba(255,255,255,.14)}
+/* light-surface secondary button (sand/white bands) — brand ink/sea-500 */
+.btn-outline{background:var(--card);color:var(--ink);border:1.5px solid var(--sea-500)}
+.btn-outline:hover{color:var(--sea-500);background:var(--teal-soft);border-color:var(--sea-500)}
+/* safety net: ghost (dark-band style) placed on a light section stays readable */
+main.section .btn-ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--sea-500)}
+main.section .btn-ghost:hover{color:var(--sea-500);background:var(--teal-soft)}
 .note{font-size:.92rem;color:#9dbccb;margin-top:1.1rem;max-width:60ch}
 .grid{display:grid;gap:1rem}
 .grid-2{grid-template-columns:repeat(2,1fr)}
