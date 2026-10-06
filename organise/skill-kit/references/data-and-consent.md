@@ -18,6 +18,23 @@
   specified purpose. It must give a link and other means to **withdraw consent as
   easily as it was given**, exercise rights under the Act, and complain to the Data
   Protection Board ([MeitY explanatory note](https://www.meity.gov.in/writereaddata/files/Explanatory-Note-DPDP-Rules-2025.pdf)).
+- **Section 5 (notice)** of the Act: every request for consent must be accompanied
+  or preceded by a notice that tells the person (i) the personal data and the
+  purpose it will be processed for, (ii) how to exercise the rights under
+  section 6(4) (withdrawal) and section 13 (grievance redressal), and (iii) how to
+  complain to the Data Protection Board. Section 5(3) requires the option to read
+  the notice in English or a language in the Eighth Schedule to the Constitution
+  ([MeitY PDF](https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf);
+  [India Code](https://www.indiacode.nic.in/handle/123456789/22037?locale=en)).
+- **Section 6 (consent)**: consent must be free, specific, informed, unconditional
+  and unambiguous, with a clear affirmative action, and limited to the personal
+  data necessary for the specified purpose (s.6(1)). The request must be in clear
+  and plain language, with the English / Eighth Schedule language option and the
+  contact details of a person who responds on the person's rights (s.6(3)).
+  Consent can be withdrawn at any time, as easily as it was given (s.6(4)).
+- **NEST recommendation (R7):** use an unticked consent box after the notice,
+  keep optional follow-up consent separate, and map each notice element to the
+  section it meets. `templates/consent-notice.md` does this.
 - Even where a provision has not yet come into force for you, follow these
   practices now. They are what candidates expect.
 

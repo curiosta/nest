@@ -298,6 +298,9 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .badge.mod{background:var(--ink-2)}.badge.dom{background:var(--teal);color:var(--sea-900)}
 .muted{color:var(--muted)}
 #cal-list[hidden],#cal-mnav[hidden]{display:none!important}
+.cal-jump{font:600 .85rem var(--sans);background:var(--teal-soft);color:var(--sea-800);border:1px solid var(--teal);border-radius:999px;padding:2px 10px;cursor:pointer;margin:2px 0}
+.cal-jump:hover{background:var(--teal);color:var(--sea-900)}
+.note-hubs{font-size:.9rem;color:var(--ink-2);background:var(--sand);border:1px dashed var(--line);border-radius:10px;padding:8px 12px;margin-top:10px}
 
 
 /* organise guide */
@@ -332,11 +335,18 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .case-cols h3{font:700 1rem var(--sans);margin:.4rem 0}
 .case-cols ul{padding-left:1.1rem;margin:0}
 .case-cols li{margin:.35rem 0;font-size:.95rem}
+.rec{display:inline-block;font:700 .66rem var(--mono);letter-spacing:.04em;text-transform:uppercase;background:var(--teal-soft);color:var(--sea-800);border-radius:999px;padding:1px 8px;vertical-align:middle;text-decoration:none}
+.rec:hover{background:var(--teal);color:var(--sea-900)}
+.rec-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:1rem 0}
+.rec-card{scroll-margin-top:calc(var(--nav-h) + 12px);border-top:4px solid var(--teal)}
+.rec-card h3{font:700 1.02rem var(--sans);margin:.35rem 0 .4rem}
+.rec-card p{margin:0;font-size:.94rem;color:var(--ink-2)}
+.rec-tag{font:700 .66rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sea-700)}
 .submitbox{background:var(--sand);border:1.5px dashed var(--sea-500);border-radius:var(--radius);padding:16px 18px}
 .srclist{font-size:.88rem;padding-left:1.4rem}
 .srclist li{margin:.25rem 0;overflow-wrap:anywhere}
 @media (max-width:900px){.org{grid-template-columns:1fr}.toc{position:static;flex-direction:row;flex-wrap:wrap;gap:6px 12px}.toc b{width:100%}}
-@media (max-width:640px){.org-grid,.case-cols{grid-template-columns:1fr}.timeline li{grid-template-columns:1fr;gap:4px}}
+@media (max-width:640px){.org-grid,.case-cols,.rec-grid{grid-template-columns:1fr}.timeline li{grid-template-columns:1fr;gap:4px}}
 
 
 /* skill kit */

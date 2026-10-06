@@ -13,19 +13,23 @@ how many people attended, offers and (later) joinings.
 ## 2. Numbers (with definitions)
 | Stage | Count | Who counted | Notes |
 |---|---|---|---|
-| Registered (unique) | | | |
-| Attended (incl. walk-ins) | | | walk-ins: |
-| Interviewed | | | |
-| Shortlisted | | employers | |
-| Written offers | | employers / organiser | |
-| Joined at 30 days | TBC until day 30 | follow-up calls + employers | response rate: |
-| Still employed at 90 days | TBC until day 90 | follow-up calls + employers | response rate: |
+| 1 Registered (unique) | | | |
+| 2 Attended (incl. walk-ins) | | | walk-ins: |
+| 3 Interviewed | | | |
+| 4 Offers logged at the central desk | | offer desk | unique people: |
+| 5 Joined | TBC until confirmed | follow-up calls + employers | response rate: |
+| 6 Employed at 30 days | TBC until day 30 | follow-up calls + employers | response rate: |
+| 7 Still employed at 90 days | TBC until day 90 | follow-up calls + employers | response rate: |
+
+Shortlists / second-round invites (not offers): {{…}}
 
 Internships and apprenticeships (reported separately): {{…}}
 
 ## 3. Employers
 Employers committed vs present; openings committed; in-hand pay bands offered;
-mix of staffing firms and direct employers; any employer removed and why.
+mix of staffing firms and direct employers; engagement types (on-roll / off-roll /
+gig) from the spec sheets; offer-to-joining rate per employer; any employer removed
+and why. Helpline (90 days): cases by type and how many were resolved.
 
 ## 4. Operations
 Caps and slots used, zone token waits (longest wait per zone), walk-in lane,

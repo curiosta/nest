@@ -99,6 +99,41 @@
     const mi = +ym.split("-")[1] - 1;
     return f.m && f.m[0] === mi;
   }
+  // months (in range) holding at least one matching dated fair; optional extra predicate
+  function monthBounds(ym) {
+    const [y, m] = ym.split("-").map(Number);
+    return [y, m, ym + "-01", ym + "-" + pad(new Date(y, m, 0).getDate())];
+  }
+  function matchMonths(pred) {
+    const ev = D.fairs.filter(f => f.start && match(f) && (!pred || pred(f)));
+    return MONTHS.filter(ym => { const [y, m, a, b] = monthBounds(ym); return ev.some(f => inMonthDated(f, y, m, a, b)); });
+  }
+  // Pick the month Month view should show for the current filters.
+  // force=true (When chip picked / first load without ?m): always apply the rule;
+  // otherwise only move when the current month has nothing matching.
+  function targetMonth(force) {
+    const hits = matchMonths();
+    if (!force && hits.includes(cur) && (F.when.charAt(0) !== "y" || cur.slice(0, 4) === F.when.slice(1))) return cur;
+    if (F.when.charAt(0) === "y") {
+      const y = F.when.slice(1);
+      const inY = hits.filter(ym => ym.slice(0, 4) === y);
+      if (inY.length) return inY[0];
+      const hubY = MONTHS.filter(ym => ym.slice(0, 4) === y && D.fairs.some(f => match(f) && hubsForMonth(f, ym)));
+      return hubY[0] || MONTHS.find(ym => ym.slice(0, 4) === y) || cur;
+    }
+    if (F.when === "past") {
+      const p = matchMonths(isPast).filter(ym => ym <= CUR_YM);
+      if (p.length) return p[p.length - 1];
+    }
+    if (F.when === "upcoming") {
+      const u = matchMonths(f => !isPast(f)).filter(ym => ym >= CUR_YM);
+      if (u.length) return u[0];
+    }
+    if (!hits.length) return cur;
+    if (hits.includes(CUR_YM)) return CUR_YM;
+    const next = hits.find(ym => ym >= CUR_YM);
+    return next || hits[hits.length - 1];
+  }
   function renderMonth() {
     const [y, m] = cur.split("-").map(Number);
     const first = new Date(y, m - 1, 1), nd = new Date(y, m, 0).getDate();
@@ -107,7 +142,7 @@
     const dated = ev.filter(f => inMonthDated(f, y, m, a, b));
     const hubs = ev.filter(f => hubsForMonth(f, cur));
     let h = '<div class="cal-month"><h2>' + NAMES[m - 1] + " " + y +
-      "<small>" + dated.length + " dated · " + hubs.length + " hubs / usual</small></h2>" +
+      "<small>" + dated.length + " dated · " + hubs.length + (hubs.length === 1 ? " hub / series" : " hubs / series") + " this month</small></h2>" +
       '<div class="cal-grid" role="grid" aria-label="' + NAMES[m - 1] + " " + y + '">';
     for (const d of ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]) h += '<div class="cal-dow" role="columnheader">' + d + "</div>";
     for (let i = 0; i < lead; i++) h += '<div class="cal-day pad" aria-hidden="true"></div>';
@@ -137,14 +172,31 @@
     }
     h += "</div>";
     const all = dated.concat(hubs);
-    h += '<div class="cal-agenda"><h3>Everything in ' + NAMES[m - 1] + " " + y + "</h3>" +
-      (all.length ? '<ul class="dated">' + all.map(item).join("") + "</ul>"
-        : '<p class="muted">' + (filtering() ? "Nothing this month matches the filters." : "Nothing scheduled.") + "</p>") +
+    // matching hubs / recurring series that are not active in this month
+    const otherHubs = ev.filter(f => isHub(f) && hubs.indexOf(f) < 0);
+    const hits = matchMonths();
+    const prevHit = hits.filter(x => x < cur).pop(), nextHit = hits.find(x => x > cur);
+    const mlabel = ym => NAMES[+ym.slice(5) - 1] + " " + ym.slice(0, 4);
+    const jump = ym => '<button type="button" class="cal-jump" data-jump="' + ym + '">' + mlabel(ym) + "</button>";
+    let empty = "";
+    if (!dated.length) {
+      empty = '<p class="muted">' + (filtering() ? "No dated fairs this month match the filters." : "No dated fairs this month.") +
+        ((prevHit || nextHit) ? " Nearest with matches: " + [prevHit, nextHit].filter(Boolean).map(jump).join(" · ") : "") + "</p>";
+    }
+    h += '<div class="cal-agenda"><h3>Everything in ' + NAMES[m - 1] + " " + y + "</h3>" + empty +
+      (all.length ? '<ul class="dated">' + all.map(item).join("") + "</ul>" : "") +
+      (otherHubs.length ? '<p class="note-hubs">Also matching these filters: ' + otherHubs.length + (otherHubs.length === 1 ? " hub / recurring series" : " hubs / recurring series") +
+        " not active in " + mlabel(cur) + " (" + otherHubs.map(f => esc(f.name) + (f.span ? " · " + mlabel(f.span[0]) + "–" + mlabel(f.span[1]) : "")).join("; ") +
+        '). <button type="button" class="cal-jump" data-view-list="1">See them in List view</button></p>' : "") +
       "</div>";
     els.month.innerHTML = h;
     els.sel.value = cur;
     els.prev.disabled = MONTHS.indexOf(cur) === 0;
     els.next.disabled = MONTHS.indexOf(cur) === MONTHS.length - 1;
+    els.month.querySelectorAll("button.cal-jump").forEach(btn => btn.addEventListener("click", () => {
+      if (btn.dataset.viewList) { view = "list"; } else { cur = btn.dataset.jump; }
+      render();
+    }));
     els.month.querySelectorAll("button.cal-day").forEach(btn => btn.addEventListener("click", () => {
       const lis = [...els.month.querySelectorAll(".cal-agenda li")].filter(li => li.dataset.start === btn.dataset.d);
       els.month.querySelectorAll(".cal-agenda li.hl").forEach(li => li.classList.remove("hl"));
@@ -293,23 +345,19 @@
   if (els.next) els.next.addEventListener("click", () => { cur = MONTHS[Math.min(MONTHS.length - 1, MONTHS.indexOf(cur) + 1)]; render(); });
   document.querySelectorAll(".chip[data-gf]").forEach(b => b.addEventListener("click", () => {
     const g = b.dataset.gf, v = b.dataset.v || "all";
-    if (g === "when") {
-      F.when = v;
-      if (v.charAt(0) === "y" && cur.slice(0, 4) !== v.slice(1)) {
-        const y = v.slice(1);
-        cur = CUR_YM.slice(0, 4) === y && MONTHS.includes(CUR_YM) ? CUR_YM : (MONTHS.find(x => x.slice(0, 4) === y) || cur);
-      }
-    }
+    if (g === "when") F.when = v;
     if (g === "domain") F.domain = v;
     if (g === "org") F.org = v;
     if (g === "modality") F.modality = v;
+    // Month view: When chip -> always jump per rule; other filters -> jump only if this month is now empty
+    cur = targetMonth(g === "when");
     render();
   }));
   const st = document.getElementById("cal-state");
-  if (st) st.addEventListener("change", () => { F.state = st.value || "all"; render(); });
+  if (st) st.addEventListener("change", () => { F.state = st.value || "all"; cur = targetMonth(false); render(); });
   const reset = document.getElementById("cal-reset");
   if (reset) reset.addEventListener("click", () => {
-    F.when = "all"; F.domain = "all"; F.org = "all"; F.modality = "all"; F.state = "all"; render();
+    F.when = "all"; F.domain = "all"; F.org = "all"; F.modality = "all"; F.state = "all"; cur = targetMonth(false); render();
   });
   // populate month select
   if (els.sel) {
@@ -321,6 +369,7 @@
       MONTHS.map(ym => '<option value="' + ym + '">' + NAMES[+ym.slice(5) - 1] + " " + ym.slice(0, 4) + "</option>").join("");
   }
   if (els.controls) els.controls.hidden = false;
+  if (!MONTHS.includes(q.get("m")) && filtering()) cur = targetMonth(true);
   try {
     render();
     const boot = document.getElementById("cal-booting");

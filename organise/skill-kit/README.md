@@ -16,15 +16,17 @@ job-fair-organiser/
 │   ├── employer-verification-anti-fraud.md
 │   ├── government-channels.md    # NCS/MCC, employment exchanges, NSDC/SSCs, PMKVY, DDU-GKY, placement cells
 │   ├── crowd-and-safety.md       # caps, slots, sector zones, separate tokens, accessibility
-│   ├── data-and-consent.md       # DPDP Act 2023 / Rules 2025-aware data handling
-│   ├── metrics.md                # registered → offered → joined at 30/90 days
+│   ├── data-and-consent.md       # DPDP Act 2023 (s.5 notice, s.6 consent) / Rules 2025
+│   ├── metrics.md                # 7-stage funnel → still employed at 90 days; offer-to-joining rate
 │   ├── case-study-iyc-lessons.md # neutral case study and 10 lessons
 │   └── sources.md                # every URL used
 └── templates/
     ├── employer-invite-and-vacancy-form.md
+    ├── job-spec-sheet.md         # signed, one per role: in-hand vs CTC; on-roll / off-roll / gig
     ├── candidate-slot-registration-form.md
-    ├── consent-notice.md
+    ├── consent-notice.md         # follows DPDP Act 2023 sections 5 and 6
     ├── day-of-runbook.md
+    ├── offer-log.csv             # central offer-logging desk
     ├── volunteer-roster.csv
     ├── follow-up-tracker.csv
     └── post-fair-report.md
@@ -51,6 +53,10 @@ reference or template files you need, and say:
 - Neutral: no political, religious or electoral questions or branding.
 - Collect only what the jobs need, with a clear consent notice.
 - Honest metrics, defined before the fair.
+- NEST recommendations R1–R8 (signed job spec sheets, CIN/GSTIN checks, no
+  commission-only or MLM roles, a central offer log, a 7-stage funnel, a
+  re-invite suggestion, DPDP section 5/6 consent wording, a 90-day helpline),
+  labelled as NEST's ideas rather than rules.
 - The agent **stops and asks the human** before booking venues, spending money,
   sending messages, publishing, sharing candidate data or signing commitments.
 

@@ -8,11 +8,13 @@ description: >-
   timeline, government channels (NCS/MCC, employment exchanges, NSDC/SSCs,
   PMKVY, DDU-GKY, placement cells), employer verification and anti-fraud, crowd
   safety, DPDP-aware data handling, day-of operations, outcome metrics and
-  follow-up. It marks the points where the agent must stop and ask a human.
+  follow-up, plus NEST's recommendations (signed job spec sheets, CIN/GSTIN
+  checks, a central offer log, a 7-stage funnel and a 90-day helpline). It
+  marks the points where the agent must stop and ask a human.
 license: CC-BY-4.0
 metadata:
   publisher: NEST Collective (nest.curiosta.com)
-  version: "1.0"
+  version: "1.1"
   checked: "2026-10-06"
 ---
 
@@ -38,6 +40,23 @@ anything that books, pays, sends, publishes or commits on their behalf (see
    separately. See `references/metrics.md`.
 6. **Cite.** When you state a rule or a government process, link it.
    `references/sources.md` lists every URL used in this kit.
+7. **Label recommendations as recommendations.** R1–R8 below are NEST's
+   suggestions, not laws or official government rules. Say so when you use them.
+
+## NEST recommendations (R1–R8)
+Apply these by default and tell the organiser they are NEST's ideas, which the
+organiser may adapt:
+
+| # | Recommendation | Where |
+|---|---|---|
+| R1 | A **signed job spec sheet** per role: in-hand pay vs CTC, and on-roll / off-roll / gig | Step 5 · `templates/job-spec-sheet.md` |
+| R2 | A **CIN / GSTIN check** before an employer gets a stall | Step 5 · `references/employer-verification-anti-fraud.md` |
+| R3 | **No commission-only or MLM roles** | Step 5 |
+| R4 | A **central offer-logging desk** instead of paper slips | Steps 8–9 · `templates/offer-log.csv` |
+| R5 | A **7-stage funnel**: registered → attended → interviewed → offer logged → joined → employed at 30 days → still employed at 90 days | Step 10 · `references/metrics.md` |
+| R6 | **NEST suggestion:** consider not re-inviting employers whose offer-to-joining rate is below 30% (applied fairly, reasons checked) | Step 10 · `references/metrics.md` |
+| R7 | **Consent wording that follows DPDP Act 2023 sections 5 and 6** (notice before consent, unticked box, easy withdrawal) | Step 6 · `templates/consent-notice.md` |
+| R8 | A **90-day helpline** after the fair | Steps 6 and 10 |
 
 ## Step by step
 
@@ -77,18 +96,26 @@ Shortlist venues with pros and cons. **Stop: the human books the venue.**
 ### Step 5: Recruit and verify employers
 Use `templates/employer-invite-and-vacancy-form.md` and the rules in
 `references/employer-verification-anti-fraud.md`:
-- written commitment per employer: roles, number of openings, in-hand pay band,
-  work location, shift and hours, qualification, interview format
-- verify each employer (official website, GST/CIN or other registration, a named
-  HR contact on an official domain)
+- a **signed job spec sheet per role** (`templates/job-spec-sheet.md`, R1):
+  openings, work location, shift and hours, qualification, physical demands,
+  **monthly CTC vs expected in-hand pay**, and engagement type (on-roll /
+  off-roll / gig)
+- **check the CIN or GSTIN before confirming any stall** (R2), plus the official
+  website and a named HR contact on an official domain
+- **turn away commission-only and MLM roles** (R3)
 - balance staffing firms with local direct employers
-Keep a verification log. Reject or hold any employer that charges candidates or
-won't put vacancies and pay in writing.
+Keep a verification log. Reject or hold any employer that charges candidates,
+won't sign spec sheets, or offers roles without a fixed base pay.
 
 ### Step 6: Publish the job board and open registration
-- Draft a **public job board** (one row per role) and the registration form
+- Draft a **public job board** (one row per role, from the spec sheets: in-hand
+  pay, location, engagement type) and the registration form
   (`templates/candidate-slot-registration-form.md`) with the consent notice
-  (`templates/consent-notice.md`).
+  (`templates/consent-notice.md`). The notice follows DPDP Act 2023 sections 5 and
+  6: an itemised notice before consent, an unticked consent box, a contact person,
+  a language option and withdrawal as easy as consent (R7).
+- Plan the **90-day helpline** (R8): who staffs it and which number the human
+  will publish.
 - Use one official page and one QR code that stays live. Show status ("slots
   full; walk-in lane capped at N").
 - **Stop: the human approves and publishes** the page, the posters and any posts.
@@ -99,17 +126,24 @@ Produce per-zone lists and token ranges. Share candidate details only with the
 employers the candidate chose.
 
 ### Step 8: Volunteers and the day-of runbook
-Fill `templates/volunteer-roster.csv` and `templates/day-of-runbook.md`. Brief
-volunteers on the no-fee message, crowd rules, accessibility help and escalation.
+Fill `templates/volunteer-roster.csv` and `templates/day-of-runbook.md`. Staff a
+**central offer-logging desk** with `templates/offer-log.csv` (R4). Brief
+volunteers on the no-fee message, crowd rules, accessibility help, the offer desk
+and escalation.
 
 ### Step 9: Run the day (support role)
-Help the organiser keep live counts per zone (tokens issued, called, interviewed,
-offers), log incidents, and post status updates **only after the human approves
-each message**.
+Help the organiser keep live counts per zone (tokens issued, called,
+interviewed, offers logged at the central desk; shortlists separately), log
+incidents, and post status updates **only after the human approves each
+message**.
 
 ### Step 10: Follow up and report
-- Use `templates/follow-up-tracker.csv`: contact everyone with an offer at
-  about 7, 30 and 90 days. Log joining problems per employer.
+- Use `templates/follow-up-tracker.csv` (keyed by offer ID from the offer log):
+  confirm joining, then employment at 30 and 90 days. Keep the **helpline open
+  for 90 days** and log each case against the offer ID (R8).
+- Report the **7-stage funnel** (R5) and each employer's offer-to-joining rate.
+  Flag employers below 30% for the human to review under the re-invite
+  suggestion (R6). The human decides.
 - Write the `templates/post-fair-report.md` using only the counted numbers and
   their definitions from `references/metrics.md`.
 - Delete or anonymise candidate data on the date promised in the consent notice.

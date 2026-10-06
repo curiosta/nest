@@ -16,7 +16,8 @@ weeks. Lesson numbers refer to `case-study-iyc-lessons.md`.
 
 ## 9–7 weeks out: employers
 - [ ] Send employer invitations with the vacancy form (`templates/employer-invite-and-vacancy-form.md`). *Human sends.*
-- [ ] Verify each employer and log the result (`employer-verification-anti-fraud.md`).
+- [ ] Verify each employer and log the result (`employer-verification-anti-fraud.md`): CIN or GSTIN checked before any stall is confirmed (NEST rec. R2).
+- [ ] Collect a signed job spec sheet per role: in-hand pay vs CTC, on-roll / off-roll / gig (R1, `templates/job-spec-sheet.md`). Turn away commission-only and MLM roles (R3).
 - [ ] Collect written commitments: roles, openings, in-hand pay, location, shift, qualification, interview format (Lesson 4).
 - [ ] Balance staffing firms and local direct employers (Lesson 4).
 - [ ] Label physical and field roles clearly: travel, shift length, physical demands, gear, transport/accommodation (Lesson 5).
@@ -35,21 +36,22 @@ weeks. Lesson numbers refer to `case-study-iyc-lessons.md`.
 - [ ] Prepare signage: zone maps, token boards, the **no-fee** notice, accessibility routes, help desks.
 - [ ] Send arrival slots and zone tokens to registrants (Lesson 3). *Human sends.*
 - [ ] Final employer confirmations; mark which booths are CV-collection only (Lesson 4).
-- [ ] Prepare the day-of runbook (`templates/day-of-runbook.md`).
-- [ ] Publish a helpline number for joining problems after the fair (Lesson 10). *Human publishes.*
+- [ ] Prepare the day-of runbook (`templates/day-of-runbook.md`), including the central offer-logging desk and `templates/offer-log.csv` (R4).
+- [ ] Publish a helpline number for joining problems, staffed for 90 days after the fair (Lesson 10, R8). *Human publishes.*
 
 ## Day-of
 - [ ] Run the runbook: slot-wise entry, zone tokens, live token boards per zone.
 - [ ] Keep the walk-in lane capped; post status when it is full (Lesson 9).
 - [ ] Repeat the no-fee message at entry and at every zone (Lesson 10).
 - [ ] Keep speeches and ceremonies short so the floor runs on time (Lesson 8).
-- [ ] Count each stage live: entered, interviewed, shortlisted, written offers (Lesson 6).
+- [ ] Count each stage live: entered, interviewed, offers logged at the central desk; shortlists separately (Lesson 6, R4, R5).
 - [ ] Log incidents and complaints.
 
 ## After the fair (0–90 days)
 - [ ] Day 1–3: thank employers; collect their shortlist and offer counts in writing.
 - [ ] Day 7: contact everyone with an offer (`templates/follow-up-tracker.csv`) (Lesson 10).
-- [ ] Day 30: confirm joining. Day 90: confirm still employed.
+- [ ] Confirm joining, then employment at 30 and 90 days (7-stage funnel, R5). Keep the helpline open to day 90 (R8).
+- [ ] Work out each employer's offer-to-joining rate; apply the re-invite suggestion fairly (R6, `metrics.md`).
 - [ ] Log joining problems per employer; follow up with the employer and, where relevant, the government partner.
 - [ ] Collect candidate and employer feedback.
 - [ ] Write the post-fair report with defined metrics (`templates/post-fair-report.md`). *Human publishes.*

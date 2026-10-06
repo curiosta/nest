@@ -36,8 +36,10 @@ IYC news coverage is used only for the neutral case study; IYC's own figures are
 - Dainik Bhaskar: Patna 2025 (barricades broken): <https://www.bhaskar.com/local/bihar/patna/news/chaos-at-youth-congresss-job-fair-135486087.html>
 - PTI via ThePrint, 23 Jun 2025 (revised Delhi 2025 count): <https://theprint.in/india/indian-youth-congress-to-organise-job-fair-in-bihar-from-july-15-25/2667940/>
 - ETV Bharat Hindi: Delhi 2026 ground report (tokens, data concerns): <https://www.etvbharat.com/hi/state/youth-congress-organized-mega-job-fair-in-delhi-on-rahul-gandhi-birthday-dls26061903642>
-- MeitY: Digital Personal Data Protection Act, 2023 (PDF): <https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf>
-- India Code: DPDP Act, 2023: <https://www.indiacode.nic.in/handle/123456789/22037?locale=en>
+- MeitY: Digital Personal Data Protection Act, 2023 (PDF; s.5 notice, s.6 consent): <https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf>
+- India Code: Digital Personal Data Protection Act, 2023: <https://www.indiacode.nic.in/handle/123456789/22037?locale=en>
+- Ministry of Corporate Affairs (MCA) portal: company / LLP master data (CIN lookup): <https://www.mca.gov.in/>
+- GST portal: Search Taxpayer (GSTIN lookup): <https://services.gst.gov.in/services/searchtp>
 - MeitY: DPDP Rules, 2025: <https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa?pageTitle=Digital-Personal-Data-Protection-Rules-2025.pdf>
 - MeitY: Explanatory note to the DPDP Rules, 2025 (PDF): <https://www.meity.gov.in/writereaddata/files/Explanatory-Note-DPDP-Rules-2025.pdf>
 - PIB: DPDP Rules, 2025 notified (18-month phased timeline; core principles): <https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190014>
