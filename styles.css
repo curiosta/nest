@@ -463,3 +463,13 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 .kitbox .note-sm{color:var(--ink-2)}
 .ai-tag.for{color:var(--ink)}
 .mindmap-wrap:focus-visible,.kit-preview table:focus-visible{outline:2px solid var(--sea-500);outline-offset:2px}
+
+/* phase 7: giscus comments block (brand skill: mono eyebrow, h2, one line, embed max ~860px) */
+.giscus-block{background:var(--card);border-top:1px solid var(--line)}
+.giscus-wrap{max-width:860px}
+.giscus-block h2{font:600 clamp(1.6rem,3.4vw,2.2rem)/1.15 var(--serif);color:var(--ink);margin:.35rem 0 .4rem}
+.giscus-note{color:var(--ink-2);font-size:.95rem;margin:0 0 1.2rem}
+.giscus-note a{color:var(--sea-500)}
+.giscus-embed{min-height:120px}
+.giscus-embed .giscus,.giscus-embed .giscus-frame{width:100%;max-width:860px}
+#comments{scroll-margin-top:calc(var(--nav-h) + 16px)}
