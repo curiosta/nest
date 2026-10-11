@@ -415,3 +415,9 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .signals .src a{font-weight:600}
 .track{background:var(--sand);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem 1.1rem;margin:1rem 0}
 .track .sub{margin:.1rem 0 .3rem}
+
+/* phase 3: verification + what's out on /about/ */
+.choose{border-top:1px solid var(--line);margin-top:2rem;padding-top:.4rem}
+.choose .jump{font-size:.9rem;color:var(--muted)}
+.prose h4{font:600 1rem var(--sans);margin:1rem 0 .35rem}
+.choose h3[id]{font:600 1.25rem var(--serif);margin:1.6rem 0 .5rem;scroll-margin-top:calc(var(--nav-h) + 12px)}
