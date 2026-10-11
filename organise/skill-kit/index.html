@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
 <title>Job Fair Organiser skill kit · NEST</title>
 <meta name="description" content="Free, open Agent Skill (CC BY 4.0) for planning and running a job fair in India: SKILL.md, references and templates.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,11 +12,12 @@
 <link rel="stylesheet" href="/styles.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306243a'/%3E%3Cpath d='M8 22V10l8 6 8-6v12' stroke='%2311b5a4' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
+<script src="/menu.js" defer></script>
 </head>
 <body>
 <header class="topbar"><div class="wrap">
   <a class="wordmark" href="/" aria-label="NEST home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#06243a"/><path d="M8 22V10l8 6 8-6v12" stroke="#11b5a4" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="25" cy="8" r="2" fill="#ff6b4a"/></svg><span>nest<b>.</b></span></a>
-  <nav class="sectionnav" aria-label="Primary"><a href="/">Home</a><a href="/domains/">Domains</a><a href="/calendar/">Fair calendar</a><a href="/organise/" aria-current="page">Organise a fair</a><a href="/ai/">With / for AI</a><a href="/about/">About</a></nav>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav"><span class="menu-ico" aria-hidden="true"></span>Menu</button><nav class="sectionnav" id="primary-nav" aria-label="Primary"><a href="/">Home</a><a href="/domains/">Domains</a><a href="/calendar/">Fair calendar</a><a href="/organise/" aria-current="page">Organise a fair</a><a href="/ai/">With / for AI</a><a href="/about/">About</a></nav>
 </div></header>
 <main>
 <section class="hero page-hero org-hero">
@@ -33,7 +35,7 @@
 <section class="section"><div class="wrap org-kit">
   <h2>What's inside</h2>
   <div class="tablewrap"><table class="kit-table"><thead><tr><th>File</th><th>What it is</th></tr></thead><tbody><tr><td><a href="/organise/skill-kit/SKILL.md"><code>SKILL.md</code></a></td><td>The skill itself: YAML front-matter, a 10-step walkthrough with NEST recommendations R1–R8, ending in stop-and-ask-the-human points.</td></tr><tr><td><a href="/organise/skill-kit/README.md"><code>README.md</code></a></td><td>How to use the kit with any agent, plus the licence.</td></tr><tr><td><a href="/organise/skill-kit/LICENSE.md"><code>LICENSE.md</code></a></td><td>CC BY 4.0.</td></tr><tr><td><a href="/organise/skill-kit/references/timeline-checklist.md"><code>references/timeline-checklist.md</code></a></td><td>12–10 weeks out → day-of → 90-day follow-up.</td></tr><tr><td><a href="/organise/skill-kit/references/employer-verification-anti-fraud.md"><code>references/employer-verification-anti-fraud.md</code></a></td><td>No candidate fees; signed job spec sheets; CIN/GSTIN check before a stall; no commission-only or MLM roles; red flags.</td></tr><tr><td><a href="/organise/skill-kit/references/government-channels.md"><code>references/government-channels.md</code></a></td><td>NCS/MCC, employment exchanges, NSDC/SSCs, PMKVY, DDU-GKY, placement cells (with URLs).</td></tr><tr><td><a href="/organise/skill-kit/references/crowd-and-safety.md"><code>references/crowd-and-safety.md</code></a></td><td>Capacity caps, arrival slots, sector zones, separate tokens, accessibility.</td></tr><tr><td><a href="/organise/skill-kit/references/data-and-consent.md"><code>references/data-and-consent.md</code></a></td><td>DPDP Act 2023 (sections 5 and 6) and Rules 2025-aware data handling; no political questions.</td></tr><tr><td><a href="/organise/skill-kit/references/metrics.md"><code>references/metrics.md</code></a></td><td>7-stage funnel (registered → still employed at 90 days), offer-to-joining rate, defined in advance.</td></tr><tr><td><a href="/organise/skill-kit/references/case-study-iyc-lessons.md"><code>references/case-study-iyc-lessons.md</code></a></td><td>Neutral IYC case study (2025–26) and the 10 lessons.</td></tr><tr><td><a href="/organise/skill-kit/references/sources.md"><code>references/sources.md</code></a></td><td>Every URL used in the kit.</td></tr><tr><td><a href="/organise/skill-kit/templates/employer-invite-and-vacancy-form.md"><code>templates/employer-invite-and-vacancy-form.md</code></a></td><td>Employer invitation, vacancy form and verification log.</td></tr><tr><td><a href="/organise/skill-kit/templates/job-spec-sheet.md"><code>templates/job-spec-sheet.md</code></a></td><td>Signed job spec sheet, one per role: in-hand pay vs CTC; on-roll / off-roll / gig.</td></tr><tr><td><a href="/organise/skill-kit/templates/candidate-slot-registration-form.md"><code>templates/candidate-slot-registration-form.md</code></a></td><td>Free slot registration with minimal fields.</td></tr><tr><td><a href="/organise/skill-kit/templates/consent-notice.md"><code>templates/consent-notice.md</code></a></td><td>Standalone plain-language consent notice following DPDP Act sections 5 and 6.</td></tr><tr><td><a href="/organise/skill-kit/templates/day-of-runbook.md"><code>templates/day-of-runbook.md</code></a></td><td>Timeline, desks (incl. central offer-logging desk), escalation and hourly counts.</td></tr><tr><td><a href="/organise/skill-kit/templates/offer-log.csv"><code>templates/offer-log.csv</code></a></td><td>Central offer log (CSV): one row per offer, logged at the offer desk.</td></tr><tr><td><a href="/organise/skill-kit/templates/volunteer-roster.csv"><code>templates/volunteer-roster.csv</code></a></td><td>Volunteer roster (CSV).</td></tr><tr><td><a href="/organise/skill-kit/templates/follow-up-tracker.csv"><code>templates/follow-up-tracker.csv</code></a></td><td>Joining / 30-day / 90-day follow-up tracker and helpline log (CSV).</td></tr><tr><td><a href="/organise/skill-kit/templates/post-fair-report.md"><code>templates/post-fair-report.md</code></a></td><td>Post-fair report with defined metrics and a corrections log.</td></tr></tbody></table></div>
-  <p class="note-sm">ZIP SHA-256: <code>589126f9269b7fc6a5ea5484633051574f119695bb08667388c01426a6435821</code></p>
+  <p class="note-sm">ZIP SHA-256: <code>4a9c0d9cc3ee87cb1bd3ea8d87f723a09771316b1014c5f625ce2097ebcc804d</code></p>
   <h2>How to use it</h2>
   <ol>
     <li><b>Agents that support Agent Skills:</b> unzip and copy the <code>job-fair-organiser/</code> folder into your agent's skills folder.</li>
@@ -286,6 +288,7 @@ what is ready and what is waiting for approval.</p></div>
     <a href="/about/#verify">How we verify</a>
     <a href="/about/">About</a>
     <a href="/calendar/sources.md">Sources</a>
+    <a href="https://chat.whatsapp.com/LrizRrfr6wZ4fDfxBnJp4l" target="_blank" rel="noopener">WhatsApp community</a>
     <a href="https://kinetic.curiosta.com/">Kinetic</a>
     </nav>
 </div></footer>

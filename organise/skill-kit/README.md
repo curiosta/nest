@@ -76,4 +76,4 @@ their own terms; the licence covers this kit's own text and templates.
 
 ## Feedback
 Suggestions and corrections are welcome through the NEST Collective WhatsApp
-community admins (ask Manoj or Manasi). No public invite link is published.
+community admins (Manoj or Manasi). Join the community: https://chat.whatsapp.com/LrizRrfr6wZ4fDfxBnJp4l
