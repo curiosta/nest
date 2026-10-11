@@ -75,5 +75,5 @@ Linked third-party sources (government documents and news articles) remain under
 their own terms; the licence covers this kit's own text and templates.
 
 ## Feedback
-Suggestions and corrections are welcome through the NEST Collective WhatsApp
-community admins (Manoj or Manasi). Join the community: https://chat.whatsapp.com/LrizRrfr6wZ4fDfxBnJp4l
+Suggestions and corrections are welcome through NEST Collective's founders
+(Manoj or Manasi) on WhatsApp. Join the community: https://chat.whatsapp.com/LrizRrfr6wZ4fDfxBnJp4l
