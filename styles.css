@@ -422,34 +422,44 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 .prose h4{font:600 1rem var(--sans);margin:1rem 0 .35rem}
 .choose h3[id]{font:600 1.25rem var(--serif);margin:1.6rem 0 .5rem;scroll-margin-top:calc(var(--nav-h) + 12px)}
 
-/* phase 4: mobile menu (<=720px). Colours: brand tokens + the topbar's existing text/overlay values. */
-.menu-btn{display:none}
-.menu-backdrop{position:fixed;left:0;right:0;bottom:0;top:var(--nav-h);z-index:49;background:rgba(4,23,38,.55)}
-.menu-backdrop[hidden]{display:none}
-@media(max-width:720px){
-  .js .menu-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;min-width:44px;padding:0 16px;margin-left:auto;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:transparent;color:#eaf4f8;font:600 .95rem var(--sans);cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .js .menu-btn:hover{background:rgba(255,255,255,.08)}
-  .js .menu-btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
-  .js .menu-btn[aria-expanded="true"]{background:var(--teal);border-color:var(--teal);color:var(--sea-900)}
-  .menu-ico{position:relative;width:18px;height:2px;background:currentColor;border-radius:2px;transition:background .15s}
-  .menu-ico::before,.menu-ico::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform .15s}
-  .menu-ico::before{top:-6px}.menu-ico::after{top:6px}
-  .menu-btn[aria-expanded="true"] .menu-ico{background:transparent}
-  .menu-btn[aria-expanded="true"] .menu-ico::before{transform:translateY(6px) rotate(45deg)}
-  .menu-btn[aria-expanded="true"] .menu-ico::after{transform:translateY(-6px) rotate(-45deg)}
-  .js .sectionnav{display:none}
-  .js .sectionnav.open{display:flex;flex-direction:column;flex-wrap:nowrap;gap:4px;position:absolute;top:100%;left:0;right:0;max-width:none;max-height:calc(100vh - var(--nav-h));max-height:calc(100dvh - var(--nav-h));overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;padding:10px 16px 18px;background:var(--sea-900);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);font:500 1.05rem var(--sans);animation:menu-down .16s ease-out}
-  .js .sectionnav.open a{display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:12px;white-space:normal}
-  .js .sectionnav.open a:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
-  html.menu-open,html.menu-open body{overflow:hidden}
-  html:not(.js) .topbar{position:static}
-  html:not(.js) .topbar .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
-  html:not(.js) .sectionnav{display:flex;flex-wrap:wrap;max-width:none;overflow:visible}
-  html:not(.js) .sectionnav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px}
-}
-@keyframes menu-down{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.js .sectionnav.open{animation:none}.menu-ico,.menu-ico::before,.menu-ico::after{transition:none}}
-
 /* phase 5: WhatsApp invite link readable on the dark hero */
 .hero .note a{color:var(--teal);font-weight:600}
 .hero .note a:hover{color:var(--coral)}
+
+/* phase 6: Kinetic-style header + nav (kinetic.curiosta.com scuba/styles.css, 11 Oct 2026) */
+html{scroll-padding-top:calc(var(--nav-h) + 16px)}
+.topbar .wrap{justify-content:flex-start;gap:22px}
+.wordmark{flex-shrink:0;font:inherit;letter-spacing:normal}
+.wordmark svg{width:30px;height:30px}
+.wordmark .wm-text{font-family:var(--sans);font-weight:800;font-size:1.32rem;letter-spacing:-.04em}
+.wordmark .wm-text b{color:var(--teal);font-weight:800}
+.sectionnav{display:flex;flex-wrap:nowrap;gap:4px;overflow-x:auto;scrollbar-width:none;margin-left:auto;max-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;font:inherit}
+.sectionnav::-webkit-scrollbar{display:none}
+.sectionnav a{color:#c7dbe6;text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.sectionnav a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.sectionnav a[aria-current="page"]{color:var(--sea-900);background:var(--teal)}
+.sectionnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.sectionnav.fade-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.sectionnav.fade-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px);mask-image:linear-gradient(90deg,transparent,#000 48px)}
+.sectionnav.fade-l.fade-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
+@media(max-width:1120px){.sectionnav a{padding:7px 12px}}
+@media(pointer:coarse){.sectionnav a{display:inline-flex;align-items:center;min-height:44px}}
+@media(max-width:640px){
+  :root{--nav-h:108px}
+  .topbar .wrap{flex-wrap:wrap;height:auto;padding-top:10px;row-gap:6px;column-gap:12px}
+  .sectionnav{display:flex;flex:0 0 calc(100% + 40px);width:calc(100% + 40px);margin:0 -20px;padding:2px 20px 10px;
+    scroll-snap-type:x proximity;scroll-padding-inline:20px;overscroll-behavior-x:contain}
+  .sectionnav a{scroll-snap-align:start;flex-shrink:0;background:rgba(255,255,255,.07);padding:0 14px;display:inline-flex;align-items:center;min-height:44px}
+  .sectionnav a:last-child{scroll-snap-align:end}
+  .sectionnav a[aria-current="page"]{background:var(--teal)}
+}
+@media print{.topbar{position:static}}
+
+/* phase 6: Curiosta brand-consistency + WCAG AA contrast fixes (axe-core 4.14, 11 Oct 2026) */
+.btn-primary,.btn-primary:hover{color:var(--sea-900)}
+.cal-day.today .n{color:var(--bad)}
+.chip-ev.past{color:var(--ink)}
+.evi.isp,ul.dated li.isp{opacity:1}
+.kitbox .note-sm{color:var(--ink-2)}
+.ai-tag.for{color:var(--ink)}
+.mindmap-wrap:focus-visible,.kit-preview table:focus-visible{outline:2px solid var(--sea-500);outline-offset:2px}

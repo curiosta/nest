@@ -144,21 +144,21 @@
     const hubs = ev.filter(f => hubsForMonth(f, cur));
     let h = '<div class="cal-month"><h2>' + NAMES[m - 1] + " " + y +
       "<small>" + dated.length + " dated · " + hubs.length + (hubs.length === 1 ? " hub / series" : " hubs / series") + " this month</small></h2>" +
-      '<div class="cal-grid" role="grid" aria-label="' + NAMES[m - 1] + " " + y + '">';
-    for (const d of ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]) h += '<div class="cal-dow" role="columnheader">' + d + "</div>";
+      '<div class="cal-grid" role="group" aria-label="' + NAMES[m - 1] + " " + y + '">';
+    for (const d of ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]) h += '<div class="cal-dow" aria-hidden="true">' + d + "</div>";
     for (let i = 0; i < lead; i++) h += '<div class="cal-day pad" aria-hidden="true"></div>';
     for (let d = 1; d <= nd; d++) {
       const iso = cur + "-" + pad(d);
       const on = dated.filter(f => f.start === iso);
       const chips = on.map(f => {
         const past = isPast(f);
-        return '<span class="chip-ev ' + (past ? "past" : f.org) + '" title="' + esc(f.name) + " (" + esc(f.when) + ')">' + esc(shortName(f)) + "</span>";
+        return '<span class="chip-ev ' + (past ? "past" : f.org) + '" title="' + esc(f.name) + " (" + esc(f.when) + ')">' + esc(shortName(f)) + '<span class="sr-only">; </span></span>';
       }).join("");
       const dots = on.map(f => '<span class="dot ' + (isPast(f) ? "past" : f.org) + '"></span>').join("");
       const lab = d + " " + NAMES[m - 1] + (on.length ? ": " + on.map(f => f.name).join(", ") : "");
       const todayCls = iso === TODAY ? " today" : "";
       if (on.length) {
-        h += '<button type="button" class="cal-day' + todayCls + '" data-d="' + iso + '" aria-label="' + esc(lab) + '"><span class="n">' + d + "</span>" + chips + '<span class="cal-dots">' + dots + "</span></button>";
+        h += '<button type="button" class="cal-day' + todayCls + '" data-d="' + iso + '" ><span class="n">' + d + '</span><span class="sr-only"> ' + NAMES[m - 1] + ': </span>' + chips + '<span class="cal-dots" aria-hidden="true">' + dots + "</span></button>";
       } else {
         h += '<div class="cal-day' + todayCls + '"><span class="n">' + d + "</span></div>";
       }
