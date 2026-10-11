@@ -381,3 +381,16 @@
     console.error("NEST calendar:", err);
   }
 })();
+// phase 10: on the swipeable mobile chip row, keep the pressed Domain chip in view
+(function () {
+  const row = document.querySelector(".fgroup-scroll .chip-row");
+  if (!row) return;
+  function show() {
+    const b = row.querySelector('.chip[aria-pressed="true"]');
+    if (!b || row.scrollWidth <= row.clientWidth) return;
+    const l = b.offsetLeft - row.offsetLeft, r = l + b.offsetWidth;
+    if (l < row.scrollLeft || r > row.scrollLeft + row.clientWidth) row.scrollLeft = Math.max(0, l - 16);
+  }
+  window.addEventListener("load", show);
+  row.addEventListener("click", () => setTimeout(show, 0));
+})();
