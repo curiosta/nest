@@ -473,3 +473,54 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 .giscus-embed{min-height:120px}
 .giscus-embed .giscus,.giscus-embed .giscus-frame{width:100%;max-width:860px}
 #comments{scroll-margin-top:calc(var(--nav-h) + 16px)}
+
+/* phase 8: /organise/ table of contents, tips in each step, back-to-top */
+.org{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+.toc{position:static;display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;font-size:.95rem}
+.toc-d>summary{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 16px;cursor:pointer;list-style:none;font:700 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sea-500)}
+.toc-d>summary::-webkit-details-marker{display:none}
+.toc-d>summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px;transition:transform .2s}
+.toc-d[open]>summary::after{transform:rotate(225deg);margin-top:4px}
+.toc-d>summary:focus-visible{outline:2px solid var(--sea-500);outline-offset:-2px;border-radius:var(--radius)}
+.toc-list{list-style:none;margin:0;padding:4px 8px 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 8px}
+.toc-list a{display:flex;align-items:center;min-height:44px;padding:0 10px;border-radius:10px;color:var(--ink-2);text-decoration:none;line-height:1.25}
+.toc-list a:hover{background:var(--sand);color:var(--ink)}
+.toc-list a[aria-current]{background:var(--teal-soft);color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--sea-500)}
+.toc-list a:focus-visible{outline:2px solid var(--sea-500);outline-offset:1px}
+@media(max-width:420px){.toc-list{grid-template-columns:1fr}}
+@media(min-width:1024px){
+  .org{grid-template-columns:232px minmax(0,1fr);gap:36px}
+  .toc{position:sticky;top:calc(var(--nav-h) + 16px);max-height:calc(100vh - var(--nav-h) - 32px);overflow:auto;padding:12px 8px}
+  .toc-d>summary{display:none}
+  .toc-list{display:flex;flex-direction:column;padding:0}
+  .toc-list a{min-height:36px;font-size:.9rem}
+  .toc::before{content:"On this page";display:block;font:700 .72rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sea-500);padding:4px 10px 8px}
+}
+/* html already has scroll-padding-top (nav-h + 16px), so anchors need no extra scroll-margin */
+.org-main h2[id],.org-main .casebox[id],.org-main .tip-list>li[id]{scroll-margin-top:0}
+.org-main .org-sec>h2{margin-top:2rem}
+.org-main .org-sec:first-child>h2{margin-top:0}
+.back-top{margin:.9rem 0 0;text-align:right;font-size:.88rem}
+.back-top a{color:var(--sea-500);display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+.back-top a::before{content:"\2191";margin-right:.35em}
+.tips{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral);border-radius:var(--radius);padding:14px 18px 6px;margin:1.1rem 0 .4rem}
+.org-main .tips-h{font:700 .78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--sea-500);margin:0 0 .4rem}
+.tip-list{padding-left:1.1rem;margin:0}
+.tip-list>li{margin:.2rem 0 .75rem}
+.tip-list>li:target{background:var(--coral-soft);border-radius:8px;box-shadow:0 0 0 6px var(--coral-soft)}
+.iyc-note,.iyc-mark{display:inline-block;font:600 .7rem/1.4 var(--mono);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;border-radius:999px;padding:1px 8px;vertical-align:1px}
+.iyc-note{color:var(--sea-700);background:var(--teal-soft);text-decoration:none}
+.iyc-note:hover{background:var(--teal);color:var(--sea-900)}
+.iyc-mark{color:var(--sea-700);background:var(--teal-soft)}
+.nest-sugg{display:inline-block;font:600 .7rem/1.4 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);background:var(--coral-soft);border-radius:999px;padding:1px 8px;vertical-align:1px}
+.glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:1rem 0}
+.glance-step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 16px}
+.org-main .glance-step h3{font:700 1rem var(--sans);margin:.1rem 0 .5rem}
+.glance-step h3 a{color:var(--ink);text-decoration:none}
+.glance-step h3 a:hover{text-decoration:underline}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{position:relative;padding-left:28px;margin:.45rem 0;font-size:.95rem}
+.checklist li::before{content:"";position:absolute;left:0;top:.2em;width:16px;height:16px;border:2px solid var(--sea-500);border-radius:4px}
+.checklist a{color:var(--ink);text-decoration-color:var(--line)}
+.checklist a:hover{color:var(--sea-500)}
+@media(max-width:640px){.glance{grid-template-columns:1fr}}

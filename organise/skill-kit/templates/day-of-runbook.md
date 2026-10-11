@@ -26,7 +26,7 @@
 - **Entry:** slot check, zone token issue, no-fee leaflet, accessibility priority lane.
 - **Zone desks (A/B/C…):** call tokens in order, show the live number, send candidates to the right stall, keep the waiting area seated.
 - **Help desk:** job board copies, which booths are CV-only, directions, grievances, women's help desk.
-- **Central offer-logging desk (NEST rec. R4):** every offer is logged here in `offer-log.csv` (offer ID, role, CTC and in-hand pay, engagement type, location, joining date) and the candidate gets a copy. No loose paper slips. Shortlists are logged as shortlists.
+- **Central offer-logging desk (a NEST tip):** every offer is logged here in `offer-log.csv` (offer ID, role, CTC and in-hand pay, engagement type, location, joining date) and the candidate gets a copy. No loose paper slips. Shortlists are logged as shortlists.
 - **Data desk:** live counts, incident log, collects employer sheets. No candidate data on personal phones or in public groups.
 - **Welfare:** water, first aid, shade, seating, accessible toilets.
 
@@ -35,7 +35,7 @@
 |---|---|
 | Crowd building at the gate | Pause entry, open the holding area, announce the slot times, call the incident lead |
 | Barricade pressure or pushing | Stop entry immediately, marshals to the spot, call venue security and police liaison |
-| Employer offers a commission-only / MLM role, or terms differ from the signed spec sheet | Pause that stall's calls, record it, raise with the employer desk lead (R1, R3) |
+| Employer offers a commission-only / MLM role, or terms differ from the signed spec sheet | Pause that stall's calls, record it, raise with the employer desk lead |
 | Employer asks a candidate for money | Remove the employer's stall from calling, record details, tell the candidate how to report on 1930 / cybercrime.gov.in |
 | Medical issue | First aid, then ambulance; log it |
 | Media or VIP visit | Keep the floor running; no speeches during interview hours |

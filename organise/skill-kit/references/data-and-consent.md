@@ -32,7 +32,7 @@
   and plain language, with the English / Eighth Schedule language option and the
   contact details of a person who responds on the person's rights (s.6(3)).
   Consent can be withdrawn at any time, as easily as it was given (s.6(4)).
-- **NEST recommendation (R7):** use an unticked consent box after the notice,
+- **NEST tip:** use an unticked consent box after the notice,
   keep optional follow-up consent separate, and map each notice element to the
   section it meets. `templates/consent-notice.md` does this.
 - Even where a provision has not yet come into force for you, follow these

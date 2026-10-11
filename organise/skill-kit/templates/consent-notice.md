@@ -4,7 +4,7 @@
 > **unticked** consent box. Use plain language and offer it in English and the local
 > language(s). The wording follows sections 5 and 6 of the Digital Personal Data
 > Protection Act, 2023 and the DPDP Rules, 2025 notice elements (see
-> `../references/data-and-consent.md`). This is NEST's recommended wording (R7), not
+> `../references/data-and-consent.md`). This is NEST's recommended wording, not
 > legal advice. Replace every `{{…}}`.
 
 **Who we are.** {{ORGANISER_NAME}} is organising {{FAIR_NAME}} on {{DATE}}.

@@ -12,6 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306243a'/%3E%3Cpath d='M8 22V10l8 6 8-6v12' stroke='%2311b5a4' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
 <script src="/nav.js" defer></script>
+<script src="/organise/toc.js" defer></script>
 </head>
 <body>
 <header class="topbar"><div class="wrap">
@@ -19,7 +20,7 @@
   <nav class="sectionnav" id="primary-nav" aria-label="Primary"><a href="/">Home</a><a href="/domains/">Domains</a><a href="/calendar/">Fair calendar</a><a href="/organise/" aria-current="page">Organise a fair</a><a href="/ai/">With / for AI</a><a href="/about/">About</a></nav>
 </div></header>
 <main>
-<section class="hero page-hero org-hero"><div class="wrap">
+<section class="hero page-hero org-hero" id="top"><div class="wrap">
   <div class="crumbs"><a href="/">NEST</a> / organise</div>
   <span class="eyebrow">Guide · India</span>
   <h1>How to organise a job fair</h1>
@@ -32,35 +33,48 @@
 </div></section>
 
 <section class="section"><div class="wrap org">
-  <nav class="toc" aria-label="On this page">
-    <b>On this page</b>
-    <a href="#goals">1 · Goals &amp; audience</a>
-    <a href="#partners">2 · Government channels</a>
-    <a href="#timeline">3 · Timeline &amp; checklist</a>
-    <a href="#venue">4 · Venue, access &amp; safety</a>
-    <a href="#employers">5 · Employers &amp; anti-fraud</a>
-    <a href="#candidates">6 · Registration &amp; pre-screening</a>
-    <a href="#online">7 · Online mela option</a>
-    <a href="#dayof">8 · Day-of flow</a>
-    <a href="#outcomes">9 · Measuring outcomes</a>
-    <a href="#recommend">10 · NEST recommendations</a>
-    <a href="#case">Case study: IYC fairs</a>
-    <a href="#kit">Download the skill kit</a>
-    <a href="#submit">Submit to NEST</a>
-    <a href="#sources">Sources</a>
+  <nav class="toc" id="org-toc" aria-label="On this page">
+    <details class="toc-d" open>
+      <summary>Jump to</summary>
+      <ol class="toc-list">
+        <li><a href="#goals">Goals &amp; audience</a></li>
+        <li><a href="#partners">Government partners</a></li>
+        <li><a href="#timeline">Plan &amp; timeline</a></li>
+        <li><a href="#venue">Venue &amp; safety</a></li>
+        <li><a href="#employers">Employers</a></li>
+        <li><a href="#candidates">Registration</a></li>
+        <li><a href="#online">Online option</a></li>
+        <li><a href="#dayof">On the day</a></li>
+        <li><a href="#outcomes">Follow-up &amp; outcomes</a></li>
+        <li><a href="#tips">All tips at a glance</a></li>
+        <li><a href="#case">IYC case study</a></li>
+        <li><a href="#kit">Skill kit</a></li>
+        <li><a href="#submit">Submit your fair</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </details>
   </nav>
 
   <div class="prose org-main">
 
-  <h2 id="goals">1 · Goals and audience</h2>
+  <section class="org-sec" aria-labelledby="goals">
+  <h2 id="goals">Goals and audience</h2>
   <ul>
     <li><b>Pick the roles first.</b> NEST lists fairs that <b>include physical-domain jobs</b> (mixed multi-sector is fine; desk-only is out). Choose the domains you serve from <a href="/domains/">NEST's 13 domains</a>, then invite the employers that hire for them.</li>
     <li><b>Know your audience.</b> NSDC Rozgar Melas mainly target youth aged 18–35, with qualifications ranging from 8th/10th/12th pass to ITI, diploma and graduate, including NSQF-certified candidates<sup class="cite"><a href="#src-pib-rm">[8]</a></sup>.</li>
-    <li><b>Be explicit about physical and field roles.</b> <span class="lesson">Lesson 5</span> For each role, state the shift length, physical demands, uniform or safety gear, travel, and whether transport or accommodation is provided. Run an ITI/diploma track. Share commute and shift-timing details with women candidates up front.</li>
-    <li><b>Stay neutral.</b> <span class="lesson">Lesson 8</span> Brand the fair around candidates and community partners (colleges, ITIs, NGOs, resident groups). Keep speeches short so the floor runs on time.</li>
   </ul>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-field-roles"><b>Be explicit about physical and field roles.</b> For each role, state the shift length, physical demands, uniform or safety gear, travel, and whether transport or accommodation is provided. Run an ITI/diploma track. Share commute and shift-timing details with women candidates up front. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-neutral"><b>Stay neutral.</b> Brand the fair around candidates and community partners (colleges, ITIs, NGOs, resident groups). Keep speeches short so the floor runs on time. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+    </ul>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="partners">2 · Partner with government channels</h2>
+  <section class="org-sec" aria-labelledby="partners">
+  <h2 id="partners">Partner with government channels</h2>
   <p>You don't have to do this alone. India already has public job-fair infrastructure:</p>
   <div class="org-grid">
     <div class="card"><h3>National Career Service (NCS)</h3><p>Model Career Centres (MCCs) and employment exchanges <b>create the job-fair event on the NCS portal</b>. Employers post vacancies there, and eligible candidates are notified by SMS or email. This works for online and on-campus fairs<sup class="cite"><a href="#src-dge-ncs">[1]</a></sup>. MCC guidelines ask each centre to organise at least one job fair a month and one mega fair a year, and the portal has a job-fair module for online and offline fairs<sup class="cite"><a href="#src-mcc-pdf">[2]</a></sup>. Find your nearest MCC<sup class="cite"><a href="#src-dge-mcc">[3]</a></sup> and see current listings<sup class="cite"><a href="#src-ncs-list">[5]</a></sup> on the NCS portal<sup class="cite"><a href="#src-ncs">[4]</a></sup>.</p></div>
@@ -69,81 +83,160 @@
     <div class="card"><h3>DDU-GKY (rural youth)</h3><p>Under DDU-GKY, job melas are organised by State Rural Livelihood Missions, directly or with project partners, at block and Gram Panchayat level. The guidelines call for registration and counselling, due diligence on employers (only those with a good track record) and <b>tracking placement outcomes for one year</b><sup class="cite"><a href="#src-ddugky">[14]</a></sup>.</p></div>
     <div class="card"><h3>Colleges, ITIs and polytechnics</h3><p>Placement cells already run drives and publish notices (example: a government polytechnic's placement board<sup class="cite"><a href="#src-gpbbsr">[23]</a></sup>). India's ITI network has 14,643 institutes<sup class="cite"><a href="#src-dgt">[13]</a></sup>, which makes ITIs a natural host and source of candidates for trades fairs.</p></div>
   </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="timeline">3 · Timeline and checklist</h2>
-  <p class="note-sm">This timeline is <b>NEST's suggested plan</b>, built from the sources and lessons on this page. It is not an official government schedule. Adjust it to your scale.</p>
+  <section class="org-sec" aria-labelledby="timeline">
+  <h2 id="timeline">Plan and timeline</h2>
+  <p class="note-sm">This timeline is <b>NEST's suggested plan</b>, built from the sources and tips on this page. It is not an official government schedule. Adjust it to your scale.</p>
   <ol class="timeline">
-    <li><span class="wk">12–10 weeks out</span><div><b>Plan and partner.</b> Fix goals, roles and domains. Approach your MCC or employment exchange, SSC, ITI or college, and (for rural fairs) the SRLM. Shortlist venues. <b>Define your metrics now</b> <span class="lesson">Lesson 6</span> and write a short candidate-data and privacy note <span class="lesson">Lesson 7</span>. Agree neutral branding <span class="lesson">Lesson 8</span>.</div></li>
-    <li><span class="wk">10–8 weeks</span><div><b>Recruit employers.</b> Aim for a mix of staffing firms (volume) and local employers (jobs near home). Get a short <b>written commitment</b> from each: open roles, pay band, work location, interview format (on-the-spot or CV-only) <span class="lesson">Lesson 4</span>. Verify every employer (section 5): check the CIN or GSTIN before confirming a stall <a class="rec" href="#rec-2">NEST rec. R2</a> and collect a <b>signed job spec sheet</b> for every role <a class="rec" href="#rec-1">NEST rec. R1</a>.</div></li>
-    <li><span class="wk">8–6 weeks</span><div><b>Open registration.</b> Ask your MCC or exchange to list the fair on NCS<sup class="cite"><a href="#src-dge-ncs">[1]</a></sup>. Publish one canonical page with a QR code that stays live, eligibility, a documents checklist and an FAQ, plus an SMS or broadcast update channel <span class="lesson">Lesson 9</span>.</div></li>
-    <li><span class="wk">6–4 weeks</span><div><b>Venue safety and access.</b> Set a capacity cap. Plan barricading, marshals and a liaison with local police or venue security, following NDMA's crowd guide<sup class="cite"><a href="#src-ndma">[18]</a></sup> <span class="lesson">Lesson 1</span>. Run an accessibility check against the Harmonised Guidelines<sup class="cite"><a href="#src-hg2021">[19]</a></sup>.</div></li>
-    <li><span class="wk">4–2 weeks</span><div><b>Publish the job board</b> at least a week before: role, vacancies, location, in-hand pay, shift and hours, minimum qualification <span class="lesson">Lesson 2</span>. Pre-screen registrants into <b>zones</b> and send <b>arrival time slots</b> <span class="lesson">Lesson 3</span> <span class="lesson">Lesson 1</span>.</div></li>
-    <li><span class="wk">Final week</span><div><b>Confirm and brief.</b> Reconfirm employers and flag CV-only booths. Print zone signage and token displays. Brief volunteers. Publish the helpline number (kept running for 90 days after the fair <a class="rec" href="#rec-8">NEST rec. R8</a>) and the "no fees" notice <span class="lesson">Lesson 10</span>.</div></li>
-    <li><span class="wk">Day of</span><div><b>Run the flow</b> in section 8. Keep the walk-in lane capped and show its status.</div></li>
-    <li><span class="wk">After (7 / 30 / 90 days)</span><div><b>Follow up</b> with everyone who received a logged offer. Log joining problems by employer, collect feedback, and publish your funnel numbers (section 9) <span class="lesson">Lesson 10</span> <span class="lesson">Lesson 6</span> <a class="rec" href="#rec-5">NEST rec. R5</a>.</div></li>
+    <li><span class="wk">12–10 weeks out</span><div><b>Plan and partner.</b> Fix goals, roles and domains. Approach your MCC or employment exchange, SSC, ITI or college, and (for rural fairs) the SRLM. Shortlist venues. <b>Define your metrics now</b> and write a short candidate-data and privacy note. Agree neutral branding.</div></li>
+    <li><span class="wk">10–8 weeks</span><div><b>Recruit employers.</b> Aim for a mix of staffing firms (volume) and local employers (jobs near home). Get a short <b>written commitment</b> from each: open roles, pay band, work location, interview format (on-the-spot or CV-only). Verify every employer (see <a href="#employers">Employers</a>): <a href="#tip-cin">check the CIN or GSTIN before confirming a stall</a> and collect a <a href="#tip-spec"><b>signed job spec sheet</b></a> for every role.</div></li>
+    <li><span class="wk">8–6 weeks</span><div><b>Open registration.</b> Ask your MCC or exchange to list the fair on NCS<sup class="cite"><a href="#src-dge-ncs">[1]</a></sup>. Publish one canonical page with a QR code that stays live, eligibility, a documents checklist and an FAQ, plus an SMS or broadcast update channel.</div></li>
+    <li><span class="wk">6–4 weeks</span><div><b>Venue safety and access.</b> Set a capacity cap. Plan barricading, marshals and a liaison with local police or venue security, following NDMA's crowd guide<sup class="cite"><a href="#src-ndma">[18]</a></sup>. Run an accessibility check against the Harmonised Guidelines<sup class="cite"><a href="#src-hg2021">[19]</a></sup>.</div></li>
+    <li><span class="wk">4–2 weeks</span><div><b>Publish the job board</b> at least a week before: role, vacancies, location, in-hand pay, shift and hours, minimum qualification. Pre-screen registrants into <b>zones</b> and send <b>arrival time slots</b>.</div></li>
+    <li><span class="wk">Final week</span><div><b>Confirm and brief.</b> Reconfirm employers and flag CV-only booths. Print zone signage and token displays. Brief volunteers. Publish the helpline number (kept running <a href="#tip-helpline">for 90 days after the fair</a>) and the "no fees" notice.</div></li>
+    <li><span class="wk">Day of</span><div><b>Run the flow</b> in <a href="#dayof">On the day</a>. Keep the walk-in lane capped and show its status.</div></li>
+    <li><span class="wk">After (7 / 30 / 90 days)</span><div><b>Follow up</b> with everyone who received a logged offer. Log joining problems by employer, collect feedback, and publish your <a href="#tip-funnel">funnel numbers</a>.</div></li>
   </ol>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="venue">4 · Venue, logistics, accessibility and safety</h2>
+  <section class="org-sec" aria-labelledby="venue">
+  <h2 id="venue">Venue, logistics, accessibility and safety</h2>
   <ul>
-    <li><b>Size to capacity, then cap.</b> <span class="lesson">Lesson 1</span> Base the cap on interview seats × hours available. Send arrival slots (by qualification band or surname) and keep a separate, capped walk-in lane.</li>
     <li><b>Crowd plan.</b> NDMA's guide for organisers covers crowd-management planning, risk analysis, safety and security, emergency medical services, information dissemination and traffic management<sup class="cite"><a href="#src-ndma">[18]</a></sup>. Agree barricading, marshals and police or venue-security liaison in advance.</li>
     <li><b>Floor layout.</b> Split the floor into a waiting area and a stall area, grouped by sector zone (see the case study).</li>
     <li><b>Accessibility.</b> Use the Harmonised Guidelines and Space Standards for Universal Accessibility (2021) when checking entrances, circulation and facilities<sup class="cite"><a href="#src-hg2021">[19]</a></sup>. Keep a help desk for persons with disabilities and anyone who needs assistance.</li>
   </ul>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-cap"><b>Size to capacity, then cap.</b> Base the cap on interview seats × hours available. Send arrival slots (by qualification band or surname) and keep a separate, capped walk-in lane. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+    </ul>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="employers">5 · Recruiting and verifying employers (anti-fraud)</h2>
+  <section class="org-sec" aria-labelledby="employers">
+  <h2 id="employers">Recruiting and verifying employers (anti-fraud)</h2>
   <ul>
     <li><b>Due diligence.</b> DDU-GKY guidelines allow only employers with a good track record to take part<sup class="cite"><a href="#src-ddugky">[14]</a></sup>. Check each company's official website and careers page, and confirm the recruiter is really from that company.</li>
-    <li><b>Written commitment.</b> <span class="lesson">Lesson 4</span> Roles, vacancies, pay band, location, interview format. Disclose staffing and outsourcing firms as such. NEST recommends making this a <b>signed job spec sheet</b> per role, with in-hand pay vs CTC and on-roll / off-roll / gig stated <a class="rec" href="#rec-1">NEST rec. R1</a>, and keeping commission-only and MLM roles out <a class="rec" href="#rec-3">NEST rec. R3</a>.</li>
-    <li><b>No fees from candidates, ever.</b> <span class="lesson">Lesson 10</span> The Ministry of Labour &amp; Employment has said the NCS portal never charges for registration, applications or interviews. Report fraud on the 1930 helpline or the National Cyber Crime Reporting Portal<sup class="cite"><a href="#src-scam">[16]</a></sup><sup class="cite"><a href="#src-cyber">[17]</a></sup>. Announce this at the gate, on signage and on every token: <i>"No genuine employer here will ask for any fee. Verify every offer on the employer's official site."</i></li>
+    <li><b>No fees from candidates, ever.</b> The Ministry of Labour &amp; Employment has said the NCS portal never charges for registration, applications or interviews. Report fraud on the 1930 helpline or the National Cyber Crime Reporting Portal<sup class="cite"><a href="#src-scam">[16]</a></sup><sup class="cite"><a href="#src-cyber">[17]</a></sup>. Announce this at the gate, on signage and on every token: <i>"No genuine employer here will ask for any fee. Verify every offer on the employer's official site."</i></li>
   </ul>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-commit"><b>Mix employers and get commitments in writing.</b> Staffing firms bring volume; local employers bring jobs near home. Get each employer's roles, vacancies, pay band, location and interview format in writing, say in advance which booths only collect CVs, and disclose staffing and outsourcing firms as such. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-spec"><b>Signed job spec sheet.</b> Before a stall is confirmed, the employer signs one sheet per role: work location, shift, qualification, physical demands, and pay shown two ways: <b>monthly CTC</b> and <b>expected in-hand pay</b> (after deductions such as PF, ESIC and professional tax, where they apply), with any variable or incentive pay listed separately. The sheet also states the engagement type: <b>on-roll</b> (the employer's own payroll), <b>off-roll</b> (a staffing or third-party payroll, naming the principal employer) or <b>gig</b> (per task or shift, no fixed monthly salary). Publish the key fields on the job board. Template: <code>templates/job-spec-sheet.md</code>.</li>
+      <li id="tip-cin"><b>CIN or GSTIN check before a stall.</b> Check the company's CIN on the MCA portal<sup class="cite"><a href="#src-mca">[35]</a></sup> or its GSTIN on the GST portal's taxpayer search<sup class="cite"><a href="#src-gst">[36]</a></sup> before giving it a stall, and record the result in the verification log. For organisations without either, record which registration you checked. No check, no stall.</li>
+      <li id="tip-no-mlm"><b>No commission-only or MLM roles.</b> Roles with no fixed base pay (commission-only) and multi-level or network-marketing schemes don't get a stall. This sits alongside the rule that candidates never pay anything<sup class="cite"><a href="#src-scam">[16]</a></sup>.</li>
+    </ul>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="candidates">6 · Candidate registration and pre-screening</h2>
+  <section class="org-sec" aria-labelledby="candidates">
+  <h2 id="candidates">Candidate registration and pre-screening</h2>
   <ul>
-    <li><b>Free, simple, consented.</b> <span class="lesson">Lesson 7</span> Collect only job-relevant fields: qualification, trade, preferred sector, how far they can travel. Show a short privacy notice. Share a candidate's details only with employers the candidate chooses, and delete or anonymise data after a stated period. <b>Never ask about political, religious or electoral affiliation.</b> For consent wording that follows sections 5 and 6 of the DPDP Act, 2023, see <a class="rec" href="#rec-7">NEST rec. R7</a>.</li>
-    <li><b>One live page plus a QR code.</b> <span class="lesson">Lesson 9</span> If online slots fill up, say so on the page and give the walk-in time and cap.</li>
     <li><b>Encourage NCS registration</b> so candidates also get future vacancy alerts by SMS or email<sup class="cite"><a href="#src-dge-ncs">[1]</a></sup>.</li>
-    <li><b>Pre-screen into zones.</b> <span class="lesson">Lesson 3</span> For example: Zone A, ITI/technical and field roles; Zone B, retail, sales and logistics; Zone C, graduate and office roles. Issue zone tokens, not one global queue.</li>
   </ul>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-data"><b>Free, simple, consented.</b> Collect only job-relevant fields: qualification, trade, preferred sector, how far they can travel. Show a short privacy notice. Share a candidate's details only with employers the candidate chooses, and delete or anonymise data after a stated period. <b>Never ask about political, religious or electoral affiliation.</b> For consent wording that follows sections 5 and 6 of the DPDP Act, 2023, see <a href="#tip-consent">the next tip</a>. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-consent"><b>Consent wording that follows DPDP sections 5 and 6.</b> Under section 5 of the DPDP Act, 2023, a consent request must come with or after a notice that itemises the personal data and the purpose, explains how to withdraw consent and use the Act's rights, and explains how to complain to the Data Protection Board. The notice must be available in English or a language in the Eighth Schedule. Under section 6, consent must be free, specific, informed, unconditional and unambiguous, given by a clear affirmative action (an unticked box the candidate ticks), limited to the data needed for the purpose, presented in clear and plain language with a contact person, and as easy to withdraw as it was to give<sup class="cite"><a href="#src-dpdp-act">[33]</a></sup><sup class="cite"><a href="#src-dpdp-ic">[34]</a></sup>. Sample wording: <code>templates/consent-notice.md</code>. Not legal advice.</li>
+      <li id="tip-live-page"><b>One live page plus a QR code.</b> If online slots fill up, say so on the page and give the walk-in time and cap. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-job-board"><b>Publish the job board early.</b> Publish each role's openings, work location, in-hand pay, shift and minimum qualification at least a week before the fair. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-zones"><b>Pre-screen into zones.</b> For example: Zone A, ITI/technical and field roles; Zone B, retail, sales and logistics; Zone C, graduate and office roles. Issue zone tokens, not one global queue. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+    </ul>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="online">7 · Online mela option</h2>
+  <section class="org-sec" aria-labelledby="online">
+  <h2 id="online">Online mela option</h2>
   <p>The NCS portal supports online job fairs: the MCC or exchange creates the event, employers post vacancies, and candidates are notified<sup class="cite"><a href="#src-dge-ncs">[1]</a></sup><sup class="cite"><a href="#src-mcc-pdf">[2]</a></sup>. NSDC JobX is another official hub for drives<sup class="cite"><a href="#src-jobx">[15]</a></sup>. A hybrid model works well for physical roles: online pre-screening and interview slots, then on-site skill trials (for example a welding or driving test) for shortlisted candidates.</p>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="dayof">8 · Day-of flow</h2>
+  <section class="org-sec" aria-labelledby="dayof">
+  <h2 id="dayof">On the day</h2>
   <ol class="flow">
-    <li><b>Arrival by slot</b>, plus a capped walk-in lane with its status shown <span class="lesson">Lesson 9</span>.</li>
-    <li><b>Registration and verification desk:</b> check documents, issue a <b>zone token</b> <span class="lesson">Lesson 3</span>.</li>
+    <li><b>Arrival by slot</b>, plus a capped walk-in lane with its status shown.</li>
+    <li><b>Registration and verification desk:</b> check documents, issue a <b>zone token</b>.</li>
     <li><b>Waiting area</b> with a live token display per zone.</li>
-    <li><b>Stall interviews</b> in sector zones. CV-only booths are labelled <span class="lesson">Lesson 4</span>.</li>
-    <li><b>Central offer-logging desk:</b> every offer is logged centrally instead of on loose paper slips; second-round shortlists are recorded separately <a class="rec" href="#rec-4">NEST rec. R4</a>.</li>
+    <li><b>Stall interviews</b> in sector zones. CV-only booths are labelled.</li>
+    <li><b>Central offer-logging desk:</b> every offer is logged centrally instead of on loose paper slips; second-round shortlists are recorded separately.</li>
     <li><b>Counselling and skilling counter:</b> NSDC melas pair placement with counselling, Kaushal Mela registration for PMKK/PMKVY training, and Mudra loan facilitation<sup class="cite"><a href="#src-pib-rm">[8]</a></sup>.</li>
-    <li><b>Exit feedback</b>, plus the helpline number and the "no fees" reminder <span class="lesson">Lesson 10</span>.</li>
+    <li><b>Exit feedback</b>, plus the helpline number and the "no fees" reminder.</li>
   </ol>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-offer-desk"><b>Central offer-logging desk.</b> Instead of employers handing out paper slips, each offer is logged at one central desk: offer ID, employer, role, CTC and in-hand pay, location, engagement type and joining date. The candidate gets a copy of the entry. Shortlists and second-round invites are logged as such, not as offers. Template: <code>templates/offer-log.csv</code>.</li>
+    </ul>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
-  <h2 id="outcomes">9 · Measuring outcomes</h2>
-  <p><span class="lesson">Lesson 6</span> Decide before the fair what you will count, and report each stage separately:</p>
+  <section class="org-sec" aria-labelledby="outcomes">
+  <h2 id="outcomes">Follow-up and measuring outcomes</h2>
+  <p>Decide before the fair what you will count, and report each stage separately:</p>
   <p class="funnel">1 Registered → 2 Attended → 3 Interviewed → 4 Offer logged → 5 Joined → 6 Employed at 30 days → <b>7 Still employed at 90 days</b></p>
   <ul>
-    <li>This 7-stage funnel is a NEST recommendation <a class="rec" href="#rec-5">NEST rec. R5</a>. Count shortlists and second-round invites separately: they are not offers.</li>
     <li>Count internships apart from jobs, and keep "offer", "joining" and "placement" as separate terms.</li>
     <li>DDU-GKY expects placement outcomes to be tracked for one year<sup class="cite"><a href="#src-ddugky">[14]</a></sup>. Even a small community fair can do 7-, 30- and 90-day check-ins.</li>
     <li>Publish your numbers honestly. For a community group, credibility counts for more than a big headline figure.</li>
   </ul>
-
-
-  <h2 id="recommend">10 · NEST recommendations</h2>
-  <p class="note-sm"><b>These are NEST's recommendations</b>: practical ideas we suggest to organisers, not legal requirements or official government rules. Where a law or an official lookup tool is mentioned, it is cited. The kit's templates put them into practice.</p>
-  <div class="rec-grid">
-    <div class="card rec-card" id="rec-1"><span class="rec-tag">R1 · Employers</span><h3>Signed job spec sheet</h3><p>Before a stall is confirmed, the employer signs one sheet per role: work location, shift, qualification, physical demands, and pay shown two ways: <b>monthly CTC</b> and <b>expected in-hand pay</b> (after deductions such as PF, ESIC and professional tax, where they apply), with any variable or incentive pay listed separately. The sheet also states the engagement type: <b>on-roll</b> (the employer's own payroll), <b>off-roll</b> (a staffing or third-party payroll, naming the principal employer) or <b>gig</b> (per task or shift, no fixed monthly salary). Publish the key fields on the job board. Template: <code>templates/job-spec-sheet.md</code>.</p></div>
-    <div class="card rec-card" id="rec-2"><span class="rec-tag">R2 · Employers</span><h3>CIN / GSTIN check before a stall</h3><p>Check the company's CIN on the MCA portal<sup class="cite"><a href="#src-mca">[35]</a></sup> or its GSTIN on the GST portal's taxpayer search<sup class="cite"><a href="#src-gst">[36]</a></sup> before giving it a stall, and record the result in the verification log. For organisations without either, record which registration you checked. No check, no stall.</p></div>
-    <div class="card rec-card" id="rec-3"><span class="rec-tag">R3 · Employers</span><h3>No commission-only or MLM roles</h3><p>Roles with no fixed base pay (commission-only) and multi-level or network-marketing schemes don't get a stall. This sits alongside the rule that candidates never pay anything<sup class="cite"><a href="#src-scam">[16]</a></sup>.</p></div>
-    <div class="card rec-card" id="rec-4"><span class="rec-tag">R4 · Day of</span><h3>Central offer-logging desk</h3><p>Instead of employers handing out paper slips, each offer is logged at one central desk: offer ID, employer, role, CTC and in-hand pay, location, engagement type and joining date. The candidate gets a copy of the entry. Shortlists and second-round invites are logged as such, not as offers. Template: <code>templates/offer-log.csv</code>.</p></div>
-    <div class="card rec-card" id="rec-5"><span class="rec-tag">R5 · Outcomes</span><h3>7-stage funnel</h3><p>Report seven separate counts: registered → attended → interviewed → offer logged → joined → employed at 30 days → still employed at 90 days. Publish the definitions with the numbers and write <code>TBC</code> until a stage has been counted.</p></div>
-    <div class="card rec-card" id="rec-6"><span class="rec-tag">R6 · Outcomes · NEST suggestion</span><h3>Re-invite rule for employers</h3><p><b>NEST suggestion, not an official rule:</b> consider not inviting back employers whose offer-to-joining rate (logged offers → confirmed joinings) is <b>below 30%</b>. Tell employers about the rule in the invitation, apply it the same way to everyone, look at the reasons first (candidates may turn down a far-away posting), and give the employer a chance to explain.</p></div>
-    <div class="card rec-card" id="rec-7"><span class="rec-tag">R7 · Data</span><h3>Consent wording that follows DPDP sections 5 and 6</h3><p>Under section 5 of the DPDP Act, 2023, a consent request must come with or after a notice that itemises the personal data and the purpose, explains how to withdraw consent and use the Act's rights, and explains how to complain to the Data Protection Board. The notice must be available in English or a language in the Eighth Schedule. Under section 6, consent must be free, specific, informed, unconditional and unambiguous, given by a clear affirmative action (an unticked box the candidate ticks), limited to the data needed for the purpose, presented in clear and plain language with a contact person, and as easy to withdraw as it was to give<sup class="cite"><a href="#src-dpdp-act">[33]</a></sup><sup class="cite"><a href="#src-dpdp-ic">[34]</a></sup>. Sample wording: <code>templates/consent-notice.md</code>. Not legal advice.</p></div>
-    <div class="card rec-card" id="rec-8"><span class="rec-tag">R8 · After the fair</span><h3>90-day helpline</h3><p>Keep a helpline open for 90 days after the fair for problems such as pay or role differing from the signed spec sheet, an unexpected change of work location, demands for fees or deposits, and unpaid wages. Log each case against the offer ID. Report fraud on 1930 or the National Cyber Crime Reporting Portal<sup class="cite"><a href="#src-scam">[16]</a></sup><sup class="cite"><a href="#src-cyber">[17]</a></sup>.</p></div>
+  <div class="tips" role="group" aria-label="Tips for this step">
+    <h3 class="tips-h">Tips for this step</h3>
+    <ul class="tip-list">
+      <li id="tip-funnel"><b>Decide what you count before the fair: a 7-stage funnel.</b> Report seven separate counts: registered → attended → interviewed → offer logged → joined → employed at 30 days → still employed at 90 days. Publish the definitions with the numbers and write <code>TBC</code> until a stage has been counted. Count shortlists and second-round invites separately: they are not offers. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+      <li id="tip-reinvite"><b>Re-invite rule for employers.</b> <b>NEST suggestion, not an official rule:</b> consider not inviting back employers whose offer-to-joining rate (logged offers → confirmed joinings) is <b>below 30%</b>. Tell employers about the rule in the invitation, apply it the same way to everyone, look at the reasons first (candidates may turn down a far-away posting), and give the employer a chance to explain.</li>
+      <li id="tip-helpline"><b>90-day helpline and follow-up.</b> Keep a helpline open for 90 days after the fair for problems such as pay or role differing from the signed spec sheet, an unexpected change of work location, demands for fees or deposits, and unpaid wages. Log each case against the offer ID. Report fraud on 1930 or the National Cyber Crime Reporting Portal<sup class="cite"><a href="#src-scam">[16]</a></sup><sup class="cite"><a href="#src-cyber">[17]</a></sup>. Contact everyone with an offer at 7, 30 and 90 days. <a class="iyc-note" href="#case">Seen at IYC fairs</a></li>
+    </ul>
   </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
+  <section class="org-sec" aria-labelledby="tips">
+  <h2 id="tips">All tips at a glance</h2>
+  <p class="note-sm">These are NEST's practical tips for organisers: suggestions, not legal requirements or official government rules. Each one is explained, with its sources, in its step. Tips marked <i>Seen at IYC fairs</i> come from the <a href="#case">IYC case study</a>.</p>
+  <div class="glance">
+    <div class="glance-step"><h3><a href="#goals">Goals &amp; audience</a></h3><ul class="checklist">
+      <li><a href="#tip-field-roles">Spell out shifts, physical demands, gear, travel and transport for field roles</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-neutral">Keep the fair neutral and branded around candidates and community partners</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+    </ul></div>
+    <div class="glance-step"><h3><a href="#venue">Venue &amp; safety</a></h3><ul class="checklist">
+      <li><a href="#tip-cap">Cap the crowd, send arrival slots and keep a capped walk-in lane</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+    </ul></div>
+    <div class="glance-step"><h3><a href="#employers">Employers</a></h3><ul class="checklist">
+      <li><a href="#tip-commit">Mix staffing firms and local employers; get roles, pay and interview format in writing</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-spec">Signed job spec sheet per role: in-hand pay vs CTC, on-roll / off-roll / gig</a></li>
+      <li><a href="#tip-cin">Check the employer's CIN or GSTIN before giving it a stall</a></li>
+      <li><a href="#tip-no-mlm">Turn away commission-only and MLM roles</a></li>
+    </ul></div>
+    <div class="glance-step"><h3><a href="#candidates">Registration</a></h3><ul class="checklist">
+      <li><a href="#tip-data">Collect only job-relevant data, share it only with chosen employers, delete it on time</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-consent">Use consent wording that follows DPDP sections 5 and 6: notice first, an unticked box, easy withdrawal</a></li>
+      <li><a href="#tip-live-page">Keep one live page and QR code that show registration and walk-in status</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-job-board">Publish the job board at least a week before the fair</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-zones">Route people by zone with a separate token series, not one global queue</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+    </ul></div>
+    <div class="glance-step"><h3><a href="#dayof">On the day</a></h3><ul class="checklist">
+      <li><a href="#tip-offer-desk">Log every offer at one central desk instead of on paper slips</a></li>
+    </ul></div>
+    <div class="glance-step"><h3><a href="#outcomes">Follow-up &amp; outcomes</a></h3><ul class="checklist">
+      <li><a href="#tip-funnel">Define a 7-stage funnel before the fair and publish the numbers honestly</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+      <li><a href="#tip-reinvite">Consider not re-inviting employers below a 30% offer-to-joining rate</a> <span class="nest-sugg">NEST suggestion, not an official rule</span></li>
+      <li><a href="#tip-helpline">Run a 90-day helpline and check in with everyone who got an offer at 7, 30 and 90 days</a> <span class="iyc-mark">Seen at IYC fairs</span></li>
+    </ul></div>
+  </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
+
+  <section class="org-sec" aria-labelledby="case-h">
   <aside class="casebox" id="case" aria-labelledby="case-h">
     <h2 id="case-h">Case study: IYC Mega Job Fairs (2025–26)</h2>
     <p class="note-sm">The Indian Youth Congress (IYC) ran large fairs in Jaipur (Apr 2025), Delhi (Jun 2025), Patna (Jul 2025) and Delhi again (Jun 2026). NEST summarises them here only as an organising example. Figures marked <b>IYC claim</b> come from IYC, and we found no independent audit of them. NEST takes no political position.</p>
@@ -168,16 +261,19 @@
         </ul>
       </div>
     </div>
-    <p class="note-sm">The lessons drawn from this case are marked <span class="lesson">Lesson 1–10</span> in the steps above.</p>
+    <p class="note-sm">Tips drawn from this case are marked <i>Seen at IYC fairs</i> in each step and in <a href="#tips">All tips at a glance</a>.</p>
   </aside>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
+  <section class="org-sec" aria-labelledby="kit">
   <h2 id="kit">Download: Job Fair Organiser skill kit</h2>
   <div class="kitbox">
     <p>Want an AI agent to help you plan? This guide is also available as a free, open <b>Agent Skill</b>: a <code>SKILL.md</code> that walks any agent through planning and running a fair step by step, plus references and ready-to-fill templates. The agent stops and asks you before it books a venue, spends money, sends messages or publishes anything.</p>
     <ul>
-      <li><b>References:</b> timeline checklist, employer verification and anti-fraud, government channels, crowd and safety, data and consent (DPDP Act 2023), metrics, and the case-study lessons.</li>
+      <li><b>References:</b> timeline checklist, employer verification and anti-fraud, government channels, crowd and safety, data and consent (DPDP Act 2023), metrics, and the IYC case study.</li>
       <li><b>Templates:</b> employer invite and vacancy form, signed job spec sheet, candidate slot registration, consent notice (DPDP sections 5 and 6), day-of runbook, central offer log (CSV), volunteer roster (CSV), follow-up tracker (CSV), post-fair report.</li>
-      <li><b>NEST recommendations</b> R1–R8 are built into SKILL.md and the templates.</li>
+      <li><b>Practical tips</b> from this guide (signed job spec sheets, CIN/GSTIN checks, a central offer desk, a 7-stage funnel, a 90-day helpline and the rest) are built into SKILL.md and the templates.</li>
     </ul>
     <div class="cta-row">
       <a class="btn btn-primary" href="/organise/skill-kit/job-fair-organiser-skill-kit.zip" download>Download the kit (.zip)</a>
@@ -185,17 +281,26 @@
     </div>
     <p class="note-sm">Licence: <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>, NEST Collective. Not legal advice.</p>
   </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
+  <section class="org-sec" aria-labelledby="submit">
   <h2 id="submit">Submit your fair to the NEST calendar</h2>
   <div class="submitbox">
     <p>Running a fair that includes physical-domain jobs? Send the NEST WhatsApp community admins (Manoj or Manasi) the <b>official page URL</b>, city, dates, organiser type and the domains it serves. Fairs without an official URL can't be listed. See <a href="/about/#verify">how we verify</a>.</p>
     <a class="btn btn-primary" href="https://chat.whatsapp.com/LrizRrfr6wZ4fDfxBnJp4l" target="_blank" rel="noopener">Join NEST on WhatsApp</a>
     <p class="note-sm">Opens the NEST Collective WhatsApp community in a new tab. Once you have joined, message the admins (Manoj or Manasi) with the details above.</p>
   </div>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
 
+  <section class="org-sec" aria-labelledby="sources">
   <h2 id="sources">Sources</h2>
-  <p class="checked">Checked 6 Oct 2026 (IST). IYC case study: NEST desk research using reported coverage. IYC figures are labelled as IYC's own claims. Section 10 lists NEST's own recommendations; the sources cited there support the laws and tools mentioned, not the recommendations themselves.</p>
+  <p class="checked">Checked 6 Oct 2026 (IST). IYC case study: NEST desk research using reported coverage. IYC figures are labelled as IYC's own claims. The tips are NEST's own suggestions; sources cited in them support the laws and tools mentioned, not the tips themselves.</p>
   <ol class="srclist"><li id="src-dge-ncs"><a href="https://dge.gov.in/ncs" target="_blank" rel="noopener">DGE: National Career Service (job fairs at Model Career Centres; NCS portal events)</a></li><li id="src-mcc-pdf"><a href="https://cdnbbsr.s3waas.gov.in/s33cf2559725a9fdfa602ec8c887440f32/uploads/2025/03/202503111811998990.pdf" target="_blank" rel="noopener">DGE: Model Career Centres guidelines (job fair per month, mega fair per year, online/offline module)</a></li><li id="src-dge-mcc"><a href="https://dge.gov.in/dge/nics/information-about-mccs" target="_blank" rel="noopener">DGE: List of Model Career Centres (incl. CII / FICCI partner centres)</a></li><li id="src-ncs"><a href="https://www.ncs.gov.in/" target="_blank" rel="noopener">National Career Service portal</a></li><li id="src-ncs-list"><a href="https://betacloud.ncs.gov.in/job-fair-list" target="_blank" rel="noopener">NCS job-fair list</a></li><li id="src-dge-nes"><a href="https://dge.gov.in/nes" target="_blank" rel="noopener">DGE: National Employment Service (employment exchanges organise/facilitate job fairs)</a></li><li id="src-nesm"><a href="https://dge.gov.in/dge/national-employment-service-manual-2022" target="_blank" rel="noopener">DGE: National Employment Service Manual 2022</a></li><li id="src-pib-rm"><a href="https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&amp;NoteId=154875&amp;lang=2&amp;reg=48" target="_blank" rel="noopener">PIB backgrounder: Rozgar Mela (NSDC format with SSCs and PMKKs), 12 Jul 2025</a></li><li id="src-nsdc-rm"><a href="https://www.nsdcindia.org/rozgarmela" target="_blank" rel="noopener">NSDC Rozgar Mela programme page</a></li><li id="src-ssc"><a href="https://nsdcindia.org/sector-skill-councils" target="_blank" rel="noopener">NSDC: Sector Skill Councils (36 approved)</a></li><li id="src-sidh"><a href="https://www.skillindiadigital.gov.in/" target="_blank" rel="noopener">Skill India Digital Hub (MSDE)</a></li><li id="src-msde"><a href="https://www.msde.gov.in/" target="_blank" rel="noopener">Ministry of Skill Development &amp; Entrepreneurship (PMKVY)</a></li><li id="src-dgt"><a href="http://dgt.gov.in/polytechnics" target="_blank" rel="noopener">DGT: ITI network (14,643 ITIs)</a></li><li id="src-ddugky"><a href="https://cdnbbsr.s3waas.gov.in/s3e9412ee564384b987d086df32d4ce6b7/uploads/2025/01/202501251328475725.pdf" target="_blank" rel="noopener">MoRD: DDU-GKY guidelines (job melas via SRLMs, employer due diligence, 1-year tracking)</a></li><li id="src-jobx"><a href="https://www.nsdcjobx.com/" target="_blank" rel="noopener">NSDC JobX portal</a></li><li id="src-scam"><a href="https://www.livemint.com/money/personal-finance/government-warns-against-job-scams-ncs-registration-applications-and-interviews-remain-free-11784874414155.html" target="_blank" rel="noopener">Mint: Labour Ministry advisory, NCS never charges fees; report fraud on 1930 (24 Jul 2026)</a></li><li id="src-cyber"><a href="https://cybercrime.gov.in/" target="_blank" rel="noopener">National Cyber Crime Reporting Portal</a></li><li id="src-ndma"><a href="https://ndma.gov.in/sites/default/files/PDF/Reports/managingcrowdsguide.pdf" target="_blank" rel="noopener">NDMA: Managing Crowd at Events and Venues of Mass Gathering (guide for organisers)</a></li><li id="src-hg2021"><a href="https://depwd.gov.in/en/rpwd-amendment-rules2023-harmonised-guidelines-and-space-standards-for-universal-accessibility-in-india-by-2021-by-mohua/" target="_blank" rel="noopener">DEPwD: Harmonised Guidelines &amp; Space Standards for Universal Accessibility in India 2021 (MoHUA)</a></li><li id="src-cg"><a href="https://erojgar.cg.gov.in/LandingSite/RojgarMelaList.aspx" target="_blank" rel="noopener">Chhattisgarh e-Rozgar: Rozgar Mela list (example state portal)</a></li><li id="src-up"><a href="https://rojgaarsangam.up.gov.in/RojgaarMela" target="_blank" rel="noopener">Uttar Pradesh Rojgaar Sangam: Rojgaar Mela (example state portal)</a></li><li id="src-mh"><a href="https://rojgar.mahaswayam.gov.in/" target="_blank" rel="noopener">Maharashtra MahaSwayam employment portal (example state portal)</a></li><li id="src-gpbbsr"><a href="https://gpbhubaneswar.in/placement-notifications/" target="_blank" rel="noopener">Government Polytechnic Bhubaneswar: placement notifications (example campus cell)</a></li><li id="src-iyc-hindu-pre"><a href="https://www.thehindu.com/news/national/congress-to-organise-job-fair-on-rahul-gandhis-birthday/article71101435.ece" target="_blank" rel="noopener">The Hindu: IYC 2026 fair preview (QR + walk-in, helpline)</a></li><li id="src-iyc-hindu"><a href="https://www.thehindu.com/news/cities/Delhi/thousands-attend-youth-congress-job-fair-on-rahul-gandhis-56th-birthday/article71121719.ece" target="_blank" rel="noopener">The Hindu / PTI: IYC fair, Talkatora, 19 Jun 2026</a></li><li id="src-iyc-tribune"><a href="https://www.tribuneindia.com/news/delhi/7000-candidates-get-offer-letters-at-youth-congress-job-fair-in-delhi/" target="_blank" rel="noopener">Tribune: IYC 2026 outcome claims</a></li><li id="src-iyc-print25"><a href="https://theprint.in/politics/so-much-unemployment-over-20000-register-for-congress-job-fair-to-mark-rahul-gandhis-birthday/2663888/" target="_blank" rel="noopener">ThePrint: Delhi 2025 ground report (token backlog)</a></li><li id="src-iyc-telegraph"><a href="https://www.telegraphindia.com/india/congress-finger-on-job-pulse-as-thousands-seek-employment-at-delhi-mega-fair-prnt/cid/2108741" target="_blank" rel="noopener">The Telegraph: Delhi 2025 ground report (employers, roles, staffing firms)</a></li><li id="src-iyc-ie-patna"><a href="https://indianexpress.com/article/political-pulse/job-promises-poll-bound-bihar-what-pursuit-of-one-look-like-10144354/" target="_blank" rel="noopener">Indian Express: Patna 2025 ground report (199 stalls, floor layout)</a></li><li id="src-iyc-bhaskar"><a href="https://www.bhaskar.com/local/bihar/patna/news/chaos-at-youth-congresss-job-fair-135486087.html" target="_blank" rel="noopener">Dainik Bhaskar: Patna 2025 (barricades broken)</a></li><li id="src-iyc-pti23"><a href="https://theprint.in/india/indian-youth-congress-to-organise-job-fair-in-bihar-from-july-15-25/2667940/" target="_blank" rel="noopener">PTI via ThePrint, 23 Jun 2025 (revised Delhi 2025 count)</a></li><li id="src-iyc-etv"><a href="https://www.etvbharat.com/hi/state/youth-congress-organized-mega-job-fair-in-delhi-on-rahul-gandhi-birthday-dls26061903642" target="_blank" rel="noopener">ETV Bharat Hindi: Delhi 2026 ground report (tokens, data concerns)</a></li><li id="src-dpdp-act"><a href="https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf" target="_blank" rel="noopener">MeitY: Digital Personal Data Protection Act, 2023 (PDF; s.5 notice, s.6 consent)</a></li><li id="src-dpdp-ic"><a href="https://www.indiacode.nic.in/handle/123456789/22037?locale=en" target="_blank" rel="noopener">India Code: Digital Personal Data Protection Act, 2023</a></li><li id="src-mca"><a href="https://www.mca.gov.in/" target="_blank" rel="noopener">Ministry of Corporate Affairs (MCA) portal: company / LLP master data (CIN lookup)</a></li><li id="src-gst"><a href="https://services.gst.gov.in/services/searchtp" target="_blank" rel="noopener">GST portal: Search Taxpayer (GSTIN lookup)</a></li></ol>
+  <p class="back-top"><a href="#top">Back to top</a></p>
+  </section>
+
   </div>
 </div></section>
 <!-- giscus:start -->

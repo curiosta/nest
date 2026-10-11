@@ -8,13 +8,13 @@ description: >-
   timeline, government channels (NCS/MCC, employment exchanges, NSDC/SSCs,
   PMKVY, DDU-GKY, placement cells), employer verification and anti-fraud, crowd
   safety, DPDP-aware data handling, day-of operations, outcome metrics and
-  follow-up, plus NEST's recommendations (signed job spec sheets, CIN/GSTIN
+  follow-up, plus NEST's practical tips (signed job spec sheets, CIN/GSTIN
   checks, a central offer log, a 7-stage funnel and a 90-day helpline). It
   marks the points where the agent must stop and ask a human.
 license: CC-BY-4.0
 metadata:
   publisher: NEST Collective (nest.curiosta.com)
-  version: "1.1"
+  version: "1.2"
   checked: "2026-10-06"
 ---
 
@@ -40,23 +40,32 @@ anything that books, pays, sends, publishes or commits on their behalf (see
    separately. See `references/metrics.md`.
 6. **Cite.** When you state a rule or a government process, link it.
    `references/sources.md` lists every URL used in this kit.
-7. **Label recommendations as recommendations.** R1–R8 below are NEST's
+7. **Label tips as NEST's suggestions.** The practical tips below are NEST's
    suggestions, not laws or official government rules. Say so when you use them.
 
-## NEST recommendations (R1–R8)
+## Practical tips (NEST's suggestions)
 Apply these by default and tell the organiser they are NEST's ideas, which the
-organiser may adapt:
+organiser may adapt. Tips from the IYC case study are drawn from what worked and
+what went wrong there (`references/case-study-iyc.md`).
 
-| # | Recommendation | Where |
+| Tip | Where | Idea from |
 |---|---|---|
-| R1 | A **signed job spec sheet** per role: in-hand pay vs CTC, and on-roll / off-roll / gig | Step 5 · `templates/job-spec-sheet.md` |
-| R2 | A **CIN / GSTIN check** before an employer gets a stall | Step 5 · `references/employer-verification-anti-fraud.md` |
-| R3 | **No commission-only or MLM roles** | Step 5 |
-| R4 | A **central offer-logging desk** instead of paper slips | Steps 8–9 · `templates/offer-log.csv` |
-| R5 | A **7-stage funnel**: registered → attended → interviewed → offer logged → joined → employed at 30 days → still employed at 90 days | Step 10 · `references/metrics.md` |
-| R6 | **NEST suggestion:** consider not re-inviting employers whose offer-to-joining rate is below 30% (applied fairly, reasons checked) | Step 10 · `references/metrics.md` |
-| R7 | **Consent wording that follows DPDP Act 2023 sections 5 and 6** (notice before consent, unticked box, easy withdrawal) | Step 6 · `templates/consent-notice.md` |
-| R8 | A **90-day helpline** after the fair | Steps 6 and 10 |
+| **Be explicit about physical and field roles**: shift length, physical demands, gear, travel, transport or accommodation; an ITI/diploma track; commute and shift details for women up front | Steps 5–6 · `templates/job-spec-sheet.md` | IYC case study |
+| **Stay neutral**: brand the fair around candidates and community partners; keep speeches short | Ground rule 3 · Step 9 | IYC case study |
+| **Size to capacity, then cap**: cap = interview seats × hours; arrival slots; a separate, capped walk-in lane; barricading, marshals and police liaison agreed in advance | Step 4 · `references/crowd-and-safety.md` | IYC case study |
+| **Mix employers and get commitments in writing**: staffing firms for volume, local employers for jobs near home; written roles, pay band, location and interview format; CV-only booths named in advance | Step 5 · `templates/employer-invite-and-vacancy-form.md` | IYC case study |
+| **Signed job spec sheet** per role: in-hand pay vs CTC, and on-roll / off-roll / gig | Step 5 · `templates/job-spec-sheet.md` | NEST |
+| **CIN or GSTIN check** before an employer gets a stall | Step 5 · `references/employer-verification-anti-fraud.md` | NEST |
+| **No commission-only or MLM roles** | Step 5 | NEST |
+| **Treat candidate data as a trust issue**: only job-relevant fields, shared only with employers the candidate chooses, deleted on a stated date; never political, religious or electoral questions | Step 6 · `references/data-and-consent.md` | IYC case study |
+| **Consent wording that follows DPDP Act 2023 sections 5 and 6** (notice before consent, unticked box, easy withdrawal) | Step 6 · `templates/consent-notice.md` | NEST |
+| **One live page plus a QR code** that stays live, with a visible status line, an update channel, eligibility and a documents checklist | Step 6 | IYC case study |
+| **Publish the job board early**: role, openings, work location, in-hand pay, shift and minimum qualification, at least a week ahead | Step 6 | IYC case study |
+| **Pre-screen into zones**: a separate token series and a live token board per zone, never one global queue | Steps 4 and 7 · `references/crowd-and-safety.md` | IYC case study |
+| **Central offer-logging desk** instead of paper slips | Steps 8–9 · `templates/offer-log.csv` | NEST |
+| **Define metrics before the fair: a 7-stage funnel** (registered → attended → interviewed → offer logged → joined → employed at 30 days → still employed at 90 days), published honestly | Step 10 · `references/metrics.md` | IYC case study + NEST |
+| **Re-invite rule (NEST suggestion, not an official rule)**: consider not re-inviting employers whose offer-to-joining rate is below 30% (applied fairly, reasons checked) | Step 10 · `references/metrics.md` | NEST |
+| **90-day helpline and follow-up**: contact everyone with an offer at 7, 30 and 90 days; log problems per employer; no genuine employer asks for a fee | Steps 6 and 10 · `templates/follow-up-tracker.csv` | IYC case study + NEST |
 
 ## Step by step
 
@@ -96,13 +105,13 @@ Shortlist venues with pros and cons. **Stop: the human books the venue.**
 ### Step 5: Recruit and verify employers
 Use `templates/employer-invite-and-vacancy-form.md` and the rules in
 `references/employer-verification-anti-fraud.md`:
-- a **signed job spec sheet per role** (`templates/job-spec-sheet.md`, R1):
+- a **signed job spec sheet per role** (`templates/job-spec-sheet.md`):
   openings, work location, shift and hours, qualification, physical demands,
   **monthly CTC vs expected in-hand pay**, and engagement type (on-roll /
   off-roll / gig)
-- **check the CIN or GSTIN before confirming any stall** (R2), plus the official
+- **check the CIN or GSTIN before confirming any stall**, plus the official
   website and a named HR contact on an official domain
-- **turn away commission-only and MLM roles** (R3)
+- **turn away commission-only and MLM roles**
 - balance staffing firms with local direct employers
 Keep a verification log. Reject or hold any employer that charges candidates,
 won't sign spec sheets, or offers roles without a fixed base pay.
@@ -113,8 +122,8 @@ won't sign spec sheets, or offers roles without a fixed base pay.
   (`templates/candidate-slot-registration-form.md`) with the consent notice
   (`templates/consent-notice.md`). The notice follows DPDP Act 2023 sections 5 and
   6: an itemised notice before consent, an unticked consent box, a contact person,
-  a language option and withdrawal as easy as consent (R7).
-- Plan the **90-day helpline** (R8): who staffs it and which number the human
+  a language option and withdrawal as easy as consent.
+- Plan the **90-day helpline**: who staffs it and which number the human
   will publish.
 - Use one official page and one QR code that stays live. Show status ("slots
   full; walk-in lane capped at N").
@@ -127,7 +136,7 @@ employers the candidate chose.
 
 ### Step 8: Volunteers and the day-of runbook
 Fill `templates/volunteer-roster.csv` and `templates/day-of-runbook.md`. Staff a
-**central offer-logging desk** with `templates/offer-log.csv` (R4). Brief
+**central offer-logging desk** with `templates/offer-log.csv`. Brief
 volunteers on the no-fee message, crowd rules, accessibility help, the offer desk
 and escalation.
 
@@ -140,19 +149,19 @@ message**.
 ### Step 10: Follow up and report
 - Use `templates/follow-up-tracker.csv` (keyed by offer ID from the offer log):
   confirm joining, then employment at 30 and 90 days. Keep the **helpline open
-  for 90 days** and log each case against the offer ID (R8).
-- Report the **7-stage funnel** (R5) and each employer's offer-to-joining rate.
+  for 90 days** and log each case against the offer ID.
+- Report the **7-stage funnel** and each employer's offer-to-joining rate.
   Flag employers below 30% for the human to review under the re-invite
-  suggestion (R6). The human decides.
+  suggestion (a NEST suggestion, not an official rule). The human decides.
 - Write the `templates/post-fair-report.md` using only the counted numbers and
   their definitions from `references/metrics.md`.
 - Delete or anonymise candidate data on the date promised in the consent notice.
 - **Stop: the human approves and publishes the report.**
 
 ## Learn from a real case
-`references/case-study-iyc-lessons.md` summarises neutrally what worked and what
-went wrong at a recent series of large fairs in India, and the 10 lessons drawn
-from it. Use those lessons as checks at each step.
+`references/case-study-iyc.md` summarises neutrally what worked and what
+went wrong at a recent series of large fairs in India, and the practical tips
+drawn from it. Use those tips as checks at each step.
 
 ## Stop and ask the human
 

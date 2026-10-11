@@ -18,7 +18,7 @@ job-fair-organiser/
 │   ├── crowd-and-safety.md       # caps, slots, sector zones, separate tokens, accessibility
 │   ├── data-and-consent.md       # DPDP Act 2023 (s.5 notice, s.6 consent) / Rules 2025
 │   ├── metrics.md                # 7-stage funnel → still employed at 90 days; offer-to-joining rate
-│   ├── case-study-iyc-lessons.md # neutral case study and 10 lessons
+│   ├── case-study-iyc.md         # neutral case study and the tips drawn from it
 │   └── sources.md                # every URL used
 └── templates/
     ├── employer-invite-and-vacancy-form.md
@@ -53,7 +53,7 @@ reference or template files you need, and say:
 - Neutral: no political, religious or electoral questions or branding.
 - Collect only what the jobs need, with a clear consent notice.
 - Honest metrics, defined before the fair.
-- NEST recommendations R1–R8 (signed job spec sheets, CIN/GSTIN checks, no
+- NEST's practical tips (signed job spec sheets, CIN/GSTIN checks, no
   commission-only or MLM roles, a central offer log, a 7-stage funnel, a
   re-invite suggestion, DPDP section 5/6 consent wording, a 90-day helpline),
   labelled as NEST's ideas rather than rules.

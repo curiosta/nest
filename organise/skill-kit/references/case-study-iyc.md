@@ -1,4 +1,4 @@
-# Case study: IYC Mega Job Fairs (2025–26), with lessons for organisers
+# Case study: IYC Mega Job Fairs (2025–26), with tips for organisers
 
 **Why this is here.** The Indian Youth Congress (IYC) ran large job fairs in
 Jaipur (Apr 2025), Delhi (Jun 2025), Patna (Jul 2025) and Delhi again (Jun 2026).
@@ -20,14 +20,15 @@ audit of them. Desk research, checked 6 Oct 2026.
 - **Data-collection concerns.** Some 2026 attendees alleged the fair was a pretext for collecting data ([ETV Bharat Hindi](https://www.etvbharat.com/hi/state/youth-congress-organized-mega-job-fair-in-delhi-on-rahul-gandhi-birthday-dls26061903642)).
 - **Politically framed branding.** Tying the fair to a leader's birthday and to elections drew accusations from rival parties ([The Hindu / PTI, 2026](https://www.thehindu.com/news/cities/Delhi/thousands-attend-youth-congress-job-fair-on-rahul-gandhis-56th-birthday/article71121719.ece); [Dainik Bhaskar](https://www.bhaskar.com/local/bihar/patna/news/chaos-at-youth-congresss-job-fair-135486087.html)).
 
-## The 10 lessons (use them as checks)
-1. **Size the venue and entry plan to registrations; cap and slot.** Hard cap = interview seats × hours. Arrival time slots for registrants, plus a separate, capped walk-in lane. Agree barricading, marshals and a police/venue-security liaison in advance.
-2. **Publish a job board before the event.** Role, openings, work location, in-hand pay, shift, minimum qualification, at least a week ahead.
-3. **Pre-screen and route instead of one big queue.** Zone-specific tokens (for example technical/field, retail/logistics, graduate office), live token boards per zone, and a floor laid out by sector.
-4. **Balance employers and get commitments in writing.** Staffing firms bring volume; local employers bring jobs near home. Get written roles, pay band, location and interview format, and say in advance which booths only collect CVs.
-5. **Be explicit about physical and field roles.** Travel, shift length, physical demands, uniform or gear, transport or accommodation. Run an ITI/diploma track, and give women candidates commute and shift details up front.
-6. **Define metrics before the event and publish them honestly.** Registered → attended → interviewed → shortlisted → written offer → joined at 30 days → still employed at 90 days. Keep internships separate.
-7. **Treat candidate data as a trust issue.** Collect only job-relevant fields, show a short consent notice, share only with chosen employers, delete on a stated date, and never ask political, religious or electoral questions.
-8. **Keep the event neutral; brand it around candidates.** Invite several community partners; keep speeches short.
-9. **Communicate registration and walk-in status clearly.** One canonical page and a QR code that stays live, a visible status line, an update channel, an eligibility statement and a documents checklist.
-10. **Plan follow-up and fraud protection.** Publish a helpline number. Contact everyone with an offer at 7, 30 and 90 days, log joining problems per employer, and tell everyone: no genuine employer asks for a fee.
+## Practical tips drawn from these fairs (use them as checks)
+The NEST guide marks these tips "Seen at IYC fairs" in each step.
+- **Size the venue and entry plan to registrations; cap and slot.** Hard cap = interview seats × hours. Arrival time slots for registrants, plus a separate, capped walk-in lane. Agree barricading, marshals and a police/venue-security liaison in advance.
+- **Publish a job board before the event.** Role, openings, work location, in-hand pay, shift, minimum qualification, at least a week ahead.
+- **Pre-screen and route instead of one big queue.** Zone-specific tokens (for example technical/field, retail/logistics, graduate office), live token boards per zone, and a floor laid out by sector.
+- **Balance employers and get commitments in writing.** Staffing firms bring volume; local employers bring jobs near home. Get written roles, pay band, location and interview format, and say in advance which booths only collect CVs.
+- **Be explicit about physical and field roles.** Travel, shift length, physical demands, uniform or gear, transport or accommodation. Run an ITI/diploma track, and give women candidates commute and shift details up front.
+- **Define metrics before the event and publish them honestly.** Registered → attended → interviewed → shortlisted → written offer → joined at 30 days → still employed at 90 days. Keep internships separate.
+- **Treat candidate data as a trust issue.** Collect only job-relevant fields, show a short consent notice, share only with chosen employers, delete on a stated date, and never ask political, religious or electoral questions.
+- **Keep the event neutral; brand it around candidates.** Invite several community partners; keep speeches short.
+- **Communicate registration and walk-in status clearly.** One canonical page and a QR code that stays live, a visible status line, an update channel, an eligibility statement and a documents checklist.
+- **Plan follow-up and fraud protection.** Publish a helpline number. Contact everyone with an offer at 7, 30 and 90 days, log joining problems per employer, and tell everyone: no genuine employer asks for a fee.

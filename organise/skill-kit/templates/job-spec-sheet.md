@@ -1,11 +1,11 @@
 # Job spec sheet (one per role, signed by the employer)
 
-> **NEST recommendation (R1).** Collect one signed sheet per role **before a stall is
+> **NEST tip.** Collect one signed sheet per role **before a stall is
 > confirmed**. Publish the starred (*) fields on the candidate job board. Replace every
 > `{{…}}`; write `TBC` if something is not yet known. Don't guess. Not legal advice.
 
 **Fair:** {{FAIR_NAME}} · **Employer (legal name):** {{LEGAL_NAME}} · **Brand:** {{BRAND}}
-**CIN or GSTIN (checked by the organiser, see R2):** {{CIN / GSTIN}} · **Checked on:** {{DATE}} · **Result:** {{OK / mismatch / not found}}
+**CIN or GSTIN (checked by the organiser before the stall is confirmed):** {{CIN / GSTIN}} · **Checked on:** {{DATE}} · **Result:** {{OK / mismatch / not found}}
 
 ## Role
 | Field | Answer |
@@ -41,11 +41,11 @@
 - [ ] Apprenticeship or internship (reported separately from jobs). Stipend: {{₹}}
 
 ## Declarations (employer ticks)
-- [ ] This role has a **fixed base pay**. It is not commission-only, and it is not a multi-level or network-marketing scheme (NEST recommendation R3: such roles don't get a stall).
+- [ ] This role has a **fixed base pay**. It is not commission-only, and it is not a multi-level or network-marketing scheme (a NEST tip: such roles don't get a stall).
 - [ ] No candidate will be asked for any fee, deposit, kit, uniform or training charge.
-- [ ] Offers at the fair will be logged at the organiser's **central offer desk** (R4), with the pay and engagement type stated above.
+- [ ] Offers at the fair will be logged at the organiser's **central offer desk**, with the pay and engagement type stated above.
 - [ ] We will tell the organiser before the fair if anything above changes.
-- [ ] We will share joining and 30/90-day status for logged offers (R5). We understand the organiser may not re-invite employers whose offer-to-joining rate is below 30% (R6: a NEST suggestion, applied to all employers).
+- [ ] We will share joining and 30/90-day status for logged offers. We understand the organiser may not re-invite employers whose offer-to-joining rate is below 30% (a NEST suggestion, not an official rule, applied to all employers).
 
 Authorised signatory: name ____________ · designation ____________ · official email ____________ · date ____________ · signature / company seal ____________
 

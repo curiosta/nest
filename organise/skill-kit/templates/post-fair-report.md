@@ -40,7 +40,8 @@ What was collected, who it was shared with (by zone choice only), retention date
 and deletion confirmation (date).
 
 ## 6. What worked / what to fix next time
-Use the 10 lessons in `../references/case-study-iyc-lessons.md` as a checklist.
+Use the practical tips in `../references/case-study-iyc.md` and "All tips at a glance"
+on https://nest.curiosta.com/organise/#tips as a checklist.
 
 ## 7. Corrections log
 | Date | Number changed | Old → new | Reason |

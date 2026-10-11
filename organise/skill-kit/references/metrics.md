@@ -3,7 +3,7 @@
 Publish your definitions with your numbers. Report each stage separately, and
 keep internships and apprenticeships apart from jobs.
 
-## The 7-stage funnel (NEST recommendation R5)
+## The 7-stage funnel (a NEST tip)
 
 | # | Stage | Definition | How you count it |
 |---|---|---|---|
@@ -19,7 +19,7 @@ Track **shortlists and second-round invites separately**: they are not offers.
 
 ## Offer-to-joining rate (per employer)
 `joined (stage 5) ÷ offers logged (stage 4)` for that employer, counted from the
-offer log and the follow-up tracker. **NEST suggestion (R6), not an official rule:**
+offer log and the follow-up tracker. **NEST suggestion, not an official rule:**
 consider not re-inviting employers whose rate is below 30%. Check the reasons first
 (for example, candidates turning down distant postings), apply the same rule to all
 employers, tell them about it in the invitation, and let them explain.
