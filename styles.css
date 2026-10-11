@@ -405,3 +405,13 @@ ul.dated .tags{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}
 @media(max-width:900px){.ai-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.ai-grid,.ai-cols{grid-template-columns:1fr}}
 @media(min-width:1001px) and (max-width:1120px){.sectionnav a{padding:7px 9px}}
+
+/* phase 2: domain extras */
+.ladder .step.trainer{border-left-color:var(--coral)}
+.ladder .step.trainer b{color:var(--bad)}
+.signals{margin:.6rem 0 1rem;padding-left:1.2rem;max-width:72ch}
+.signals li{margin:.45rem 0;color:var(--ink-2)}
+.signals .src{display:block;font-size:.82rem;color:var(--muted)}
+.signals .src a{font-weight:600}
+.track{background:var(--sand);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem 1.1rem;margin:1rem 0}
+.track .sub{margin:.1rem 0 .3rem}

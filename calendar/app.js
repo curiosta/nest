@@ -75,10 +75,11 @@
     const kinds = (f.tags || []).map(g => badge("kind k-" + g, (D.tagLabels && D.tagLabels[g]) || g)).join("");
     const tags = (past ? '<span class="past-tag">Past</span>' : "") +
       badge(f.org, orgLabel(f.org)) + badge("mod", modLabel(f.modality)) + kinds;
-    const doms = f.domains.slice(0, 3).map(s => {
+    const ord = (F.domain !== "all" && f.domains.indexOf(F.domain) >= 0) ? [F.domain].concat(f.domains.filter(x => x !== F.domain)) : f.domains;
+    const doms = ord.slice(0, 3).map(s => {
       const row = D.domains.find(x => x[0] === s);
-      return badge("dom", row ? row[1].split("&")[0].trim() : s);
-    }).join("");
+      return badge("dom", row ? row[1].split("&")[0].split(":")[0].trim() : s);
+    }).join("") + (ord.length > 3 ? badge("dom", "+" + (ord.length - 3)) : "");
     return '<li class="' + (past ? "isp " : "") + (isHub(f) ? "hub " : "") + '" data-start="' + esc(f.start || "") + '" data-end="' + esc(f.start || "") + '">' +
       '<span class="d">' + esc(f.when) + "</span>" +
       '<span class="t"><b>' + esc(f.name) + "</b></span>" +
