@@ -1,0 +1,7 @@
+item,category,description,size_or_quantity,owner,available_from,condition,cost_to_use,source_or_evidence,notes
+Classroom 1,space,,sq ft,,,,,,IBT guideline: two classrooms of 800-1000 sq ft in total
+Classroom 2,space,,sq ft,,,,,,
+Farm plot,land,,acre,,,,,,IBT guideline: a quarter acre (can be rented)
+Electricity connection,utility,,kW sanctioned load,,,,,,Lab supply needs an RCCB
+Water connection,utility,,,,,,,,
+Artisan,people,trade and years of experience,,,,,,,certificates held (ITI / diploma / DBRT / RPL level)

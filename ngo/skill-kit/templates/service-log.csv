@@ -1,0 +1,2 @@
+order_id,date,customer_type,service,area,price_list_rate,amount_charged,material_cost,instructor,students_involved_ages,all_paid_work_by_adults_or_cleared_by_lawyer,risk_check_ref,fssai_needed,licensed_contractor_needed,completed_on,customer_feedback,notes
+S001,,,,,,,,,,yes/no,,yes/no,yes/no,,,

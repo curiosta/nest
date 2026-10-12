@@ -1,0 +1,5 @@
+tool_id,area,tool,quantity,needed_for_service,ppe_required,bought_on,quote_or_invoice_ref,condition,location,issued_to,issued_on,returned_on,notes
+T001,Engineering,,,,,,,,,,,,
+T002,Energy & environment,,,,,,,,,,,,
+T003,Agriculture & animal husbandry,,,,,,,,,,,,
+T004,Home & health,,,,,,,,,,,,
