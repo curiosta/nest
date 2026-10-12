@@ -158,3 +158,16 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
   .kc .evi{grid-template-columns:minmax(0,1fr);gap:2px;padding:12px 0}
   .kc .evl{margin-top:2px}
 }
+
+/* phase 16: Work with AI / Work for AI filter and side groups */
+.sidechips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.schip{font:600 .85rem var(--sans);min-height:44px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--sea-500);background:#fff;color:var(--sea-900);cursor:pointer}
+.schip[aria-pressed="true"]{background:var(--sea-900);border-color:var(--sea-900);color:#fff}
+.schip:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.chip[hidden]{display:none}
+#cal th.sidehead{text-align:left;font:700 .78rem var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:14px 8px 6px;position:static}
+#cal th.sidehead.with{color:var(--sea-500);background:var(--teal-soft)}
+#cal th.sidehead.for{color:#fff;background:var(--sea-900)}
+#cal th.sidehead span{font-weight:500;letter-spacing:.02em;text-transform:none}
+main.kc .lvnote{max-width:72ch;font-size:.92rem;margin:0 0 12px;padding:8px 12px;border-left:4px solid var(--sea-500);background:#fff;color:var(--ink)}
+main.kc .lvnote a{color:var(--sea-500);font-weight:600;text-decoration:underline}

@@ -69,7 +69,9 @@
   });
 
   // ---------- domain filter (both chip rows stay in sync; ?domain=<slug> in the URL) ----------
-  const inDom = li => state.g === "all" || (" " + li.dataset.dom + " ").indexOf(" " + state.g + " ") >= 0;
+  const SIDE = D.side || {};
+  const sideOk = ds => !state.side || state.side === "all" || ds.some(d => SIDE[d] === state.side);
+  const inDom = li => sideOk((li.dataset.dom || "").split(" ")) && (state.g === "all" || (" " + li.dataset.dom + " ").indexOf(" " + state.g + " ") >= 0);
   function keepChipInView() {
     $$(".chips").forEach(row => {
       const b = $('.chip[aria-pressed="true"]', row); if (!b || row.scrollWidth <= row.clientWidth + 2) return;
@@ -81,7 +83,8 @@
     if (g !== "all" && !DL[g]) g = "all";
     state.g = g;
     $$(".chip").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.g === g)));
-    $$("#cal tbody").forEach(tb => { tb.hidden = !(g === "all" || tb.dataset.group === g); });
+    $$("#cal tbody").forEach(tb => { const gp = tb.dataset.group || "";
+      tb.hidden = gp.indexOf("side-") === 0 ? !(g === "all" && (!state.side || state.side === "all" || gp === "side-" + state.side)) : !((g === "all" && sideOk([gp])) || tb.dataset.group === g); });
     $$("#evlist .evi").forEach(li => { li.hidden = !inDom(li); });
     $$("#evlist .evmon").forEach(m => { m.hidden = !$$(".evi", m).some(li => !li.hidden); });
     $("#evnone").hidden = $$("#evup .evi").some(li => !li.hidden);
@@ -96,13 +99,21 @@
     }
   }
   $$(".chip").forEach(b => b.addEventListener("click", () => applyDom(b.dataset.g, true)));
+  // phase 16: Work with AI / Work for AI filter (both rows in sync); hides the other side's rows, chips and fairs
+  function applySide(v) {
+    state.side = v;
+    $$(".schip").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.side === v)));
+    $$(".chip[data-side]").forEach(b => { b.hidden = v !== "all" && b.dataset.side !== v; });
+    applyDom(state.g !== "all" && SIDE[state.g] !== v && v !== "all" ? "all" : state.g, true);
+  }
+  $$(".schip").forEach(b => b.addEventListener("click", () => applySide(b.dataset.side)));
 
   // ---------- month view: 12 rolling months from the current one ----------
   const ROLL = Array.from({ length: 12 }, (_, i) => ({ m: (CUR + i) % 12, y: Y0 + Math.floor((CUR + i) / 12) }));
   const ymOf = (y, m) => y + "-" + pad(m + 1);
   const mbox = $(".mchips");
   mbox.innerHTML = ROLL.map((r, i) => '<button type="button" class="mchip' + (i === 0 ? " now" : "") + '" data-m="' + r.m + '" data-y="' + r.y + '" aria-pressed="false">' + D.mon[r.m].slice(0, 3) + " " + r.y + "</button>").join("");
-  const inG = ds => state.g === "all" || ds.indexOf(state.g) >= 0;
+  const inG = ds => sideOk(ds) && (state.g === "all" || ds.indexOf(state.g) >= 0);
   function byDom(rows) {
     const o = [];
     rows.forEach(r => { let x = o.find(y => y.s === r.s); if (!x) o.push(x = { s: r.s, rg: [] }); x.rg.push(r.rg); });
