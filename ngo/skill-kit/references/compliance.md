@@ -7,9 +7,10 @@ section 354 for donors' deduction (old 80G). Both via Form No. 105; orders in
 Form No. 107. Regular registration: 5 tax years, or 10 if income was at most
 Rs 5 crore in each of the two previous years.
 https://www.incometaxindia.gov.in/documents/d/guest/form-105-faqs
-Existing registrations continue until they expire. `To confirm`: from a
-secondary explainer.
-https://www.patronaccounting.com/blog/section-332-transition-12a-12ab-to-rnpo-it-act-2025
+Registrations and approvals under the 1961 Act stay valid unless they conflict
+with the new Act (section 536(2)(j)); file Form No. 105 at least six months
+before expiry.
+https://www.incometaxindia.gov.in/documents/d/guest/faqs-on-interplay-and-transition-pdf
 
 ## FCRA (foreign contributions)
 Registration for associations operating at least 3 years, or prior permission
@@ -37,7 +38,8 @@ it treats paid "production centre" work by students is a legal question.
 
 ## Electrical
 CEA Regulations 2023, regulation 31: licensed contractor and competent
-supervisor for installation work. `To confirm`: from a summary.
+supervisor for installation work, done by a State permit holder; non-compliant
+work must not be energised (gazette text checked 12 Oct 2026).
 https://indiacode.ecourtsindia.com/rules/4856ff62/
 
 ## Food

@@ -28,9 +28,9 @@ Source: https://myibtschool.vigyanashram.in/uploads/VA-IBT-SOP.pdf
   workshop tour covering the electric board and first aid (SOP, above).
 - Electrical: CEA (Measures relating to Safety and Electric Supply)
   Regulations 2023, regulation 31: installation work by a State-licensed
-  electrical contractor under a certificate-of-competency holder, with narrow
-  exceptions (replacing lamps, fans, fuses, switches, small appliances).
-  `To confirm`: read from a summary, not the gazette text.
+  electrical contractor under a certificate-of-competency holder, done by a
+  State permit holder, with narrow exceptions (replacing lamps, fans, fuses,
+  switches, small appliances). Gazette text checked 12 Oct 2026.
   https://indiacode.ecourtsindia.com/rules/4856ff62/
   Paid house wiring for villagers goes through a licensed contractor.
 - Food sold to the public: FSSAI registration for turnover up to Rs 1.5 crore

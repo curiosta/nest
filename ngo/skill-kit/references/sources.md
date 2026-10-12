@@ -44,6 +44,7 @@ Every URL used in this kit and on https://nest.curiosta.com/ngo/ (checked 12 Oct
 40. ISTI portal: DST Technological Advancement for Rural Areas (TARA): https://www.indiascienceandtechnology.gov.in/programme-schemes/research-and-development/technological-advancement-rural-areas-tara
 41. PIB, 30 Jul 2025: DST SUNIL programme (Lok Sabha reply): https://www.pib.gov.in/PressReleasePage.aspx?PRID=2150130
 42. Income Tax Department: Form No. 105 FAQs (Income-tax Act 2025, sections 332 and 354): https://www.incometaxindia.gov.in/documents/d/guest/form-105-faqs
-43. Explainer: 12A/12AB to RNPO transition under the Income-tax Act 2025 (secondary): https://www.patronaccounting.com/blog/section-332-transition-12a-12ab-to-rnpo-it-act-2025
+43. Income Tax Department: FAQs on interplay and transition, Income-tax Act 2025 (Q1.19, Q4.35): https://www.incometaxindia.gov.in/documents/d/guest/faqs-on-interplay-and-transition-pdf
 44. PIB, 22 Jul 2026: FCRA FAQs (2026 amendment and rules): https://www.pib.gov.in/PressReleasePage.aspx?PRID=2287845&lang=1&reg=3
 45. MHA: FCRA FAQs, 2019 (PDF): https://fcraonline.nic.in/home/PDF_Doc/fc_faq_07062019.pdf
+46. Ministry of Education: PM SHRI framework, part 2, vocational education financial norms (Samagra Shiksha pattern) (PDF): https://pmshri.education.gov.in/assets/pdf/part2_pmshri.pdf
