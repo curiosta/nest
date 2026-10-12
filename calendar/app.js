@@ -177,8 +177,7 @@
     $("#evpast").hidden = !past.length;
   }
   refreshEvents();
-  // grid: a dot only marks months with a fair you can still attend
-  $$("#cal td.ev[data-last]").forEach(td => { if (td.dataset.last < TODAY) { td.classList.remove("ev"); td.textContent = ""; } });
+  // grid: no fair dots (phase 14); upcoming fairs live in By month and Fairs
 
   // ---------- deep links: ?domain=<slug> (domain pages) and #s-<slug> ----------
   function hashHl() {
