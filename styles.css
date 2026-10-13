@@ -638,3 +638,15 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 .lv-ex{margin:0 0 .6rem;padding-left:1.2rem;font-size:.92rem}
 .lv-ex a{text-decoration:underline}
 .px-ladder .lv-ex li{background:none;border:0;border-radius:0;padding:0;margin:.25rem 0;list-style:disc}
+
+/* phase 21: recording skills for robots */
+.rec-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--coral,#ff6b4a);border-radius:var(--radius);padding:1rem 1.15rem;margin:1.5rem 0}
+.rec-card h2{margin:.4rem 0 .5rem;font:600 1.2rem var(--serif)}
+.rec-card p{margin:0 0 .5rem}
+.rec-card .more{margin:0}
+.rec-card .more a,.rights-note a{text-decoration:underline;font-weight:600}
+.rights-note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sea-500);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1rem 0 1.5rem;scroll-margin-top:calc(var(--nav-h) + 12px)}
+.rights-note h3{margin:0 0 .3rem;font:600 1.1rem var(--serif)}
+.rights-note ul{margin:.4rem 0;padding-left:1.2rem}
+.second-brain{margin:.2rem 0 .5rem}
+#recording{scroll-margin-top:calc(var(--nav-h) + 12px)}
