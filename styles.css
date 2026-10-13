@@ -618,3 +618,13 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 .lv-step{background:var(--teal-soft);border-radius:10px;padding:.5rem .7rem;color:var(--ink)}
 .lv-step .px-lv{font:700 .75rem var(--mono);background:var(--sea-900);color:#fff;border-radius:6px;padding:2px 7px;margin-right:4px}
 .px-intro,.px-stall{background:var(--coral-soft);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem 1rem;margin:0 0 1.2rem;color:var(--ink)}
+
+/* phase 18: what the leaders' tech changes for roles and teams */
+.leader .changes{margin:.7rem 0 0;padding-top:.6rem;border-top:1px dashed var(--line);font-size:.92rem;color:var(--ink-2)}
+.leader .changes b{display:block;font:600 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sea-500);margin-bottom:.3rem}
+.leader .changes.tbc{color:var(--muted);font-style:italic}
+.shift{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sea-500);border-radius:var(--radius);padding:1rem 1.15rem;margin:1.5rem 0}
+.shift h2{margin:0 0 .5rem;font:600 1.2rem var(--serif)}
+.shift p{margin:0 0 .5rem}
+.shift .more{margin:0}
+.shift .more a{font-weight:600}
