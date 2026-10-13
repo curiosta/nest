@@ -628,3 +628,7 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 .shift p{margin:0 0 .5rem}
 .shift .more{margin:0}
 .shift .more a{font-weight:600}
+
+/* phase 19: domain-specific L4 examples */
+.l4ex{display:block;margin-top:.25rem;font-size:.85rem;color:var(--muted)}
+.l4ex a{text-decoration:underline;font-weight:600}
