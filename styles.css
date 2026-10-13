@@ -632,3 +632,9 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 /* phase 19: domain-specific L4 examples */
 .l4ex{display:block;margin-top:.25rem;font-size:.85rem;color:var(--muted)}
 .l4ex a{text-decoration:underline;font-weight:600}
+
+/* phase 20: headline examples per level */
+.lv-ex-h{margin:.6rem 0 .2rem}
+.lv-ex{margin:0 0 .6rem;padding-left:1.2rem;font-size:.92rem}
+.lv-ex a{text-decoration:underline}
+.px-ladder .lv-ex li{background:none;border:0;border-radius:0;padding:0;margin:.25rem 0;list-style:disc}
