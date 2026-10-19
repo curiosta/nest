@@ -708,3 +708,11 @@ details.more-sec>summary{cursor:pointer;font:600 1.1rem var(--serif)}
 .lv-strip ol.rung-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0}
 .lv-strip ol.rung-strip li{padding:0;border:0;background:none;margin:0}
 @media (max-width:720px){.lv-strip ol.rung-strip{grid-template-columns:1fr 1fr}}
+
+/* phase 23: industry trade-fair note */
+.tradefairs{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1rem 0 1.5rem}
+.tradefairs .sg-h{font:600 1.25rem var(--serif);margin:0 0 .4rem}
+.tradefairs a{text-decoration:underline}
+.tradefairs ul{margin:.4rem 0 0;padding-left:1.2rem}
+.qp-list{margin:.3rem 0 0;padding-left:1.2rem}
+.nco-map td,.nco-map th{vertical-align:top}
