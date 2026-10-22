@@ -734,3 +734,8 @@ details.more-sec>summary{cursor:pointer;font:600 1.1rem var(--serif)}
 .org-gap{background:rgba(255,255,255,.06);border:1px solid var(--teal);border-radius:var(--radius);padding:.7rem 1rem;color:inherit;max-width:62ch}.org-gap a{color:var(--teal)}
 .side-band.for .sub a{color:var(--teal);text-decoration:underline}
 @media (max-width:420px){.hitl-grid{grid-template-columns:1fr}.hitl-why{grid-template-columns:1fr}}
+
+/* phase 25: desk review page, HITL table */
+.desk-role{margin:1.2rem 0}.desk-role h2{font:600 1.35rem var(--serif);margin:0 0 .3rem}.desk-role h3{font:600 1rem var(--sans);margin:.6rem 0 .2rem}
+.hitl-toc ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:1rem 0}.hitl-toc a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);text-decoration:underline}
+.hr-desk{margin:.1rem 0 .3rem;font-size:.92rem}.hr-desk a{text-decoration:underline}.hitl-table td,.hitl-table th{vertical-align:top}.hitl-table a{text-decoration:underline}
