@@ -716,3 +716,21 @@ details.more-sec>summary{cursor:pointer;font:600 1.1rem var(--serif)}
 .tradefairs ul{margin:.4rem 0 0;padding-left:1.2rem}
 .qp-list{margin:.3rem 0 0;padding-left:1.2rem}
 .nco-map td,.nco-map th{vertical-align:top}
+
+/* phase 24: Human in the Loop */
+.hitl-here{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1.1rem;margin:1rem 0 1.5rem}
+.hitl-here .sg-h{font:600 1.25rem var(--serif);margin:0 0 .4rem}
+.hitl-here a,.hitl-role a,.hitl-why a,.hitl-x a,.hf a,.org-gap a{text-decoration:underline}
+.hitl-here ul{margin:.4rem 0 .6rem;padding-left:1.2rem}.hitl-here li{margin:.35rem 0}.hh-ex,.hh-more{font-size:.92em;color:var(--ink-2)}
+.hitl-why{list-style:none;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.hitl-why>li,.hitl-role{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1.1rem}
+.hitl-why h4,.hitl-role h4,.hitl-lad h4{font:600 1.05rem var(--serif);margin:0 0 .3rem}
+.hitl-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:1rem 0}
+.hitl-role p{margin:.35rem 0}.hitl-role .hitl-ex{margin:.2rem 0 .4rem}.hr-where{font:600 .78rem var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.hitl-ex{margin:0 0 .6rem;padding-left:1.2rem;font-size:.92rem}.hitl-ex a{text-decoration:underline}.hitl-ex li{margin:.2rem 0}
+.hf{background:var(--coral-soft);border:1px solid var(--coral);border-radius:10px;padding:.5rem .7rem;margin:.6rem 0 0;font-size:.94rem}
+.hf-tag{font-weight:700;margin-right:.25em}
+.hitl-x{margin:.6rem 0 0}
+.org-gap{background:rgba(255,255,255,.06);border:1px solid var(--teal);border-radius:var(--radius);padding:.7rem 1rem;color:inherit;max-width:62ch}.org-gap a{color:var(--teal)}
+.side-band.for .sub a{color:var(--teal);text-decoration:underline}
+@media (max-width:420px){.hitl-grid{grid-template-columns:1fr}.hitl-why{grid-template-columns:1fr}}

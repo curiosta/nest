@@ -141,7 +141,7 @@
     h += '<div class="mcol"><h3><span class="key Y" aria-hidden="true"></span>Possible</h3>' + (poss.length ? "<ul>" + poss.map(item).join("") + "</ul>" : '<p class="empty">Nothing marked possible' + grp + ".</p>") + "</div>";
     h += '<div class="mcol"><h3><span class="key E" aria-hidden="true"></span>Fairs</h3>' + (evs.length ? "<ul>" + evs.map(e =>
       "<li><b>" + H(e.name) + '</b><span class="nt">' + H(e.t) + " · " + H(e.where) + " · " + ext(e.url, "Official page ↗") + "</span></li>").join("") + "</ul>" :
-      '<p class="empty">No dated fairs yet this month' + grp + ". Dates are often announced only a few weeks ahead.</p>") +
+      '<p class="empty">No dated fairs yet this month' + grp + ". Dates are often announced only a few weeks ahead. No fair for your work? <a href=\"/organise/\">Organise one</a>.</p>") +
       (yr ? '<p class="off">Plus ' + yr + ' year-round hub' + (yr > 1 ? "s and monthly melas" : "") + ': <a href="#events">see Fairs</a>.</p>' : "") + "</div>";
     $("#monthout").innerHTML = h;
   }

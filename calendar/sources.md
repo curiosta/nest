@@ -4,10 +4,10 @@ Page: `/calendar/`. Generated from `nest-tools/build/fairs.py` (5–6 Oct 2026);
 - Exact dates only when the next edition is officially announced.
 - Otherwise “Usually …” or “Not yet announced · Last: …”. We never invent dates.
 - Calendar of **fairs only** — no individual job listings.
-- Include in-person and verified online melas that include physical-domain jobs (mixed multi-sector OK; not digital-desk-only).
+- Include in-person and verified online melas that include physical-domain jobs (mixed multi-sector OK; not digital-desk-only, except events hiring for Human in the Loop roles such as data annotation or AI review).
 - Coverage: verified fairs from Oct 2021 to now, plus upcoming. Exact dates for past editions only when official/news-backed; never invent.
 - Recruitment rallies, government appointment-letter events, apprenticeship melas and political-organiser fairs are tagged as such.
-- Drop flyer-only, news-without-official-URL, and digital-desk-only hiring events.
+- Drop flyer-only, news-without-official-URL, and digital-desk-only hiring events with no Human in the Loop roles.
 
 ## Sources
 | Key | Source | How checked |
