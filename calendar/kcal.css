@@ -171,3 +171,36 @@ html{scroll-padding-top:calc(var(--nav-h) + 16px)}
 #cal th.sidehead span{font-weight:500;letter-spacing:.02em;text-transform:none}
 main.kc .lvnote{max-width:72ch;font-size:.92rem;margin:0 0 12px;padding:8px 12px;border-left:4px solid var(--sea-500);background:#fff;color:var(--ink)}
 main.kc .lvnote a{color:var(--sea-500);font-weight:600;text-decoration:underline}
+
+/* ===== P27 (24 Oct 2026): compact mobile heatmap. Table kept; at <=640px rows become 12-column grids so each domain is one
+   name line plus one 44px-tall bar row (was a 104px label column, 20px cells and 7px bars). Table semantics are preserved
+   by the browser for display:grid on table parts (checked in Chrome's accessibility tree). ===== */
+@media (max-width:640px){
+  .kc .cal-howto{display:block;font-size:.9rem;color:var(--ink-2);margin:0 0 10px}
+  .kc .cal,.kc .cal tbody,.kc .cal thead{display:block}
+  .kc .cal colgroup{display:none}
+  .kc .cal{font-size:.9rem}
+  .kc .cal tr{display:grid;grid-template-columns:repeat(12,minmax(0,1fr))}
+  .kc .cal thead{position:sticky;top:var(--kc-top,var(--nav-h));z-index:2;background:var(--sand);border-bottom:1px solid var(--line)}
+  .kc .cal thead th{position:static;font-size:.875rem;letter-spacing:0;padding:8px 0 6px;border-bottom:0}
+  .kc .cal thead th.c0h{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);padding:0;margin:-1px}
+  .kc .cal th[scope="row"],.kc .cal th.sidehead,.kc .cal tr.det td{grid-column:1/-1}
+  .kc .cal tr.sprow td{display:none}
+  .kc .cal tr.sprow th{padding:14px 0 0;font-size:1rem}
+  .kc .cal a.sp{display:flex;align-items:center;min-height:44px;padding-right:96px;line-height:1.25}
+  .kc .cal tr.rw th{font-size:.875rem;padding:6px 0 2px;line-height:1.3}
+  .kc .cal tr.rw.std th{height:0;padding:0;overflow:visible;position:relative;text-align:right;pointer-events:none}
+  .kc .cal tr.rw.std th .fr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .kc .cal tr.rw.std th .yr{position:relative;top:-34px;display:block;font-size:.875rem;color:#4d5f6c}
+  .kc .cal td.st{height:44px;padding:0 1px}
+  .kc .cal td.st.P::before{height:22px}
+  .kc .cal td.st.Y::before{height:10px}
+  .kc .cal td:not(.st){height:44px}
+  .kc .cal tr.rw{border-bottom:1px solid rgba(93,113,128,.18)}
+  .kc .cal th.sidehead{padding:14px 8px 8px;font-size:.875rem}
+  .kc .cal tr.det td{padding:6px 0 14px}
+  .kc .chip,.kc .mchip{font-size:.875rem}
+  .kc .swipe-hint{font-size:.875rem}
+  .kc .cal-hero{padding:36px 0 30px}
+  .kc section.block{padding:40px 0}
+}

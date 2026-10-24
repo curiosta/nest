@@ -49,3 +49,12 @@
 /* Narrow phones: the site name is in the sheet's aria-label and the placeholder; give the model picker the room. */
 @media (max-width: 420px) { .btw-title { display: none; } .btw-head { gap: 6px; padding: 6px 6px 8px 12px; } }
 @media print { .btw-root { display: none !important; } }
+
+/* P27 (24 Oct 2026): compact Ask NEST button on phones and small tablets. CSS only; widget.js is untouched.
+   The visible label is the emoji; the text node " Ask NEST" stays in the DOM, so the accessible name is still "Ask NEST". */
+.btw-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:820px){
+  .btw-fab{font-size:0;width:48px;height:48px;min-height:48px;padding:0;border-radius:50%;display:flex;align-items:center;justify-content:center;right:calc(12px + env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom))}
+  .btw-fab .btw-fab-ico{font-size:22px;line-height:1}
+  .btw-model,.btw-conn,.btw-note,.btw-remember,.btw-chip{font-size:14px}
+}

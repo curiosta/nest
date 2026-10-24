@@ -129,8 +129,26 @@
     sc.setAttribute("data-fab-label", "💬 Ask NEST");
     sc.setAttribute("data-persona", persona);
     sc.setAttribute("data-suggestions", JSON.stringify(suggestions));
-    sc.setAttribute("data-greeting", "Hi! I'm NEST's learning guide. Ask about jobs that stay human, training routes, job fairs or anything on this page, and I'll link the pages I use. Always confirm dates and rules with the official source.");
+    sc.setAttribute("data-greeting", "Hi! I'm NEST's learning guide. Ask about jobs that stay human, training routes, job fairs or anything on this page, and I'll link the pages I use. To chat you connect your own OpenRouter account; NEST does not provide one. Always confirm dates and rules with the official source.");
     document.body.appendChild(sc);
+    // P27: say up front, on the button itself, that the chat needs the visitor's own OpenRouter account.
+    sc.addEventListener("load", function () {
+      var tries = 0;
+      (function wait() {
+        var f = document.querySelector(".btw-fab");
+        if (f) {
+          f.title = "Ask NEST: the chat needs your own OpenRouter account";
+          var d = document.createElement("span"); d.id = "btw-fab-note"; d.className = "btw-sr";
+          d.textContent = "The chat needs your own OpenRouter account.";
+          f.insertAdjacentElement("afterend", d); f.setAttribute("aria-describedby", "btw-fab-note");
+          var sh = document.querySelector(".btw-sheet");
+          // P27: when the sheet closes (Esc, close button, backdrop), give focus back to the button that opened it.
+          if (sh && window.MutationObserver) new MutationObserver(function () {
+            if (sh.hidden) { var a = document.activeElement; if (!a || a === document.body || sh.contains(a)) { try { f.focus(); } catch (e) {} } }
+          }).observe(sh, { attributes: true, attributeFilter: ["hidden"] });
+        } else if (tries++ < 50) setTimeout(wait, 100);
+      })();
+    });
   }
 
   // An OpenRouter sign-in return (?code=…&state=…) must be handled straight away; otherwise wait for idle
