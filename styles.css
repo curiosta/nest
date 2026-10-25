@@ -827,3 +827,36 @@ details.fold.fold-lg>summary h2{font-size:1.35rem}
   html body .footer .scope-foot a{padding-block:14px}
   html body .wordmark{min-height:44px;display:inline-flex;align-items:center}
 }
+
+/* ===== P29 (25 Oct 2026): NEST view lens line, evidence box, evidence tags, platform note (brand tokens only) ===== */
+.hero .hero-view{margin:.55rem 0 0;font-size:.95rem;color:#c7dbe6;max-width:62ch}
+.hero .hero-view a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+.lens-line{margin:.7rem 0;color:var(--ink-2);font-size:.95rem;max-width:68ch}
+.evidence-sec{padding-top:28px;padding-bottom:8px}
+.evbox{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:var(--radius);margin:1.1rem 0;max-width:74ch}
+.evbox>summary{cursor:pointer;padding:.75rem 1rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .8rem;list-style:none}
+.evbox>summary::-webkit-details-marker{display:none}
+.evbox>summary::after{content:"+";margin-left:auto;font:700 1.1rem var(--mono);color:var(--sea-700)}
+.evbox[open]>summary::after{content:"\2212"}
+.evbox>summary h2{font:600 1.2rem var(--serif);margin:0;color:var(--ink)}
+.evbox .ev-sub,.vdate,.ev-src,.ev-more{font:400 .875rem var(--sans);color:var(--muted)}
+.evbox-body{padding:0 1rem 1rem}
+.ev-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem}
+.ev-list .ev-item{margin:0;font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.ev-item b{color:var(--ink)}
+.ev-view{margin:.9rem 0 0;padding-top:.8rem;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink-2)}
+.evt{display:inline-block;font:700 .875rem/1.5 var(--mono);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;border-radius:999px;padding:0 8px;vertical-align:1px;border:1px solid;color:var(--ink)}
+.evt.est{background:var(--teal-soft);border-color:var(--teal)}
+.evt.rep{background:var(--card);border-color:var(--sea-700)}
+.vdate{white-space:nowrap}
+.evnote{background:var(--teal-soft);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:var(--radius);padding:.8rem 1rem;margin:1.2rem 0;max-width:72ch}
+.evnote p{margin:0 0 .4rem;font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.evnote p:last-child{margin-bottom:0}
+.evnote .vdate,.evnote .ev-src,.evnote .ev-more{color:var(--ink-2)}
+.evnote a{color:var(--sea-900)}
+.platnote{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:.8rem 1rem;margin:1rem 0}
+.platnote h3{margin:0 0 .6rem;font:600 1.05rem var(--serif)}
+.platnote .ev-more{margin:.6rem 0 0}
+.tag-legend,.src-rules{padding-left:1.1rem}
+.tag-legend li,.src-rules li{margin:.45rem 0}
+.lens-sec{margin:1.6rem 0}
