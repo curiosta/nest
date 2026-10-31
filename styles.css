@@ -860,3 +860,12 @@ details.fold.fold-lg>summary h2{font-size:1.35rem}
 .tag-legend,.src-rules{padding-left:1.1rem}
 .tag-legend li,.src-rules li{margin:.45rem 0}
 .lens-sec{margin:1.6rem 0}
+
+/* ===== P30 (30 Oct 2026): learn.curiosta.com cross-links in the Skill ladder (brand tokens only) ===== */
+.learn-links{margin:1.1rem 0 .2rem;padding:.8rem 1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sea-700);border-radius:var(--radius)}
+.learn-links h3{margin:0 0 .4rem;font:600 1.05rem var(--serif);color:var(--ink)}
+.learn-links ul{margin:.2rem 0;padding-left:1.1rem}
+.learn-links li{margin:.35rem 0;color:var(--ink-2)}
+.learn-links a{color:var(--sea-900);text-decoration:underline;text-underline-offset:3px}
+.learn-lead{margin:0 0 .2rem;color:var(--ink-2)}
+.learn-note{margin:.4rem 0 0;font-size:.875rem;color:var(--ink-2)}
